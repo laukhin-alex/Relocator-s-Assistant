@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
 		1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */; };
 		1FFC5E002917AC40009A095D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFF2917AC40009A095D /* ContentView.swift */; };
 		1FFC5E022917AC43009A095D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E012917AC43009A095D /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,9 @@
 			dependencies = (
 			);
 			name = "Relocator's Assistant";
+			packageProductDependencies = (
+				1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */,
+			);
 			productName = "Relocator's Assistant";
 			productReference = 1FFC5DFA2917AC40009A095D /* Relocator's Assistant.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +143,9 @@
 				Base,
 			);
 			mainGroup = 1FFC5DF12917AC3F009A095D;
+			packageReferences = (
+				1F27DB8B2917C1D50026B4CC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 1FFC5DFB2917AC40009A095D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -298,11 +306,13 @@
 				DEVELOPMENT_TEAM = 6JQR5WH86M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,11 +337,13 @@
 				DEVELOPMENT_TEAM = 6JQR5WH86M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,6 +379,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1F27DB8B2917C1D50026B4CC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1F27DB8B2917C1D50026B4CC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1FFC5DF22917AC3F009A095D /* Project object */;
 }
