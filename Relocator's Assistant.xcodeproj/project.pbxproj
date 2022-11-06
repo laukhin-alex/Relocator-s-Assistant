@@ -11,6 +11,7 @@
 		1FFC5E002917AC40009A095D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFF2917AC40009A095D /* ContentView.swift */; };
 		1FFC5E022917AC43009A095D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E012917AC43009A095D /* Assets.xcassets */; };
 		1FFC5E052917AC43009A095D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E042917AC43009A095D /* Preview Assets.xcassets */; };
+		1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		1FFC5DFF2917AC40009A095D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1FFC5E012917AC43009A095D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FFC5E042917AC43009A095D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesFlags.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,9 @@
 		1FFC5DFC2917AC40009A095D /* Relocator's Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				1FFC5E0D2917B10E009A095D /* Views */,
+				1FFC5E0C2917B0F5009A095D /* Flux */,
+				1FFC5E0B2917B0E3009A095D /* Models */,
 				1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */,
 				1FFC5DFF2917AC40009A095D /* ContentView.swift */,
 				1FFC5E012917AC43009A095D /* Assets.xcassets */,
@@ -65,6 +70,28 @@
 				1FFC5E042917AC43009A095D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1FFC5E0B2917B0E3009A095D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1FFC5E0C2917B0F5009A095D /* Flux */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flux;
+			sourceTree = "<group>";
+		};
+		1FFC5E0D2917B10E009A095D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +166,7 @@
 			files = (
 				1FFC5E002917AC40009A095D /* ContentView.swift in Sources */,
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
+				1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
