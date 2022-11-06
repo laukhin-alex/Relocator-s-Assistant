@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State var tabSelection: Int = 0
+
     var body: some View {
-        VStack {
-            Text(CountriesFlags.armeniaFlag)
-                .font(.system(size: 200))
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView(selection: $tabSelection) {
+            RelocateStepsView()
+                .tag(0)
+                .tabItem {
+                    Label("План", systemImage: "figure.step.training")
+                }
+
+            CountryDescription()
+                .tag(1)
+                .tabItem {
+                    Label("Описание страны", systemImage: "globe.desk")
+                }
         }
-        .padding()
+        .tint(.red)
     }
 }
 

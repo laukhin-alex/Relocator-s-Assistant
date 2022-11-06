@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
+		1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */; };
+		1F27DB952917C61E0026B4CC /* CountryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB942917C61E0026B4CC /* CountryDescription.swift */; };
 		1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */; };
 		1FFC5E002917AC40009A095D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFF2917AC40009A095D /* ContentView.swift */; };
 		1FFC5E022917AC43009A095D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E012917AC43009A095D /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsView.swift; sourceTree = "<group>"; };
+		1F27DB942917C61E0026B4CC /* CountryDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescription.swift; sourceTree = "<group>"; };
 		1FFC5DFA2917AC40009A095D /* Relocator's Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Relocator's Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocator_s_AssistantApp.swift; sourceTree = "<group>"; };
 		1FFC5DFF2917AC40009A095D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		1FFC5E0D2917B10E009A095D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */,
+				1F27DB942917C61E0026B4CC /* CountryDescription.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +181,8 @@
 				1FFC5E002917AC40009A095D /* ContentView.swift in Sources */,
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
 				1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */,
+				1F27DB952917C61E0026B4CC /* CountryDescription.swift in Sources */,
+				1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
