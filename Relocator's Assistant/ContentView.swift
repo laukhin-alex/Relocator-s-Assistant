@@ -25,6 +25,7 @@ struct ContentView: View {
                     Label("Описание страны", systemImage: "globe.desk")
                 }
         }
+        
         .tint(.red)
     }
 }

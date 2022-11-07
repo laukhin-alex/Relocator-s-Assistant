@@ -9,8 +9,16 @@ import SwiftUI
 
 struct RelocateStepsView: View {
     var body: some View {
-        Text("План")
-    }
+        Color.init(.lightGray)
+                .overlay(
+                    VStack{
+                        Text("План")
+                            .font(.system(size: 20))
+                    })
+                }
+
+
+
 }
 
 struct RelocateStepsView_Previews: PreviewProvider {
