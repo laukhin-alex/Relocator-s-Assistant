@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F103DC8291D499900F747D0 /* PassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F103DC7291D499900F747D0 /* PassportView.swift */; };
 		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
 		1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */; };
 		1F27DB952917C61E0026B4CC /* CountryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB942917C61E0026B4CC /* CountryDescription.swift */; };
@@ -18,8 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F103DC7291D499900F747D0 /* PassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportView.swift; sourceTree = "<group>"; };
 		1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsView.swift; sourceTree = "<group>"; };
 		1F27DB942917C61E0026B4CC /* CountryDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescription.swift; sourceTree = "<group>"; };
+		1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Relocator-s-Assistant-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1FFC5DFA2917AC40009A095D /* Relocator's Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Relocator's Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocator_s_AssistantApp.swift; sourceTree = "<group>"; };
 		1FFC5DFF2917AC40009A095D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,11 +62,11 @@
 		1FFC5DFC2917AC40009A095D /* Relocator's Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */,
+				1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */,
 				1FFC5E0D2917B10E009A095D /* Views */,
 				1FFC5E0C2917B0F5009A095D /* Flux */,
 				1FFC5E0B2917B0E3009A095D /* Models */,
-				1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */,
-				1FFC5DFF2917AC40009A095D /* ContentView.swift */,
 				1FFC5E012917AC43009A095D /* Assets.xcassets */,
 				1FFC5E032917AC43009A095D /* Preview Content */,
 			);
@@ -96,8 +99,10 @@
 		1FFC5E0D2917B10E009A095D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1FFC5DFF2917AC40009A095D /* ContentView.swift */,
 				1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */,
 				1F27DB942917C61E0026B4CC /* CountryDescription.swift */,
+				1F103DC7291D499900F747D0 /* PassportView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
 				1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */,
 				1F27DB952917C61E0026B4CC /* CountryDescription.swift in Sources */,
+				1F103DC8291D499900F747D0 /* PassportView.swift in Sources */,
 				1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,10 +320,10 @@
 				DEVELOPMENT_TEAM = 6JQR5WH86M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Relocator-s-Assistant-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -345,10 +351,10 @@
 				DEVELOPMENT_TEAM = 6JQR5WH86M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Relocator-s-Assistant-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

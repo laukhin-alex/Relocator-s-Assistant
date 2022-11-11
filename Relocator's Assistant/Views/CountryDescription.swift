@@ -11,10 +11,17 @@ struct CountryDescription: View {
     var body: some View {
         VStack{
             Text(CountriesFlags.armeniaFlag)
-                .font(.system(size: 300))
+                .font(.system(size: 200))
             Text("Армения")
-                .font(.largeTitle)
+                .foregroundColor(.red)
+                .font(.bold(.largeTitle)())
+            Spacer()
+            TextField("Шикарно", text: .constant("Армения - прекарасная страна"))
+                .padding([.top, .leading, .bottom])
+            Spacer(minLength: 500)
         }
+        .padding(.top)
+
     }
 }
 
