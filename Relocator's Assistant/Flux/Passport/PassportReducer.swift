@@ -9,7 +9,7 @@ import Foundation
 import ComposableArchitecture
 
 
-let passportReducer = Reducer<
+let passportReducer = AnyReducer<
     PassportState,
     PassportActions,
     PassportEnvironment> { state, action, environment in

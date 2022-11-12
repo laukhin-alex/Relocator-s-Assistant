@@ -11,4 +11,8 @@ struct DateOfExpiryModal: Equatable {
     let dateFormatter = DateFormatter()
     let currentDate = Date()
 
+    func dateOfExpiryCheck(_ dateOfExpiry: Date) {
+       let dateOfExpiryCheck = dateOfExpiry - currentDate
+        
+    }
 }

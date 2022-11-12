@@ -16,7 +16,7 @@ struct CountryDescription: View {
                 .foregroundColor(.red)
                 .font(.bold(.largeTitle)())
             Spacer()
-            TextField("Шикарно", text: .constant("Армения - прекарасная страна"))
+            TextField("Шикарно", text: .constant("Армения - прекрасная страна"))
                 .padding([.top, .leading, .bottom])
             Spacer(minLength: 500)
         }
