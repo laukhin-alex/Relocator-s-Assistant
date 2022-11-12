@@ -20,6 +20,9 @@ struct RelocateStepsView: View {
                                label: {
                     Text("Заграничный паспорт")
                 })
+                NavigationLink(destination: PassportView(), label: {
+                    Text("Test")
+                })
                 .navigationTitle("План перезда")
             }
     }

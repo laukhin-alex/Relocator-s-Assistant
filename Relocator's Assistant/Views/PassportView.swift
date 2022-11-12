@@ -30,15 +30,17 @@ struct PassportView: View {
                     Text("Если у Вас уже есть Заграничный паспорт, давайте проверим его дату окончания срока действия: для этого выберете дату окончания срока действия вашего паспорта (на картинке вторая дата)")
                         .multilineTextAlignment(.leading)
                         .padding([.top, .leading, .trailing])
-                    Image("PassportDateOfExpire")                        .resizable()
+
+                    Image("PassportDateOfExpiry")                        .resizable()
                         .frame(width: 250, height: 100)
                     Spacer()
                     DatePicker(
-                            "Дата окончания срока действия",
+                            "Дата окончания срока действия:",
                             selection: $date,
                             displayedComponents: [.date]
                     )
                     .padding(.horizontal)
+
                 }
             }
         }
