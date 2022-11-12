@@ -9,5 +9,6 @@ import Foundation
 
 struct PassportState: Equatable {
 
+    var dateOfExpiryMoreThanHalfYear: Bool = false
     
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 
 struct RelocateStepsView: View {
@@ -16,11 +17,14 @@ struct RelocateStepsView: View {
 //        Color.init(.lightGray)
         NavigationView {
             List(0...stepsCount, id: \.self) { index in
-                NavigationLink(destination: PassportView(),
+                NavigationLink(destination: PassportView(stateStore: Store<PassportState, PassportActions>(
+                    initialState: PassportState(), reducer: passportReducer,
+                    environment: PassportEnvironment()
+                )),
                                label: {
                     Text("Заграничный паспорт")
                 })
-                NavigationLink(destination: PassportView(), label: {
+                NavigationLink(destination: CountryDescription(), label: {
                     Text("Test")
                 })
                 .navigationTitle("План перезда")

@@ -16,6 +16,7 @@ let passportReducer = Reducer<
 
         switch action {
         case .dateOfExpiryCheck:
+            state.dateOfExpiryMoreThanHalfYear = true
             return .none
         }
 

@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct PassportView: View {
+    let stateStore: Store<PassportState, PassportActions>
     @State private var date = Date()
 
     var body: some View {
@@ -50,6 +52,9 @@ struct PassportView: View {
 
 struct PassportView_Previews: PreviewProvider {
     static var previews: some View {
-        PassportView()
+        PassportView(stateStore: Store<PassportState, PassportActions>(
+            initialState: PassportState(), reducer: passportReducer,
+            environment: PassportEnvironment()
+        ))
     }
 }
