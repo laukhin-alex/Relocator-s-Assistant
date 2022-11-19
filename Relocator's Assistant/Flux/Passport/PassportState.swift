@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import ComposableArchitecture
 
 struct PassportState: Equatable {
-
-    var dateOfExpiryMoreThanHalfYear: Bool = false
+    
+    @BindableState var currentDate = DateOfExpiryModal.init().currentDate
+    @BindableState var dateOfExpiry = DateOfExpiryModal.init().dateOfExpiry
+    @BindableState var dateOfExpiryMoreThanHalfYear: Bool = false
     
 }

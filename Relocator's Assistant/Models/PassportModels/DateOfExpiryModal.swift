@@ -9,10 +9,6 @@ import Foundation
 
 struct DateOfExpiryModal: Equatable {
     let dateFormatter = DateFormatter()
+    var dateOfExpiry = Date()
     let currentDate = Date()
-
-    func dateOfExpiryCheck(_ dateOfExpiry: Date) {
-       let dateOfExpiryCheck = dateOfExpiry - currentDate
-        
-    }
 }

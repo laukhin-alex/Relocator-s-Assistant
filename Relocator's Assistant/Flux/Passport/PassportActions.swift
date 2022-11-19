@@ -9,6 +9,10 @@ import Foundation
 import ComposableArchitecture
 
 enum PassportActions {
+
+
+    typealias State = PassportState
+
     case dateOfExpiryCheck
 //    (TaskResult<DateOfExpiryModal>)
 }

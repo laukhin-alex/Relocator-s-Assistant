@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ComposableArchitecture
 
 struct PassportEnvironment {
     var dateOfExpiry: Bool = false
