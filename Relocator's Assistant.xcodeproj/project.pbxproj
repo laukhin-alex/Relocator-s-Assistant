@@ -62,7 +62,6 @@
 				1FDE96C0291FD47E001AD31B /* PassportActions.swift */,
 				1FDE96C2291FD504001AD31B /* PassportEnvironment.swift */,
 				1FDE96C4291FD753001AD31B /* PassportReducer.swift */,
-				1F27DB942917C61E0026B4CC /* CountryDescription.swift */,
 			);
 			path = Passport;
 			sourceTree = "<group>";
@@ -79,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */,
+				1F27DB942917C61E0026B4CC /* CountryDescription.swift */,
 			);
 			path = CountriesModels;
 			sourceTree = "<group>";
