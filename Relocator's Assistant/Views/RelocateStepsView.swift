@@ -11,19 +11,23 @@ import ComposableArchitecture
 
 struct RelocateStepsView: View {
   @State var stepsCount: Int = 0
+    @State var isOn = false
 
     var body: some View {
 
 //        Color.init(.lightGray)
         NavigationView {
             List(0...stepsCount, id: \.self) { index in
-                NavigationLink(destination: PassportView(stateStore: Store<PassportState, PassportActions>(
-                    initialState: PassportState(), reducer: passportReducer,
-                    environment: PassportEnvironment()
-                ), date: DateOfExpiryModal()),
-                               label: {
-                    Text("Заграничный паспорт")
-                })
+                Toggle("У Вас есть Заграничный паспорт?", isOn: $isOn)
+                if isOn == true {
+                    NavigationLink(destination: PassportView(stateStore: Store<PassportState, PassportActions>(
+                        initialState: PassportState(), reducer: passportReducer,
+                        environment: PassportEnvironment()
+                    ), date: DateOfExpiryModal()),
+                                   label: {
+                        Text("Заграничный паспорт")
+                    })
+                }
                 NavigationLink(destination: CountryDescription(), label: {
                     Text("Test")
                 })
@@ -32,7 +36,7 @@ struct RelocateStepsView: View {
     }
 }
 
-
+//    "У Вас есть Заграничный паспорт?"
 
 }
 
