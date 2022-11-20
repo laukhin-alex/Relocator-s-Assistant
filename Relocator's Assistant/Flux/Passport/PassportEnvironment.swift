@@ -9,9 +9,6 @@ import Foundation
 import ComposableArchitecture
 
 struct PassportEnvironment {
-    var dateOfExpiry: Bool = false
 
-    func dateOfExpiryCheck(_ dateOfExpiry: Bool) -> Bool {
-        return dateOfExpiry
-    }
+    
 }

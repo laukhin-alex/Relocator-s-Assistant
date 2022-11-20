@@ -62,6 +62,7 @@
 				1FDE96C0291FD47E001AD31B /* PassportActions.swift */,
 				1FDE96C2291FD504001AD31B /* PassportEnvironment.swift */,
 				1FDE96C4291FD753001AD31B /* PassportReducer.swift */,
+				1F27DB942917C61E0026B4CC /* CountryDescription.swift */,
 			);
 			path = Passport;
 			sourceTree = "<group>";
@@ -151,7 +152,6 @@
 			children = (
 				1FFC5DFF2917AC40009A095D /* ContentView.swift */,
 				1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */,
-				1F27DB942917C61E0026B4CC /* CountryDescription.swift */,
 				1F103DC7291D499900F747D0 /* PassportView.swift */,
 			);
 			path = Views;

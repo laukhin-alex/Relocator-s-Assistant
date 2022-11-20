@@ -8,11 +8,8 @@
 import Foundation
 import ComposableArchitecture
 
-enum PassportActions {
+enum PassportActions: BindableAction {
 
+    case binding(BindingAction<PassportState>)
 
-    typealias State = PassportState
-
-    case dateOfExpiryCheck
-//    (TaskResult<DateOfExpiryModal>)
 }

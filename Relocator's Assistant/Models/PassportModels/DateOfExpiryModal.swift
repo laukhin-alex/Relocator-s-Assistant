@@ -9,6 +9,11 @@ import Foundation
 
 struct DateOfExpiryModal: Equatable {
     let dateFormatter = DateFormatter()
+
     var dateOfExpiry = Date()
-    let currentDate = Date()
+    let currentDay = Date()
+    let halfYearDay = Calendar.current.date(byAdding: .day, value: 180, to: Date())
+    init() {
+        dateFormatter.dateStyle = .long
+    }
 }

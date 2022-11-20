@@ -20,7 +20,7 @@ struct RelocateStepsView: View {
                 NavigationLink(destination: PassportView(stateStore: Store<PassportState, PassportActions>(
                     initialState: PassportState(), reducer: passportReducer,
                     environment: PassportEnvironment()
-                )),
+                ), date: DateOfExpiryModal()),
                                label: {
                     Text("Заграничный паспорт")
                 })
