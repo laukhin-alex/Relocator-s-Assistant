@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountryDescription: View {
+struct CountryDescriptionView: View {
     var body: some View {
         VStack{
             Text(CountriesFlags.armeniaFlag)
@@ -25,8 +25,8 @@ struct CountryDescription: View {
     }
 }
 
-struct CountryDescription_Previews: PreviewProvider {
+struct CountryDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryDescription()
+        CountryDescriptionView()
     }
 }

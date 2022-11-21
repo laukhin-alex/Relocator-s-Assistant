@@ -11,4 +11,5 @@ struct CountriesFlags {
     static let armeniaFlag = "🇦🇲"
     static let georgianFlag = "🇬🇪"
     static let kazakhFlag = "🇰🇿"
+    static let turkishFlag = "🇹🇳"
 }

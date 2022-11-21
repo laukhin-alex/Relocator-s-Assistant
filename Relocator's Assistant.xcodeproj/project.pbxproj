@@ -10,7 +10,20 @@
 		1F103DC8291D499900F747D0 /* PassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F103DC7291D499900F747D0 /* PassportView.swift */; };
 		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
 		1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */; };
-		1F27DB952917C61E0026B4CC /* CountryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB942917C61E0026B4CC /* CountryDescription.swift */; };
+		1F27DB952917C61E0026B4CC /* CountryDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB942917C61E0026B4CC /* CountryDescriptionView.swift */; };
+		1F571EFB292BBA48002AB253 /* RelocateStepsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571EFA292BBA48002AB253 /* RelocateStepsState.swift */; };
+		1F571EFD292BBA57002AB253 /* RelocateStepsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571EFC292BBA57002AB253 /* RelocateStepsActions.swift */; };
+		1F571EFF292BBA6B002AB253 /* RelocateStepsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571EFE292BBA6B002AB253 /* RelocateStepsEnvironment.swift */; };
+		1F571F01292BBA79002AB253 /* RelocateStepsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F00292BBA78002AB253 /* RelocateStepsReducer.swift */; };
+		1F571F04292BBACB002AB253 /* CountryDescriptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F03292BBACB002AB253 /* CountryDescriptionState.swift */; };
+		1F571F06292BBADB002AB253 /* CountryDescriptionActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F05292BBADB002AB253 /* CountryDescriptionActions.swift */; };
+		1F571F08292BBAF1002AB253 /* CountryDescriptionEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F07292BBAF1002AB253 /* CountryDescriptionEnvironment.swift */; };
+		1F571F0A292BBAFF002AB253 /* CountryDescriptionReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F09292BBAFF002AB253 /* CountryDescriptionReducer.swift */; };
+		1F571F0C292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */; };
+		1F571F0F292BBD39002AB253 /* RootState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F0E292BBD39002AB253 /* RootState.swift */; };
+		1F571F11292BBD49002AB253 /* RootActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F10292BBD49002AB253 /* RootActions.swift */; };
+		1F571F13292BBE18002AB253 /* RootEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F12292BBE18002AB253 /* RootEnvironment.swift */; };
+		1F571F15292BBE28002AB253 /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F14292BBE28002AB253 /* RootReducer.swift */; };
 		1FDE96BF291FD3BA001AD31B /* PassportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96BE291FD3BA001AD31B /* PassportState.swift */; };
 		1FDE96C1291FD47E001AD31B /* PassportActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C0291FD47E001AD31B /* PassportActions.swift */; };
 		1FDE96C3291FD504001AD31B /* PassportEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C2291FD504001AD31B /* PassportEnvironment.swift */; };
@@ -18,7 +31,7 @@
 		1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */; };
 		1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96CA291FFFF8001AD31B /* Extensions.swift */; };
 		1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */; };
-		1FFC5E002917AC40009A095D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFF2917AC40009A095D /* ContentView.swift */; };
+		1FFC5E002917AC40009A095D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFF2917AC40009A095D /* RootView.swift */; };
 		1FFC5E022917AC43009A095D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E012917AC43009A095D /* Assets.xcassets */; };
 		1FFC5E052917AC43009A095D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E042917AC43009A095D /* Preview Assets.xcassets */; };
 		1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */; };
@@ -27,7 +40,20 @@
 /* Begin PBXFileReference section */
 		1F103DC7291D499900F747D0 /* PassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportView.swift; sourceTree = "<group>"; };
 		1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsView.swift; sourceTree = "<group>"; };
-		1F27DB942917C61E0026B4CC /* CountryDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescription.swift; sourceTree = "<group>"; };
+		1F27DB942917C61E0026B4CC /* CountryDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescriptionView.swift; sourceTree = "<group>"; };
+		1F571EFA292BBA48002AB253 /* RelocateStepsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsState.swift; sourceTree = "<group>"; };
+		1F571EFC292BBA57002AB253 /* RelocateStepsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsActions.swift; sourceTree = "<group>"; };
+		1F571EFE292BBA6B002AB253 /* RelocateStepsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsEnvironment.swift; sourceTree = "<group>"; };
+		1F571F00292BBA78002AB253 /* RelocateStepsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsReducer.swift; sourceTree = "<group>"; };
+		1F571F03292BBACB002AB253 /* CountryDescriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescriptionState.swift; sourceTree = "<group>"; };
+		1F571F05292BBADB002AB253 /* CountryDescriptionActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescriptionActions.swift; sourceTree = "<group>"; };
+		1F571F07292BBAF1002AB253 /* CountryDescriptionEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescriptionEnvironment.swift; sourceTree = "<group>"; };
+		1F571F09292BBAFF002AB253 /* CountryDescriptionReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescriptionReducer.swift; sourceTree = "<group>"; };
+		1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RelocatorsAssistantLaunchScreen.storyboard; sourceTree = "<group>"; };
+		1F571F0E292BBD39002AB253 /* RootState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootState.swift; sourceTree = "<group>"; };
+		1F571F10292BBD49002AB253 /* RootActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootActions.swift; sourceTree = "<group>"; };
+		1F571F12292BBE18002AB253 /* RootEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootEnvironment.swift; sourceTree = "<group>"; };
+		1F571F14292BBE28002AB253 /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
 		1FDE96BE291FD3BA001AD31B /* PassportState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportState.swift; sourceTree = "<group>"; };
 		1FDE96C0291FD47E001AD31B /* PassportActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportActions.swift; sourceTree = "<group>"; };
 		1FDE96C2291FD504001AD31B /* PassportEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportEnvironment.swift; sourceTree = "<group>"; };
@@ -37,7 +63,7 @@
 		1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Relocator-s-Assistant-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1FFC5DFA2917AC40009A095D /* Relocator's Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Relocator's Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocator_s_AssistantApp.swift; sourceTree = "<group>"; };
-		1FFC5DFF2917AC40009A095D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1FFC5DFF2917AC40009A095D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1FFC5E012917AC43009A095D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FFC5E042917AC43009A095D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesFlags.swift; sourceTree = "<group>"; };
@@ -55,6 +81,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F571EF9292BBA20002AB253 /* RelocateSteps */ = {
+			isa = PBXGroup;
+			children = (
+				1F571EFA292BBA48002AB253 /* RelocateStepsState.swift */,
+				1F571EFC292BBA57002AB253 /* RelocateStepsActions.swift */,
+				1F571EFE292BBA6B002AB253 /* RelocateStepsEnvironment.swift */,
+				1F571F00292BBA78002AB253 /* RelocateStepsReducer.swift */,
+			);
+			path = RelocateSteps;
+			sourceTree = "<group>";
+		};
+		1F571F02292BBABB002AB253 /* CountryDescription */ = {
+			isa = PBXGroup;
+			children = (
+				1F571F03292BBACB002AB253 /* CountryDescriptionState.swift */,
+				1F571F05292BBADB002AB253 /* CountryDescriptionActions.swift */,
+				1F571F07292BBAF1002AB253 /* CountryDescriptionEnvironment.swift */,
+				1F571F09292BBAFF002AB253 /* CountryDescriptionReducer.swift */,
+			);
+			path = CountryDescription;
+			sourceTree = "<group>";
+		};
+		1F571F0D292BBD10002AB253 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				1F571F0E292BBD39002AB253 /* RootState.swift */,
+				1F571F10292BBD49002AB253 /* RootActions.swift */,
+				1F571F12292BBE18002AB253 /* RootEnvironment.swift */,
+				1F571F14292BBE28002AB253 /* RootReducer.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		1FDE96BD291FD25B001AD31B /* Passport */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */,
-				1F27DB942917C61E0026B4CC /* CountryDescription.swift */,
 			);
 			path = CountriesModels;
 			sourceTree = "<group>";
@@ -110,13 +168,14 @@
 		1FFC5DFC2917AC40009A095D /* Relocator's Assistant */ = {
 			isa = PBXGroup;
 			children = (
-				1FDE96CC29200025001AD31B /* Additions+Extensions */,
-				1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */,
 				1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */,
+				1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */,
+				1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */,
+				1FFC5E012917AC43009A095D /* Assets.xcassets */,
+				1FDE96CC29200025001AD31B /* Additions+Extensions */,
 				1FFC5E0B2917B0E3009A095D /* Models */,
 				1FFC5E0D2917B10E009A095D /* Views */,
 				1FFC5E0C2917B0F5009A095D /* Flux */,
-				1FFC5E012917AC43009A095D /* Assets.xcassets */,
 				1FFC5E032917AC43009A095D /* Preview Content */,
 			);
 			path = "Relocator's Assistant";
@@ -142,6 +201,9 @@
 		1FFC5E0C2917B0F5009A095D /* Flux */ = {
 			isa = PBXGroup;
 			children = (
+				1F571F0D292BBD10002AB253 /* Root */,
+				1F571F02292BBABB002AB253 /* CountryDescription */,
+				1F571EF9292BBA20002AB253 /* RelocateSteps */,
 				1FDE96BD291FD25B001AD31B /* Passport */,
 			);
 			path = Flux;
@@ -150,9 +212,10 @@
 		1FFC5E0D2917B10E009A095D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1FFC5DFF2917AC40009A095D /* ContentView.swift */,
+				1FFC5DFF2917AC40009A095D /* RootView.swift */,
 				1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */,
 				1F103DC7291D499900F747D0 /* PassportView.swift */,
+				1F27DB942917C61E0026B4CC /* CountryDescriptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FFC5E052917AC43009A095D /* Preview Assets.xcassets in Resources */,
+				1F571F0C292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard in Resources */,
 				1FFC5E022917AC43009A095D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,18 +297,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FFC5E002917AC40009A095D /* ContentView.swift in Sources */,
+				1FFC5E002917AC40009A095D /* RootView.swift in Sources */,
 				1FDE96BF291FD3BA001AD31B /* PassportState.swift in Sources */,
+				1F571F08292BBAF1002AB253 /* CountryDescriptionEnvironment.swift in Sources */,
+				1F571EFF292BBA6B002AB253 /* RelocateStepsEnvironment.swift in Sources */,
+				1F571F0F292BBD39002AB253 /* RootState.swift in Sources */,
+				1F571EFD292BBA57002AB253 /* RelocateStepsActions.swift in Sources */,
+				1F571F04292BBACB002AB253 /* CountryDescriptionState.swift in Sources */,
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
 				1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */,
-				1F27DB952917C61E0026B4CC /* CountryDescription.swift in Sources */,
+				1F27DB952917C61E0026B4CC /* CountryDescriptionView.swift in Sources */,
+				1F571F15292BBE28002AB253 /* RootReducer.swift in Sources */,
 				1FDE96C3291FD504001AD31B /* PassportEnvironment.swift in Sources */,
 				1FDE96C1291FD47E001AD31B /* PassportActions.swift in Sources */,
 				1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */,
+				1F571F0A292BBAFF002AB253 /* CountryDescriptionReducer.swift in Sources */,
 				1F103DC8291D499900F747D0 /* PassportView.swift in Sources */,
 				1FDE96C5291FD753001AD31B /* PassportReducer.swift in Sources */,
 				1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */,
+				1F571F11292BBD49002AB253 /* RootActions.swift in Sources */,
+				1F571F01292BBA79002AB253 /* RelocateStepsReducer.swift in Sources */,
+				1F571F13292BBE18002AB253 /* RootEnvironment.swift in Sources */,
+				1F571EFB292BBA48002AB253 /* RelocateStepsState.swift in Sources */,
 				1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */,
+				1F571F06292BBADB002AB253 /* CountryDescriptionActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +453,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Relocator-s-Assistant-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -408,6 +485,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Relocator-s-Assistant-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

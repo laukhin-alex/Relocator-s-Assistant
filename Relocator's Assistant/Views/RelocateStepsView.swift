@@ -28,7 +28,7 @@ struct RelocateStepsView: View {
                         Text("Заграничный паспорт")
                     })
                 }
-                NavigationLink(destination: CountryDescription(), label: {
+                NavigationLink(destination: CountryDescriptionView(), label: {
                     Text("Test")
                 })
                 .navigationTitle("План перезда")
@@ -45,3 +45,4 @@ struct RelocateStepsView_Previews: PreviewProvider {
         RelocateStepsView()
     }
 }
+

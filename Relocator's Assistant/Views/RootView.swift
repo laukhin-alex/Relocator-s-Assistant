@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
 
     @State var tabSelection: Int = 0
 
@@ -22,7 +22,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Шаги к переезду", systemImage: "figure.step.training")
                 }
-                CountryDescription()
+                CountryDescriptionView()
                     .tag(1)
                     .tabItem {
                         Label("Описание страны", systemImage: "globe.desk")
@@ -35,8 +35,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RootView()
     }
 }
