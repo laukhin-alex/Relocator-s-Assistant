@@ -8,6 +8,7 @@
 import Foundation
 
 struct CountriesFlags {
+    static let emptyFlag = "🎌"
     static let armeniaFlag = "🇦🇲"
     static let georgianFlag = "🇬🇪"
     static let kazakhFlag = "🇰🇿"

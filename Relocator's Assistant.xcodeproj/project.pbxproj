@@ -34,6 +34,7 @@
 		1FF41879292BDC2B00345560 /* GeorgiaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF41878292BDC2B00345560 /* GeorgiaModel.swift */; };
 		1FF4187B292BDC5500345560 /* KasachstanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4187A292BDC5500345560 /* KasachstanModel.swift */; };
 		1FF4187D292BDC8400345560 /* TurkeyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4187C292BDC8400345560 /* TurkeyModel.swift */; };
+		1FF4187F292BE0D500345560 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4187E292BE0D500345560 /* CountryModel.swift */; };
 		1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */; };
 		1FFC5E002917AC40009A095D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFF2917AC40009A095D /* RootView.swift */; };
 		1FFC5E022917AC43009A095D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E012917AC43009A095D /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		1FF41878292BDC2B00345560 /* GeorgiaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeorgiaModel.swift; sourceTree = "<group>"; };
 		1FF4187A292BDC5500345560 /* KasachstanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasachstanModel.swift; sourceTree = "<group>"; };
 		1FF4187C292BDC8400345560 /* TurkeyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurkeyModel.swift; sourceTree = "<group>"; };
+		1FF4187E292BE0D500345560 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		1FFC5DFA2917AC40009A095D /* Relocator's Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Relocator's Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocator_s_AssistantApp.swift; sourceTree = "<group>"; };
 		1FFC5DFF2917AC40009A095D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */,
+				1FF4187E292BE0D500345560 /* CountryModel.swift */,
 				1FF41876292BDB4400345560 /* ArmeniaModel.swift */,
 				1FF41878292BDC2B00345560 /* GeorgiaModel.swift */,
 				1FF4187A292BDC5500345560 /* KasachstanModel.swift */,
@@ -330,6 +333,7 @@
 				1FDE96C5291FD753001AD31B /* PassportReducer.swift in Sources */,
 				1FF41879292BDC2B00345560 /* GeorgiaModel.swift in Sources */,
 				1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */,
+				1FF4187F292BE0D500345560 /* CountryModel.swift in Sources */,
 				1FF4187D292BDC8400345560 /* TurkeyModel.swift in Sources */,
 				1F571F11292BBD49002AB253 /* RootActions.swift in Sources */,
 				1F571F01292BBA79002AB253 /* RelocateStepsReducer.swift in Sources */,
