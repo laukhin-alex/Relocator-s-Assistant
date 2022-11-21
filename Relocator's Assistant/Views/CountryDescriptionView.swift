@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct CountryDescriptionView: View {
+
     var body: some View {
         VStack{
-            Text(CountriesFlags.armeniaFlag)
+            Text(TurkeyModel.flag)
                 .font(.system(size: 200))
-            Text("Армения")
+            Text(TurkeyModel.countryName)
                 .foregroundColor(.red)
                 .font(.bold(.largeTitle)())
             Spacer()
-            TextField("Шикарно", text: .constant("Армения - прекрасная страна"))
-                .padding([.top, .leading, .bottom])
+            Text(TurkeyModel.countryDescription)
+                .multilineTextAlignment(.leading)
+                .padding(.vertical)
+
             Spacer(minLength: 500)
         }
         .padding(.top)
