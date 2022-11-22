@@ -7,13 +7,20 @@
 
 import Foundation
 
-struct CountryModel {
+struct CountryModel: Equatable {
 
-    let countryName: String
-    let legalTimeOfStay: Int
-    let passportIsNeeded: Bool
-    let flag: String
-    let countryDescription: String
+    var countryName: String
+    var legalTimeOfStay: Int
+    var passportIsNeeded: Bool
+    var flag: String
+    var countryDescription: String
 
 
 }
+
+
+let emptyCountry = CountryModel(countryName: "Определимся с выбором",
+                                legalTimeOfStay: 0,
+                                passportIsNeeded: false,
+                                flag: CountriesFlags.emptyFlag,
+                                countryDescription: "")

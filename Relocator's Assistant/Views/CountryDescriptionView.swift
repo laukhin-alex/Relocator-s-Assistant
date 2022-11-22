@@ -11,13 +11,13 @@ struct CountryDescriptionView: View {
 
     var body: some View {
         VStack{
-            Text(TurkeyModel.flag)
+            Text(CountryModel.init().flag)
                 .font(.system(size: 200))
-            Text(TurkeyModel.countryName)
+            Text(CountryModel.init().countryName)
                 .foregroundColor(.red)
                 .font(.bold(.largeTitle)())
             Spacer()
-            Text(TurkeyModel.countryDescription)
+            Text(CountryModel.init().countryDescription)
                 .multilineTextAlignment(.leading)
                 .padding(.vertical)
 

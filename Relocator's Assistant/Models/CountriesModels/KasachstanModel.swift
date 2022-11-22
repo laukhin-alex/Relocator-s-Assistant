@@ -7,13 +7,8 @@
 
 import Foundation
 
-struct KasachstanModel {
-
-    static let countryName = "Казахстан"
-    static let legalTimeOfStay = 90
-    static let passportIsNeeded = false
-    static let flag = CountriesFlags.kazakhFlag
-    static let countryDescription: String = "Грузия - прекрасная страна"
-
-
-}
+let kasachstan = CountryModel(countryName: "Казахстан",
+                              legalTimeOfStay: 90,
+                              passportIsNeeded: false,
+                              flag: CountriesFlags.kazakhFlag,
+                              countryDescription: "Казахстан - прекрасная страна")

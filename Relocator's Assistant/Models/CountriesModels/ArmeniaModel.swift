@@ -7,13 +7,8 @@
 
 import Foundation
 
-struct ArmeniaModal {
-
-    static let countryName = "Армения"
-    static let legalTimeOfStay = 180
-    static let passportIsNeeded = false
-    static let flag = CountriesFlags.armeniaFlag
-    static let countryDescription: String = "Армения - прекрасная страна"
-    
-
-}
+let armenia = CountryModel(countryName: "Армения",
+                           legalTimeOfStay: 180,
+                           passportIsNeeded: false,
+                           flag: CountriesFlags.armeniaFlag,
+                           countryDescription: "Армения - прекрасная страна")

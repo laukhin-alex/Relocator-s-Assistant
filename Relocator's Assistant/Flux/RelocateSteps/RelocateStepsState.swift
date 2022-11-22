@@ -7,3 +7,7 @@
 
 import Foundation
 import ComposableArchitecture
+
+struct RelocateStepsState: Equatable {
+
+}

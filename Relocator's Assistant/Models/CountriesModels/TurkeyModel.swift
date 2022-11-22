@@ -7,14 +7,8 @@
 
 import Foundation
 
-
-struct TurkeyModel {
-
-    static let countryName = "Турция"
-    static let legalTimeOfStay = 30
-    static let passportIsNeeded = true
-    static let flag = CountriesFlags.turkishFlag
-    static let countryDescription: String = "Турция - прекрасная страна"
-
-
-}
+let turkey = CountryModel(countryName: "Турция",
+                          legalTimeOfStay: 30,
+                          passportIsNeeded: true,
+                          flag: CountriesFlags.turkishFlag,
+                          countryDescription: "Турция - прекрасная страна")
