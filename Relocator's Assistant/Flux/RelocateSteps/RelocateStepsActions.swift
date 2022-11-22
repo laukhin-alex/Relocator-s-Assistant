@@ -7,3 +7,7 @@
 
 import Foundation
 import ComposableArchitecture
+
+enum RelocateStepsActions: BindableAction {
+    case binding(BindingAction<RelocateStepsState>)
+}

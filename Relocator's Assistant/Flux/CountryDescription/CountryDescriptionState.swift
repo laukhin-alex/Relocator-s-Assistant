@@ -9,5 +9,5 @@ import Foundation
 import ComposableArchitecture
 
 struct CountryDescriptionState: Equatable {
-    var country = CountryModel(legalTimeOfStay: 0, passportIsNeeded: false, countryDescription: "")
+    var country: CountryModel?
 }

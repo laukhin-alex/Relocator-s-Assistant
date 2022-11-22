@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct RootView: View {
 
@@ -15,7 +16,9 @@ struct RootView: View {
         GeometryReader { geometry in
             TabView(selection: $tabSelection) {
                 ZStack {
-                    RelocateStepsView()
+                    RelocateStepsView(stateStore: Store<RelocateStepsState, RelocateStepsActions>(
+                        initialState: RelocateStepsState(), reducer: RelocateStepsReducer,
+                        environment: RelocateStepsEnvironment()))
 
                 }
                 .tag(0)

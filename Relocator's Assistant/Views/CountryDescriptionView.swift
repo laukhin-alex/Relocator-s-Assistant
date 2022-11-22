@@ -10,21 +10,28 @@ import SwiftUI
 struct CountryDescriptionView: View {
 
     var body: some View {
-        VStack{
-            Text(CountryModel.init().flag)
-                .font(.system(size: 200))
-            Text(CountryModel.init().countryName)
-                .foregroundColor(.red)
-                .font(.bold(.largeTitle)())
-            Spacer()
-            Text(CountryModel.init().countryDescription)
-                .multilineTextAlignment(.leading)
-                .padding(.vertical)
+        GeometryReader {_ in
+            ScrollView {
+                VStack{
+                    Text(emptyCountry.flag)
+                        .font(.system(size: 200))
+                    Text(emptyCountry.countryName)
+                        .fontWeight(.regular)
+                        .foregroundColor(.red)
+                        .font(.bold(.largeTitle)())
+                        .padding(.horizontal)
 
-            Spacer(minLength: 500)
+                    Spacer()
+                    Text(emptyCountry.countryDescription)
+                        .multilineTextAlignment(.leading)
+                        .padding(.all)
+   
+                    
+                    Spacer(minLength: 500)
+                }
+                .padding(.top)
+            }
         }
-        .padding(.top)
-
     }
 }
 
