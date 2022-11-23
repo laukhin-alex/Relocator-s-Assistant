@@ -9,7 +9,8 @@ import Foundation
 import ComposableArchitecture
 
 
-struct RootState {
+struct RootState: Equatable {
+
     var relocateStepsState = RelocateStepsState()
     var countryDescriptionState = CountryDescriptionState()
 }

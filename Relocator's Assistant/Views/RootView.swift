@@ -9,39 +9,38 @@ import SwiftUI
 import ComposableArchitecture
 
 struct RootView: View {
-
-    @State var tabSelection: Int = 0
-
+    let stateStore: Store<RootState, RootAction>
     var body: some View {
-        GeometryReader { geometry in
-            TabView(selection: $tabSelection) {
-                ZStack {
-                    RelocateStepsView(stateStore: Store<RelocateStepsState, RelocateStepsActions>(
-                        initialState: RelocateStepsState(), reducer: relocateStepsReducer,
-                        environment: RelocateStepsEnvironment()))
+        WithViewStore(stateStore) { viewStore in
+            GeometryReader { geometry in
+                TabView {
+                    ZStack {
+                        RelocateStepsView(stateStore: Store<RelocateStepsState, RelocateStepsActions>(
+                            initialState: RelocateStepsState(), reducer: relocateStepsReducer,
+                            environment: RelocateStepsEnvironment()))
 
-                }
-                .tag(0)
-                .tabItem {
-                    Label("Шаги к переезду", systemImage: "figure.step.training")
-                }
-                CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState: CountryDescriptionState(),
-                    reducer: countryDescriptionReducer,
-                    environment: CountryDescriptionEnvironment()))
-                .tag(1)
-                .tabItem {
-                    Label("Описание страны", systemImage: "globe.desk")
+                    }
+                    .tabItem {
+                        Label("Шаги к переезду", systemImage: "figure.step.training")
+                    }
+                    CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState: CountryDescriptionState(),
+                        reducer: countryDescriptionReducer,
+                        environment: CountryDescriptionEnvironment()))
+                    .tabItem {
+                        Label("Описание страны", systemImage: "globe.desk")
+                    }
                 }
             }
-        }
 
-        .edgesIgnoringSafeArea(.bottom)
-        .tint(.red)
+            .edgesIgnoringSafeArea(.bottom)
+            .tint(.red)
+        }
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView(stateStore: Store<RootState, RootAction>(initialState: RootState(), reducer: rootReducer,
+environment: RootEnvironment()))
     }
 }
