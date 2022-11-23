@@ -8,7 +8,7 @@
 import Foundation
 import ComposableArchitecture
 
-let RelocateStepsReducer = AnyReducer<
+let relocateStepsReducer = AnyReducer<
     RelocateStepsState,
     RelocateStepsActions,
     RelocateStepsEnvironment> { state, action, environment in

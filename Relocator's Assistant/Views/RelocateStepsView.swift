@@ -30,9 +30,13 @@ struct RelocateStepsView: View {
                         })
 
                     }
-                    NavigationLink(destination: CountryDescriptionView(), label: {
-                        Text("Test")
+                    NavigationLink(destination: CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState:
+                              CountryDescriptionState(),
+                              reducer: countryDescriptionReducer,
+                              environment: CountryDescriptionEnvironment())), label: {
+                        Text("Выбранная страна")
                     })
+
                     .navigationTitle("План перезда")
                 }
             }
@@ -43,7 +47,7 @@ struct RelocateStepsView: View {
 struct RelocateStepsView_Previews: PreviewProvider {
     static var previews: some View {
         RelocateStepsView(stateStore: Store<RelocateStepsState, RelocateStepsActions>(
-            initialState: RelocateStepsState(), reducer: RelocateStepsReducer,
+            initialState: RelocateStepsState(), reducer: relocateStepsReducer,
             environment: RelocateStepsEnvironment()))
     }
 }

@@ -7,3 +7,20 @@
 
 import Foundation
 import ComposableArchitecture
+
+let rootReducer = AnyReducer<
+    RootState,
+    RootAction,
+    RootEnvironment> .combine(
+        relocateStepsReducer.pullback(
+            state: \.relocateStepsState,
+            action: /RootAction.relocateStepsActions,
+            environment: \.relocateStepsEnvironment
+
+        ),
+        countryDescriptionReducer.pullback(
+            state: \.countryDescriptionState,
+            action: /RootAction.countryDescriptionActions,
+            environment: \.countryDescriptionEnvironment
+        )
+    )

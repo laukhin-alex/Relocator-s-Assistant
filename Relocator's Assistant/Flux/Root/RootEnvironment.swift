@@ -7,3 +7,8 @@
 
 import Foundation
 import ComposableArchitecture
+
+struct RootEnvironment {
+    var relocateStepsEnvironment = RelocateStepsEnvironment()
+    var countryDescriptionEnvironment = CountryDescriptionEnvironment()
+}

@@ -17,7 +17,7 @@ struct RootView: View {
             TabView(selection: $tabSelection) {
                 ZStack {
                     RelocateStepsView(stateStore: Store<RelocateStepsState, RelocateStepsActions>(
-                        initialState: RelocateStepsState(), reducer: RelocateStepsReducer,
+                        initialState: RelocateStepsState(), reducer: relocateStepsReducer,
                         environment: RelocateStepsEnvironment()))
 
                 }
@@ -25,11 +25,13 @@ struct RootView: View {
                 .tabItem {
                     Label("Шаги к переезду", systemImage: "figure.step.training")
                 }
-                CountryDescriptionView()
-                    .tag(1)
-                    .tabItem {
-                        Label("Описание страны", systemImage: "globe.desk")
-                    }
+                CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState: CountryDescriptionState(),
+                    reducer: countryDescriptionReducer,
+                    environment: CountryDescriptionEnvironment()))
+                .tag(1)
+                .tabItem {
+                    Label("Описание страны", systemImage: "globe.desk")
+                }
             }
         }
 

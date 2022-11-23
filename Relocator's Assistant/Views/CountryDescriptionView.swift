@@ -6,37 +6,46 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct CountryDescriptionView: View {
-
+    let stateStore: Store<CountryDescriptionState, CountryDescriptionActions>
     var body: some View {
-        GeometryReader {_ in
-            ScrollView {
-                VStack{
-                    Text(emptyCountry.flag)
-                        .font(.system(size: 200))
-                    Text(emptyCountry.countryName)
-                        .fontWeight(.regular)
-                        .foregroundColor(.red)
-                        .font(.bold(.largeTitle)())
-                        .padding(.horizontal)
+        WithViewStore(stateStore) { viewStore in
+            GeometryReader {_ in
+                ScrollView {
+                    VStack{
+                        Text(emptyCountry.flag)
+                            .font(.system(size: 200))
+                        Text(emptyCountry.countryName)
+                            .fontWeight(.regular)
+                            .foregroundColor(.red)
+                            .font(.bold(.largeTitle)())
+                            .padding(.horizontal)
 
-                    Spacer()
-                    Text(emptyCountry.countryDescription)
-                        .multilineTextAlignment(.leading)
-                        .padding(.all)
-   
-                    
-                    Spacer(minLength: 500)
+                        Spacer()
+                        Text(emptyCountry.countryDescription)
+                            .multilineTextAlignment(.leading)
+                            .padding(.all)
+
+
+                        Spacer(minLength: 500)
+                    }
+                    .padding(.top)
                 }
-                .padding(.top)
+                .onAppear {
+                    viewStore.send(.showCountry(emptyCountry))
+                }
             }
         }
+        
     }
 }
 
 struct CountryDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryDescriptionView()
+        CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState: CountryDescriptionState(),
+            reducer: countryDescriptionReducer,
+            environment: CountryDescriptionEnvironment()))
     }
 }

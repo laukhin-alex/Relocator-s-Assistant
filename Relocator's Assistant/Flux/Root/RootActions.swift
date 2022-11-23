@@ -7,3 +7,8 @@
 
 import Foundation
 import ComposableArchitecture
+
+enum RootAction {
+    case relocateStepsActions(RelocateStepsActions)
+    case countryDescriptionActions(CountryDescriptionActions)
+}

@@ -7,3 +7,7 @@
 
 import Foundation
 import ComposableArchitecture
+
+enum CountryDescriptionActions {
+    case showCountry(CountryModel)
+}

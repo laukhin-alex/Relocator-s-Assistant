@@ -7,3 +7,9 @@
 
 import Foundation
 import ComposableArchitecture
+
+
+struct RootState {
+    var relocateStepsState = RelocateStepsState()
+    var countryDescriptionState = CountryDescriptionState()
+}
