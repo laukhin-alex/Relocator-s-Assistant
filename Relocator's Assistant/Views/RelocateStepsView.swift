@@ -18,25 +18,20 @@ struct RelocateStepsView: View {
         WithViewStore(stateStore) { viewStore in
             NavigationView {
                 List(0...viewStore.stepsCount, id: \.self) { index in
-                    Toggle("У Вас есть Заграничный паспорт?", isOn: viewStore.binding(\.$havingPassport))
-   
-                    if  viewStore.havingPassport == true {
-                        NavigationLink(destination: PassportView(stateStore: Store<PassportState, PassportActions>(
-                            initialState: PassportState(), reducer: passportReducer,
-                            environment: PassportEnvironment()
-                        ), date: DateOfExpiryModal()),
-                                       label: {
-                            Text("Заграничный паспорт")
+                    NavigationLink(destination: PassportChecking(stateStore: Store<RelocateStepsState, RelocateStepsActions>(
+                        initialState: RelocateStepsState(), reducer: relocateStepsReducer,
+                        environment: RelocateStepsEnvironment())), label: { Text("Определимся с Заграничным паспортом")
                         })
-
-                    }
+                    
+                    
+                    
                     NavigationLink(destination: CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState:
-                              CountryDescriptionState(),
-                              reducer: countryDescriptionReducer,
-                              environment: CountryDescriptionEnvironment())), label: {
+                                                                                                                                                CountryDescriptionState(),
+                                                                                                                                             reducer: countryDescriptionReducer,
+                                                                                                                                             environment: CountryDescriptionEnvironment())), label: {
                         Text("Выбранная страна")
                     })
-
+                    
                     .navigationTitle("План перезда")
                 }
             }

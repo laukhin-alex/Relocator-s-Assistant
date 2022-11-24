@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct CountryModel: Equatable {
+struct CountryModel: Equatable, Identifiable {
+    var id: UUID = UUID()
+    
 
     var countryName: String
     var legalTimeOfStay: Int

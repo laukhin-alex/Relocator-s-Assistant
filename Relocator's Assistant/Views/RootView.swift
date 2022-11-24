@@ -23,9 +23,11 @@ struct RootView: View {
                     .tabItem {
                         Label("Шаги к переезду", systemImage: "figure.step.training")
                     }
-                    CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState: CountryDescriptionState(),
-                        reducer: countryDescriptionReducer,
-                        environment: CountryDescriptionEnvironment()))
+                    ZStack {
+                        CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState: CountryDescriptionState(),
+                            reducer: countryDescriptionReducer,
+                            environment: CountryDescriptionEnvironment()))
+                    }
                     .tabItem {
                         Label("Описание страны", systemImage: "globe.desk")
                     }
