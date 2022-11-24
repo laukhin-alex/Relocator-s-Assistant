@@ -18,9 +18,9 @@ struct PassportView: View {
             GeometryReader { geometry in
                 ScrollView{
                     VStack {
-                        Text("Заграничный паспорт")
-                            .font(.system(size: 30))
-                            .fontWeight(.bold)
+//                        Text("Заграничный паспорт")
+//                            .font(.system(size: 30))
+//                            .fontWeight(.bold)
                         Image("passportF")
                             .resizable()
                             .frame(width: 100, height: 150)
@@ -55,6 +55,7 @@ struct PassportView: View {
                     }
                 }
             }
+            .navigationTitle("Заграничный паспорт")
         }
     }
 }

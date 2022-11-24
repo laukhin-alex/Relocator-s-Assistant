@@ -13,6 +13,7 @@ struct PassportChecking: View {
     var body: some View {
         WithViewStore(stateStore) { viewStore in
             GeometryReader {_ in
+                ZStack {
                 Form {
                     Section(header: Text("Заграничный паспорт")) {
                         VStack {
@@ -37,16 +38,18 @@ struct PassportChecking: View {
                                     HStack {
                                         Text(name.flag)
                                             .padding(.all)
-
-Spacer()
+                                        
+                                        Spacer()
                                         Text(name.countryName)
                                         Spacer()
                                     }
                                 }
                             }
                         }
+                        }
                     }
                 }
+                .navigationTitle("Настройка")
             }
         }
     }
