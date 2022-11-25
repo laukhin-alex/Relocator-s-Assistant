@@ -32,6 +32,10 @@
 		1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */; };
 		1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96CA291FFFF8001AD31B /* Extensions.swift */; };
 		1FE562E5292D2486003F11B1 /* RelocateStepsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE562E4292D2486003F11B1 /* RelocateStepsModel.swift */; };
+		1FF0B1562931097D0044FEF9 /* PassportCheckingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B1552931097D0044FEF9 /* PassportCheckingState.swift */; };
+		1FF0B158293109960044FEF9 /* PassportCheckingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B157293109960044FEF9 /* PassportCheckingActions.swift */; };
+		1FF0B15A293109A80044FEF9 /* PassportCheckingEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B159293109A80044FEF9 /* PassportCheckingEnvironment.swift */; };
+		1FF0B15C293109B40044FEF9 /* PassportCheckingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B15B293109B40044FEF9 /* PassportCheckingReducer.swift */; };
 		1FF41877292BDB4400345560 /* ArmeniaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF41876292BDB4400345560 /* ArmeniaModel.swift */; };
 		1FF41879292BDC2B00345560 /* GeorgiaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF41878292BDC2B00345560 /* GeorgiaModel.swift */; };
 		1FF4187B292BDC5500345560 /* KasachstanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4187A292BDC5500345560 /* KasachstanModel.swift */; };
@@ -70,6 +74,10 @@
 		1FDE96CA291FFFF8001AD31B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Relocator-s-Assistant-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1FE562E4292D2486003F11B1 /* RelocateStepsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsModel.swift; sourceTree = "<group>"; };
+		1FF0B1552931097D0044FEF9 /* PassportCheckingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingState.swift; sourceTree = "<group>"; };
+		1FF0B157293109960044FEF9 /* PassportCheckingActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingActions.swift; sourceTree = "<group>"; };
+		1FF0B159293109A80044FEF9 /* PassportCheckingEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingEnvironment.swift; sourceTree = "<group>"; };
+		1FF0B15B293109B40044FEF9 /* PassportCheckingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingReducer.swift; sourceTree = "<group>"; };
 		1FF41876292BDB4400345560 /* ArmeniaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmeniaModel.swift; sourceTree = "<group>"; };
 		1FF41878292BDC2B00345560 /* GeorgiaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeorgiaModel.swift; sourceTree = "<group>"; };
 		1FF4187A292BDC5500345560 /* KasachstanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KasachstanModel.swift; sourceTree = "<group>"; };
@@ -176,6 +184,17 @@
 			path = RelocateStepsModels;
 			sourceTree = "<group>";
 		};
+		1FF0B154293109550044FEF9 /* PassportChecking */ = {
+			isa = PBXGroup;
+			children = (
+				1FF0B1552931097D0044FEF9 /* PassportCheckingState.swift */,
+				1FF0B157293109960044FEF9 /* PassportCheckingActions.swift */,
+				1FF0B159293109A80044FEF9 /* PassportCheckingEnvironment.swift */,
+				1FF0B15B293109B40044FEF9 /* PassportCheckingReducer.swift */,
+			);
+			path = PassportChecking;
+			sourceTree = "<group>";
+		};
 		1FFC5DF12917AC3F009A095D = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				1F571F0D292BBD10002AB253 /* Root */,
+				1FF0B154293109550044FEF9 /* PassportChecking */,
 				1F571F02292BBABB002AB253 /* CountryDescription */,
 				1F571EF9292BBA20002AB253 /* RelocateSteps */,
 				1FDE96BD291FD25B001AD31B /* Passport */,
@@ -327,12 +347,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FFC5E002917AC40009A095D /* RootView.swift in Sources */,
+				1FF0B15C293109B40044FEF9 /* PassportCheckingReducer.swift in Sources */,
 				1FDE96BF291FD3BA001AD31B /* PassportState.swift in Sources */,
 				1F571F08292BBAF1002AB253 /* CountryDescriptionEnvironment.swift in Sources */,
 				1F571EFF292BBA6B002AB253 /* RelocateStepsEnvironment.swift in Sources */,
 				1FE562E5292D2486003F11B1 /* RelocateStepsModel.swift in Sources */,
 				1F571F0F292BBD39002AB253 /* RootState.swift in Sources */,
 				1F571EFD292BBA57002AB253 /* RelocateStepsActions.swift in Sources */,
+				1FF0B15A293109A80044FEF9 /* PassportCheckingEnvironment.swift in Sources */,
 				1F571F04292BBACB002AB253 /* CountryDescriptionState.swift in Sources */,
 				1FF4187B292BDC5500345560 /* KasachstanModel.swift in Sources */,
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
@@ -340,7 +362,9 @@
 				1F0CB249292FC35D00A68FD7 /* PassportChecking.swift in Sources */,
 				1F27DB952917C61E0026B4CC /* CountryDescriptionView.swift in Sources */,
 				1F571F15292BBE28002AB253 /* RootReducer.swift in Sources */,
+				1FF0B158293109960044FEF9 /* PassportCheckingActions.swift in Sources */,
 				1FDE96C3291FD504001AD31B /* PassportEnvironment.swift in Sources */,
+				1FF0B1562931097D0044FEF9 /* PassportCheckingState.swift in Sources */,
 				1FDE96C1291FD47E001AD31B /* PassportActions.swift in Sources */,
 				1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */,
 				1F571F0A292BBAFF002AB253 /* CountryDescriptionReducer.swift in Sources */,

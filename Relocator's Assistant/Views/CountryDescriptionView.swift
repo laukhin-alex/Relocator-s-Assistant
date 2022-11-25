@@ -15,16 +15,16 @@ struct CountryDescriptionView: View {
             GeometryReader {_ in
                 ScrollView {
                     VStack{
-                        Text(emptyCountry.flag)
+                        Text(viewStore.country.flag)
                             .font(.system(size: 200))
-                        Text(emptyCountry.countryName)
+                        Text(viewStore.country.countryName)
                             .fontWeight(.regular)
                             .foregroundColor(.red)
                             .font(.bold(.largeTitle)())
                             .padding(.horizontal)
 
                         Spacer()
-                        Text(emptyCountry.countryDescription)
+                        Text(viewStore.country.countryDescription)
                             .multilineTextAlignment(.leading)
                             .padding(.all)
 
@@ -34,7 +34,7 @@ struct CountryDescriptionView: View {
                     .padding(.top)
                 }
                 .onAppear {
-                    viewStore.send(.showCountry(emptyCountry))
+                    viewStore.send(.showCountry(viewStore.country))
                 }
             }
         }

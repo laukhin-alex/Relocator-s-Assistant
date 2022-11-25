@@ -15,7 +15,7 @@ let countryDescriptionReducer = AnyReducer<
         switch action {
         case let .showCountry(countryModel):
             state.country = countryModel
-            print(state.country ?? emptyCountry)
+            print(state.country)
             return .none
         }
     }
