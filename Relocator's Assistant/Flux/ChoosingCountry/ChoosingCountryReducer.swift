@@ -13,8 +13,8 @@ let choosingCountryReducer = AnyReducer<
     ChoosingCountryActions,
     ChoosingCountryEnvironment> { state, action, environment in
         switch action {
-        case let .selectCountry(countryModel):
-            state.chosenCountry = CountryDescriptionState.init(country: countryModel)
+        case .selectCountry:
+            return .none
         }
-        return .none
+
     }

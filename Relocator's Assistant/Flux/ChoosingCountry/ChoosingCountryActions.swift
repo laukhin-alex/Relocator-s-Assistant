@@ -9,5 +9,5 @@ import Foundation
 import ComposableArchitecture
 
 enum ChoosingCountryActions {
-    case selectCountry(CountryModel)
+    case selectCountry
 }

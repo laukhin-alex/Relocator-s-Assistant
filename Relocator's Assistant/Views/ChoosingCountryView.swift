@@ -15,9 +15,9 @@ struct ChoosingCountryView: View {
             GeometryReader {_ in
                 ScrollView {
                     VStack{
-                        Text(viewStore.chosenCountry?.country.flag ?? "")
+                        Text(viewStore.chosenCountryName)
                             .font(.system(size: 200))
-                        Text(viewStore.chosenCountry?.country.countryName ?? "")
+                        Text(viewStore.chosenCountryName)
                             .fontWeight(.regular)
                             .foregroundColor(.red)
                             .font(.system(size: 30))
@@ -26,7 +26,7 @@ struct ChoosingCountryView: View {
 
 
 //                        Spacer()
-                        Text(viewStore.chosenCountry?.country.countryDescription ?? "")
+                        Text(viewStore.choseCountryDescription)
                             .multilineTextAlignment(.leading)
                             .padding(.all)
 

@@ -27,7 +27,10 @@ let passportCheckingReducer = AnyReducer<
             }
             return .none
         case let .selectCountry(countryModel):
-            state.countryDescriptionState = CountryDescriptionState.init(country: countryModel)
+            state.countryDescriptionState = ChoosingCountryState(
+                chosenCountryFlag: countryModel.flag,
+                chosenCountryName: countryModel.countryName,
+                choseCountryDescription: countryModel.countryDescription)
             return .none
         case let .choosingCountryActions(choosingCountryActions):
             return .none

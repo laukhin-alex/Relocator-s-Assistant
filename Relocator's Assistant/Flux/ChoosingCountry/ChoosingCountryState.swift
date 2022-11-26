@@ -9,6 +9,7 @@ import Foundation
 import ComposableArchitecture
 
 struct ChoosingCountryState: Equatable {
-    var chosenCountry: CountryDescriptionState? = nil
-
+    var chosenCountryFlag = ""
+    var chosenCountryName = ""
+    var choseCountryDescription = ""
 }
