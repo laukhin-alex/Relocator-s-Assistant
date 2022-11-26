@@ -8,7 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct PassportChecking: View {
+struct PassportCheckingView: View {
     var stateStore: Store<PassportCheckingState, PassportCheckingActions>
     var body: some View {
         WithViewStore(stateStore) { viewStore in
@@ -59,7 +59,7 @@ struct PassportChecking: View {
                                         stateStore.scope(
                                             state: \.countryDescriptionState,
                                             action: PassportCheckingActions.choosingCountryActions)) { countryDescription in
-                                                ChoosingCountryView(stateStore: Store(initialState: ChoosingCountryState(), reducer: choosingCountryReducer, environment: ChoosingCountryEnvironment()))
+                                                ChoosingCountryView(stateStore: countryDescription)
                                             }
 
 
@@ -75,9 +75,9 @@ struct PassportChecking: View {
     }
 }
 
-struct PassportChecking_Previews: PreviewProvider {
+struct PassportCheckingView_Previews: PreviewProvider {
     static var previews: some View {
-        PassportChecking(stateStore: Store<PassportCheckingState, PassportCheckingActions>(
+        PassportCheckingView(stateStore: Store<PassportCheckingState, PassportCheckingActions>(
             initialState: PassportCheckingState(), reducer: passportCheckingReducer,
             environment: PassportCheckingEnvironment()))
     }

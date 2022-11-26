@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F0CB249292FC35D00A68FD7 /* PassportChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CB248292FC35D00A68FD7 /* PassportChecking.swift */; };
+		1F0CB249292FC35D00A68FD7 /* PassportCheckingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CB248292FC35D00A68FD7 /* PassportCheckingView.swift */; };
 		1F103DC8291D499900F747D0 /* PassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F103DC7291D499900F747D0 /* PassportView.swift */; };
 		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
 		1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */; };
@@ -54,7 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F0CB248292FC35D00A68FD7 /* PassportChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportChecking.swift; sourceTree = "<group>"; };
+		1F0CB248292FC35D00A68FD7 /* PassportCheckingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingView.swift; sourceTree = "<group>"; };
 		1F103DC7291D499900F747D0 /* PassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportView.swift; sourceTree = "<group>"; };
 		1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsView.swift; sourceTree = "<group>"; };
 		1F27DB942917C61E0026B4CC /* CountryDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescriptionView.swift; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 			children = (
 				1FFC5DFF2917AC40009A095D /* RootView.swift */,
 				1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */,
-				1F0CB248292FC35D00A68FD7 /* PassportChecking.swift */,
+				1F0CB248292FC35D00A68FD7 /* PassportCheckingView.swift */,
 				1F103DC7291D499900F747D0 /* PassportView.swift */,
 				1FF0B15F29323CB40044FEF9 /* ChoosingCountryView.swift */,
 				1F27DB942917C61E0026B4CC /* CountryDescriptionView.swift */,
@@ -383,7 +383,7 @@
 				1FF4187B292BDC5500345560 /* KasachstanModel.swift in Sources */,
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
 				1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */,
-				1F0CB249292FC35D00A68FD7 /* PassportChecking.swift in Sources */,
+				1F0CB249292FC35D00A68FD7 /* PassportCheckingView.swift in Sources */,
 				1F27DB952917C61E0026B4CC /* CountryDescriptionView.swift in Sources */,
 				1F571F15292BBE28002AB253 /* RootReducer.swift in Sources */,
 				1FF0B16729323D060044FEF9 /* ChoosingCountryEnvironment.swift in Sources */,
