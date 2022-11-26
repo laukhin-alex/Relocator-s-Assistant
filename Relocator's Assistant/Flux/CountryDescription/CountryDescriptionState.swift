@@ -10,5 +10,4 @@ import ComposableArchitecture
 
 struct CountryDescriptionState: Equatable {
     @BindableState var country: CountryModel = emptyCountry
-    @BindableState var relocateStepsState = RelocateStepsState()
 }

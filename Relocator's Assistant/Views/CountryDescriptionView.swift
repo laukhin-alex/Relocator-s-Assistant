@@ -20,18 +20,20 @@ struct CountryDescriptionView: View {
                         Text(viewStore.country.countryName)
                             .fontWeight(.regular)
                             .foregroundColor(.red)
-                            .font(.bold(.largeTitle)())
+                            .font(.system(size: 30))
+                            .multilineTextAlignment(.center)
                             .padding(.horizontal)
 
-                        Spacer()
+
+//                        Spacer()
                         Text(viewStore.country.countryDescription)
                             .multilineTextAlignment(.leading)
                             .padding(.all)
 
 
-                        Spacer(minLength: 500)
+//                        Spacer(minLength: 500)
                     }
-                    .padding(.top)
+                    .padding([.top, .leading])
                 }
                 .onAppear {
                     viewStore.send(.showCountry(viewStore.country))

@@ -14,7 +14,7 @@ let passportCheckingReducer = AnyReducer<
     PassportCheckingEnvironment> { state, action, environment in
         switch action {
         case .binding:
-            if state.relocateStepsState.havingPassport == true {
+            if state.relocateStepsState.havingPassport == true && state.passportIsMoreTanFiveYears == true {
                 state.relocateStepsState.chosenCountries = state.relocateStepsState.accessibleCountriesWithPassport
                 for i in state.relocateStepsState.chosenCountries {
                     print(i.countryName)
@@ -26,6 +26,13 @@ let passportCheckingReducer = AnyReducer<
                 }
             }
             return .none
+        case let .selectCountry(countryModel):
+            state.countryDescriptionState = CountryDescriptionState.init(country: countryModel)
+            return .none
+        case let .choosingCountryActions(choosingCountryActions):
+            return .none
         }
+
+
     }
     .binding()

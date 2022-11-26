@@ -16,7 +16,8 @@ struct RelocateStepsState: Equatable {
     var stepsCount = RelocateStepsModel.init().stepsCount
     var accessibleCountriesWithPassport = RelocateStepsModel.init().accessibleCountriesWithPassport
     var accessibleCountriesWithoutPassport = RelocateStepsModel.init().accessibleCountriesWithoutPassport
-    @BindableState var chosenCountries: [CountryModel] = []
+    @BindableState var passport = PassportState()
+    @BindableState var chosenCountries: [CountryModel] = RelocateStepsModel.init().accessibleCountriesWithoutPassport
     @BindableState var showingAlert = false
 
 }

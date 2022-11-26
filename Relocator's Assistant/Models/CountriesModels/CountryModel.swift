@@ -21,7 +21,7 @@ struct CountryModel: Equatable, Identifiable {
 }
 
 
-let emptyCountry = CountryModel(countryName: "Определимся с выбором",
+let emptyCountry = CountryModel(countryName: "Упс, Вы еще не определились с выбором...",
                                 legalTimeOfStay: 0,
                                 passportIsNeeded: false,
                                 flag: CountriesFlags.emptyFlag,

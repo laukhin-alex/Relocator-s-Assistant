@@ -14,7 +14,7 @@ let relocateStepsReducer = AnyReducer<
     RelocateStepsEnvironment> { state, action, environment in
         switch action {
         case .binding:
-            if state.havingPassport == true {
+            if state.havingPassport && state.passport.dateOfExpiryMoreThanHalfYear {
                 state.chosenCountries = state.accessibleCountriesWithPassport
                 for i in state.chosenCountries {
                     print(i.countryName)

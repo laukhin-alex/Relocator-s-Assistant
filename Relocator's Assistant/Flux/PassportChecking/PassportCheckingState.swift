@@ -10,5 +10,6 @@ import ComposableArchitecture
 
 struct PassportCheckingState: Equatable {
     @BindableState var relocateStepsState = RelocateStepsState()
-    
+    var countryDescriptionState: CountryDescriptionState? = nil
+     var passportIsMoreTanFiveYears = PassportState().dateOfExpiryMoreThanHalfYear
 }

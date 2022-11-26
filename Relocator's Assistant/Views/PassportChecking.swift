@@ -20,37 +20,48 @@ struct PassportChecking: View {
                                 Toggle("У Вас есть Заграничный паспорт, или Вы хотите оформить его в ближайшее время?", isOn: viewStore.binding(\.relocateStepsState.$havingPassport))
 
                                 if  viewStore.relocateStepsState.havingPassport == true {
-                                    NavigationLink(destination: PassportView(stateStore: Store<PassportState, PassportActions>(
-                                        initialState: PassportState(), reducer: passportReducer,
-                                        environment: PassportEnvironment()
-                                    ), date: DateOfExpiryModal()),
-                                                   label: {
-                                        Text("Настройка паспорта")
-                                    })
+                                    HStack {
+                                        Image(systemName: viewStore.relocateStepsState.passport.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
+                                            .foregroundColor(viewStore.relocateStepsState.passport.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
+                                            
+                                        NavigationLink(destination: PassportView(stateStore: Store<PassportState, PassportActions>(
+                                            initialState: PassportState(), reducer: passportReducer,
+                                            environment: PassportEnvironment()
+                                        ), date: DateOfExpiryModal()),
+                                                       label: {
+                                            Text("Настройка паспорта")
+                                        })
+                                    }
                                 }
                             }
                         }
                         Section(header: Text("Доступные страны")) {
-                            VStack {
-                                List{
-                                    ForEach(viewStore.relocateStepsState.chosenCountries) {
-                                        name in
-                                        
-                                        NavigationLink(destination: CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState:
-                                                                                                                                                                    CountryDescriptionState(),
-                                                                                                                                                                 reducer: countryDescriptionReducer,
-                                                                                                                                                                 environment: CountryDescriptionEnvironment())), label: {
+                            ZStack {
+                                VStack {
+                                    List{
+                                        ForEach(viewStore.relocateStepsState.chosenCountries) {
+                                            country in
                                             HStack {
-                                                Text(name.flag)
+                                                Text(country.flag)
                                                     .padding(.all)
 
                                                 Spacer()
-                                                Text(name.countryName)
+                                                Text(country.countryName)
                                                 Spacer()
                                             }
-                                        })
+                                            .onTapGesture {
+                                                viewStore.send(.selectCountry(country))
+                                            }
+
+                                        }
                                     }
-                                
+                                    IfLetStore(
+                                        stateStore.scope(
+                                            state: \.countryDescriptionState,
+                                            action: PassportCheckingActions.choosingCountryActions)) { countryDescription in
+                                                ChoosingCountryView(stateStore: Store(initialState: ChoosingCountryState(), reducer: choosingCountryReducer, environment: ChoosingCountryEnvironment()))
+                                            }
+
 
                                 }
                             }
@@ -59,6 +70,7 @@ struct PassportChecking: View {
                 }
                 .navigationTitle("Настройка")
             }
+
         }
     }
 }
@@ -70,3 +82,18 @@ struct PassportChecking_Previews: PreviewProvider {
             environment: PassportCheckingEnvironment()))
     }
 }
+
+
+//                                        NavigationLink(destination: CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState:
+//                                                CountryDescriptionState(),
+//                                                reducer: countryDescriptionReducer,
+//                                                environment: CountryDescriptionEnvironment())), label: {
+//                                            HStack {
+//                                                Text(country.flag)
+//                                                    .padding(.all)
+//
+//                                                Spacer()
+//                                                Text(country.countryName)
+//                                                Spacer()
+//                                            }
+//                                        })
