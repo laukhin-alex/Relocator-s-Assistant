@@ -272,9 +272,9 @@
 				1F571F0D292BBD10002AB253 /* Root */,
 				1F571EF9292BBA20002AB253 /* RelocateSteps */,
 				1FF0B154293109550044FEF9 /* PassportChecking */,
+				1FDE96BD291FD25B001AD31B /* Passport */,
 				1FF0B16129323CCC0044FEF9 /* ChoosingCountry */,
 				1F571F02292BBABB002AB253 /* CountryDescription */,
-				1FDE96BD291FD25B001AD31B /* Passport */,
 			);
 			path = Flux;
 			sourceTree = "<group>";

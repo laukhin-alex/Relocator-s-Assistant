@@ -9,7 +9,12 @@ import Foundation
 import ComposableArchitecture
 
 struct PassportCheckingState: Equatable {
-    @BindableState var relocateStepsState = RelocateStepsState()
-    var countryDescriptionState: ChoosingCountryState? = nil
-     var passportIsMoreTanFiveYears = PassportState().dateOfExpiryMoreThanHalfYear
+    @BindableState var havingPassport: Bool = RelocateStepsModel.init().havingPassport
+    var accessibleCountriesWithPassport = RelocateStepsModel.init().accessibleCountriesWithPassport
+    var accessibleCountriesWithoutPassport = RelocateStepsModel.init().accessibleCountriesWithoutPassport
+    var chosenCountries: [CountryModel] = RelocateStepsModel.init().accessibleCountriesWithoutPassport
+    var passportIsMoreTanFiveYears = PassportState().dateOfExpiryMoreThanHalfYear
+    @BindableState var goodPassport = false
+    @BindableState var choosingCountryState = ChoosingCountryState()
+    @BindableState var passportState = PassportState()
 }

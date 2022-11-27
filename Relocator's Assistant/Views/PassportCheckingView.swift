@@ -17,12 +17,11 @@ struct PassportCheckingView: View {
                     Form {
                         Section(header: Text("Заграничный паспорт")) {
                             VStack {
-                                Toggle("У Вас есть Заграничный паспорт, или Вы хотите оформить его в ближайшее время?", isOn: viewStore.binding(\.relocateStepsState.$havingPassport))
-
-                                if  viewStore.relocateStepsState.havingPassport == true {
+                                Toggle("У Вас есть Заграничный паспорт, или Вы хотите оформить его в ближайшее время?", isOn: viewStore.binding(\.$havingPassport))
+                                if  viewStore.havingPassport == true {
                                     HStack {
-                                        Image(systemName: viewStore.relocateStepsState.passport.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
-                                            .foregroundColor(viewStore.relocateStepsState.passport.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
+                                        Image(systemName: viewStore.goodPassport ? "checkmark.square.fill" : "square")
+                                            .foregroundColor(viewStore.goodPassport ? Color(UIColor.systemBlue) : Color.secondary)
                                             
                                         NavigationLink(destination: PassportView(stateStore: Store<PassportState, PassportActions>(
                                             initialState: PassportState(), reducer: passportReducer,
@@ -35,37 +34,37 @@ struct PassportCheckingView: View {
                                 }
                             }
                         }
-                        Section(header: Text("Доступные страны")) {
-                            ZStack {
-                                VStack {
-                                    List{
-                                        ForEach(viewStore.relocateStepsState.chosenCountries) {
-                                            country in
-                                            HStack {
-                                                Text(country.flag)
-                                                    .padding(.all)
-
-                                                Spacer()
-                                                Text(country.countryName)
-                                                Spacer()
-                                            }
-                                            .onTapGesture {
-                                                viewStore.send(.selectCountry(country))
-                                            }
-
-                                        }
-                                    }
-                                    IfLetStore(
-                                        stateStore.scope(
-                                            state: \.countryDescriptionState,
-                                            action: PassportCheckingActions.choosingCountryActions)) { countryDescription in
-                                                ChoosingCountryView(stateStore: countryDescription)
-                                            }
-
-
-                                }
-                            }
-                        }
+//                        Section(header: Text("Доступные страны")) {
+//                            ZStack {
+//                                VStack {
+//                                    List{
+//                                        ForEach(viewStore.chosenCountries) {
+//                                            country in
+//                                            HStack {
+//                                                Text(country.flag)
+//                                                    .padding(.all)
+//
+//                                                Spacer()
+//                                                Text(country.countryName)
+//                                                Spacer()
+//                                            }
+//                                            .onTapGesture {
+//                                                viewStore.send(.selectCountry(country))
+//                                            }
+//
+//                                        }
+//                                    }
+//                                    IfLetStore(
+//                                        stateStore.scope(
+//                                            state: \.countryDescriptionState,
+//                                            action: PassportCheckingActions.choosingCountryActions)) { countryDescription in
+//                                                ChoosingCountryView(stateStore: countryDescription)
+//                                            }
+//
+//
+//                                }
+//                            }
+//                        }
                     }
                 }
                 .navigationTitle("Настройка")
