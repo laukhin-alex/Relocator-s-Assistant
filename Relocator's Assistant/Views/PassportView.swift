@@ -10,7 +10,7 @@ import ComposableArchitecture
 import CoreMedia
 
 struct PassportView: View {
-    let stateStore: Store<PassportState, PassportActions>
+    let stateStore: Store<PassportCheckingState, PassportCheckingActions>
     let date:  DateOfExpiryModal
 
     var body: some View {
@@ -62,9 +62,9 @@ struct PassportView: View {
 
 struct PassportView_Previews: PreviewProvider {
     static var previews: some View {
-        PassportView(stateStore: Store<PassportState, PassportActions>(
-            initialState: PassportState(), reducer: passportReducer,
-            environment: PassportEnvironment()
+        PassportView(stateStore: Store<PassportCheckingState, PassportCheckingActions>(
+            initialState: PassportCheckingState(), reducer: passportCheckingReducer,
+            environment: PassportCheckingEnvironment()
         ), date: DateOfExpiryModal())
     }
 }

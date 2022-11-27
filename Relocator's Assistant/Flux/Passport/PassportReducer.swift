@@ -16,14 +16,14 @@ let passportReducer = AnyReducer<
 
         switch action {
         case .binding:
-            if state.dateOfExpiry > state.halfYearDay ?? Date() {
-                print(state.dateOfExpiry)
-                print("YES")
-                state.dateOfExpiryMoreThanHalfYear = true
-            } else {
-                print("No")
-                state.dateOfExpiryMoreThanHalfYear = false
-            }
+//            if state.dateOfExpiry > state.halfYearDay ?? Date() {
+//                print(state.dateOfExpiry)
+//                print("YES")
+//                state.dateOfExpiryMoreThanHalfYear = true
+//            } else {
+//                print("No")
+//                state.dateOfExpiryMoreThanHalfYear = false
+//            }
             return .none
         }
     }

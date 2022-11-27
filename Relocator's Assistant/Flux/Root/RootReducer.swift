@@ -15,12 +15,14 @@ let rootReducer = AnyReducer<
         relocateStepsReducer.pullback(
             state: \.relocateStepsState,
             action: /RootAction.relocateStepsActions,
-            environment: \.relocateStepsEnvironment
+            environment: { (_: RootEnvironment) in
+                RelocateStepsEnvironment() }
 
         ),
         countryDescriptionReducer.pullback(
             state: \.countryDescriptionState,
             action: /RootAction.countryDescriptionActions,
-            environment: \.countryDescriptionEnvironment
+            environment: { (_: RootEnvironment) in
+                CountryDescriptionEnvironment() }
         )
     ) 

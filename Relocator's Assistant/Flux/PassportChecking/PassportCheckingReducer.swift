@@ -7,6 +7,7 @@
 
 import Foundation
 import ComposableArchitecture
+import SwiftUI
 
 let passportCheckingReducer = AnyReducer<
     PassportCheckingState,
@@ -14,16 +15,30 @@ let passportCheckingReducer = AnyReducer<
     PassportCheckingEnvironment> { state, action, environment in
         switch action {
         case .binding:
-            state.goodPassport = state.passportState.dateOfExpiryMoreThanHalfYear
-            if state.passportIsMoreTanFiveYears == true && state.goodPassport == true {
-                state.chosenCountries = state.accessibleCountriesWithPassport
-                print(state.passportState.dateOfExpiryMoreThanHalfYear)
+            if state.dateOfExpiry > state.halfYearDay ?? Date() {
+                print(state.dateOfExpiry)
+                print("YES")
+                state.dateOfExpiryMoreThanHalfYear = true
+            } else {
+                print("No")
+                state.dateOfExpiryMoreThanHalfYear = false
+            }
+            if state.havingPassport == false {
+                state.chosenCountries = state.accessibleCountriesWithoutPassport
+                print(state.dateOfExpiryMoreThanHalfYear)
+                for i in state.chosenCountries {
+                    print(i.countryName)
+                }
+            } else if state.havingPassport == true
+                        && state.dateOfExpiryMoreThanHalfYear != false
+            {                state.chosenCountries = state.accessibleCountriesWithoutPassport
+                print(state.dateOfExpiryMoreThanHalfYear)
                 for i in state.chosenCountries {
                     print(i.countryName)
                 }
             } else {
-                state.chosenCountries = state.accessibleCountriesWithoutPassport
-                print(state.passportState.dateOfExpiryMoreThanHalfYear)
+                state.chosenCountries = state.accessibleCountriesWithPassport
+                print(state.dateOfExpiryMoreThanHalfYear)
                 for i in state.chosenCountries {
                     print(i.countryName)
                 }
@@ -37,6 +52,7 @@ let passportCheckingReducer = AnyReducer<
             return .none
         case let .choosingCountryActions(choosingCountryActions):
             return .none
+
         }
     }
     .binding()
