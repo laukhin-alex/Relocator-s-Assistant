@@ -18,8 +18,8 @@ struct PassportCheckingState: Equatable {
     @BindableState var choosingCountryState: ChoosingCountryState?
     @BindableState var passportState = PassportState()
 
-    @BindableState var halfYearDay = DateOfExpiryModal.init().halfYearDay
-    @BindableState var currentDay = DateOfExpiryModal.init().currentDay
-    @BindableState var dateOfExpiry = DateOfExpiryModal.init().dateOfExpiry
-    @BindableState var dateOfExpiryMoreThanHalfYear: Bool = false
+//    @BindableState var halfYearDay = DateOfExpiryModal.init().halfYearDay
+//    @BindableState var currentDay = DateOfExpiryModal.init().currentDay
+//    @BindableState var dateOfExpiry = DateOfExpiryModal.init().dateOfExpiry
+//    @BindableState var dateOfExpiryMoreThanHalfYear: Bool = false
 }

@@ -10,7 +10,7 @@ import ComposableArchitecture
 import CoreMedia
 
 struct PassportView: View {
-    let stateStore: Store<PassportCheckingState, PassportCheckingActions>
+    let stateStore: Store<PassportState, PassportActions>
     let date:  DateOfExpiryModal
 
     var body: some View {
@@ -58,8 +58,8 @@ struct PassportView: View {
 //                                .multilineTextAlignment(.trailing)
                                 .padding(.horizontal)
                             Spacer()
-                        Image(systemName: viewStore.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
-                            .foregroundColor(viewStore.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
+                            Image(systemName: viewStore.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
+                                .foregroundColor(viewStore.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
                             .padding(.trailing)
 //                            Spacer()
                         }
@@ -73,9 +73,9 @@ struct PassportView: View {
 
 struct PassportView_Previews: PreviewProvider {
     static var previews: some View {
-        PassportView(stateStore: Store<PassportCheckingState, PassportCheckingActions>(
-            initialState: PassportCheckingState(), reducer: passportCheckingReducer,
-            environment: PassportCheckingEnvironment()
+        PassportView(stateStore: Store<PassportState, PassportActions>(
+            initialState: PassportState(), reducer: passportReducer,
+            environment: PassportEnvironment()
         ), date: DateOfExpiryModal())
     }
 }

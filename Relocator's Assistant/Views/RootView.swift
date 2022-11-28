@@ -19,7 +19,7 @@ struct RootView: View {
                             state: \.relocateStepsState,
                              action: RootAction.relocateStepsActions
                           )
-                                          )
+                        )
 
                     }
                     .tabItem {

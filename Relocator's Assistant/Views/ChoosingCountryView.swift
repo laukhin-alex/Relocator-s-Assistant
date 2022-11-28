@@ -15,7 +15,7 @@ struct ChoosingCountryView: View {
             GeometryReader {_ in
                 ScrollView {
                     VStack{
-                        Text(viewStore.chosenCountryName)
+                        Text(viewStore.chosenCountryFlag)
                             .font(.system(size: 200))
                         Text(viewStore.chosenCountryName)
                             .fontWeight(.regular)

@@ -20,17 +20,20 @@ struct PassportCheckingView: View {
                                 Toggle("У Вас есть Заграничный паспорт, или Вы хотите оформить его в ближайшее время?", isOn: viewStore.binding(\.$havingPassport))
                                 if  viewStore.havingPassport == true {
                                     HStack {
-                                        Image(systemName: viewStore.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
-                                            .foregroundColor(viewStore.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
+                                        Image(systemName: viewStore.passportState.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
+                                            .foregroundColor(viewStore.passportState.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
                                             
-                                        NavigationLink(destination:   PassportView(stateStore: Store<PassportCheckingState, PassportCheckingActions>(
-                                            initialState: PassportCheckingState(), reducer: passportCheckingReducer,
-                                            environment: PassportCheckingEnvironment()
-                                        ), date: DateOfExpiryModal()),
-                                                       label: {
-                                            Text("Настройка паспорта")
-                                        })
+                                        NavigationLink("Настройка паспорта", destination:   PassportView(stateStore: stateStore.scope(
+                                            state: \.passportState,
+                                             action: PassportCheckingActions.onAppear
+                                        ),  date: DateOfExpiryModal()
+//                                                       label: {
+//                                            Text("Настройка паспорта")
+//                                        }
+                                        )
+                                                       )
                                     }
+
                                 }
                             }
                         }

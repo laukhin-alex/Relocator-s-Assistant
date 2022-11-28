@@ -9,36 +9,31 @@ import Foundation
 import ComposableArchitecture
 import SwiftUI
 
+
+
 let passportCheckingReducer = AnyReducer<
     PassportCheckingState,
     PassportCheckingActions,
     PassportCheckingEnvironment> { state, action, environment in
         switch action {
         case .binding:
-            if state.dateOfExpiry > state.halfYearDay ?? Date() {
-                print(state.dateOfExpiry)
-                print("YES")
-                state.dateOfExpiryMoreThanHalfYear = true
-            } else {
-                print("No")
-                state.dateOfExpiryMoreThanHalfYear = false
-            }
+
             if state.havingPassport == false {
                 state.chosenCountries = state.accessibleCountriesWithoutPassport
-                print(state.dateOfExpiryMoreThanHalfYear)
+                print(state.passportState.dateOfExpiryMoreThanHalfYear)
                 for i in state.chosenCountries {
                     print(i.countryName)
                 }
             } else if state.havingPassport == true
-                        && state.dateOfExpiryMoreThanHalfYear != false
+                        && state.passportState.dateOfExpiryMoreThanHalfYear != false
             {                state.chosenCountries = state.accessibleCountriesWithoutPassport
-                print(state.dateOfExpiryMoreThanHalfYear)
+                print(state.passportState.dateOfExpiryMoreThanHalfYear)
                 for i in state.chosenCountries {
                     print(i.countryName)
                 }
             } else {
                 state.chosenCountries = state.accessibleCountriesWithPassport
-                print(state.dateOfExpiryMoreThanHalfYear)
+                print(state.passportState.dateOfExpiryMoreThanHalfYear)
                 for i in state.chosenCountries {
                     print(i.countryName)
                 }
@@ -55,6 +50,17 @@ let passportCheckingReducer = AnyReducer<
             return .none
         case let .onAppear(action):
             print("OnAPPEAR!")
+            if action == .onAppear {
+//                if state.passportState.dateOfExpiryMoreThanHalfYear && state.havingPassport {
+//                    state.chosenCountries = state.accessibleCountriesWithPassport
+//                    print("1")
+//                    print(state.passportState.dateOfExpiryMoreThanHalfYear)
+//                } else {
+//                    state.chosenCountries = state.accessibleCountriesWithoutPassport
+//                    print("2")
+//                }
+
+            }
             return .none
         }
     }

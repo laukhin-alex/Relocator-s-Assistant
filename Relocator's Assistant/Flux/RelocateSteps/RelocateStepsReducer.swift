@@ -14,7 +14,7 @@ let relocateStepsReducer = AnyReducer<
     RelocateStepsEnvironment> { state, action, environment in
         switch action {
         case .binding:
-            print(state.passportCheckingState.dateOfExpiryMoreThanHalfYear)
+//            print(state.passportCheckingState.dateOfExpiryMoreThanHalfYear)
             return .none
         }
     }
