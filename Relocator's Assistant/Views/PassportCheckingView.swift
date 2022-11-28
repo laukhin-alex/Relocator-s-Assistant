@@ -65,9 +65,9 @@ struct PassportCheckingView: View {
                         }
                     }
                 }
-//                .onAppear {
-//                    viewStore.send(.binding(\PassportActions.binding))
-//                }
+                .onAppear {
+                    viewStore.send(.onAppear(PassportActions.onAppear))
+                }
                 .navigationTitle("Настройка")
             }
 

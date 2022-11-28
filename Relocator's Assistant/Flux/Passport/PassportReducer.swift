@@ -25,6 +25,10 @@ let passportReducer = AnyReducer<
 //                state.dateOfExpiryMoreThanHalfYear = false
 //            }
             return .none
+        case .onAppear:
+
+            print("Появился!")
+            return .none
         }
     }
     .binding()

@@ -15,18 +15,22 @@ struct RootView: View {
             GeometryReader { geometry in
                 TabView {
                     ZStack {
-                        RelocateStepsView(stateStore: Store<RelocateStepsState, RelocateStepsActions>(
-                            initialState: RelocateStepsState(), reducer: relocateStepsReducer,
-                            environment: RelocateStepsEnvironment()))
+                        RelocateStepsView(stateStore: stateStore.scope(
+                            state: \.relocateStepsState,
+                             action: RootAction.relocateStepsActions
+                          )
+                                          )
 
                     }
                     .tabItem {
                         Label("Шаги к переезду", systemImage: "figure.step.training")
                     }
                     ZStack {
-                        CountryDescriptionView(stateStore: Store<CountryDescriptionState, CountryDescriptionActions>(initialState: CountryDescriptionState(),
-                            reducer: countryDescriptionReducer,
-                            environment: CountryDescriptionEnvironment()))
+                        CountryDescriptionView(stateStore: stateStore.scope(
+                            state: \.countryDescriptionState,
+                             action: RootAction.countryDescriptionActions
+                          )
+                        )
                     }
                     .tabItem {
                         Label("Описание страны", systemImage: "globe.desk")

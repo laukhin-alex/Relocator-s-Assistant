@@ -8,8 +8,9 @@
 import Foundation
 import ComposableArchitecture
 
-enum PassportActions: BindableAction {
+enum PassportActions: BindableAction, Equatable {
 
     case binding(BindingAction<PassportState>)
+    case onAppear
 
 }
