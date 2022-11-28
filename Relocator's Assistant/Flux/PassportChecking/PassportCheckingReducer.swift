@@ -43,6 +43,7 @@ let passportCheckingReducer = AnyReducer<
                     print(i.countryName)
                 }
             }
+
             return .none
         case let .selectCountry(countryModel):
             state.choosingCountryState = ChoosingCountryState(
@@ -52,7 +53,9 @@ let passportCheckingReducer = AnyReducer<
             return .none
         case let .choosingCountryActions(choosingCountryActions):
             return .none
-
+        case let .onAppear(action):
+            print("OnAPPEAR!")
+            return .none
         }
     }
     .binding()

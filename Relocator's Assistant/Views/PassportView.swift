@@ -50,8 +50,19 @@ struct PassportView: View {
 
                         }
                         .padding([.top, .leading, .trailing])
-                        Toggle("У паспорта достаточный срок действия", isOn: viewStore.binding(\.$dateOfExpiryMoreThanHalfYear))
-                            .padding()
+                        
+//                        Toggle("У паспорта достаточный срок действия", isOn: viewStore.binding(\.$dateOfExpiryMoreThanHalfYear))
+//                            .padding()
+                        HStack() {
+                            Text("У паспорта достаточный срок действия")
+//                                .multilineTextAlignment(.trailing)
+                                .padding(.horizontal)
+                            Spacer()
+                        Image(systemName: viewStore.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
+                            .foregroundColor(viewStore.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
+                            .padding(.trailing)
+//                            Spacer()
+                        }
                     }
                 }
             }
