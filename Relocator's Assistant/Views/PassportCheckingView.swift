@@ -13,59 +13,56 @@ struct PassportCheckingView: View {
     var body: some View {
         WithViewStore(stateStore) { viewStore in
             GeometryReader {_ in
-                ZStack {
-                    Form {
-                        Section(header: Text("Заграничный паспорт")) {
-                            VStack {
-                                Toggle("У Вас есть Заграничный паспорт, или Вы хотите оформить его в ближайшее время?", isOn: viewStore.binding(\.$havingPassport))
-                                if  viewStore.havingPassport == true {
-                                    HStack {
-                                        Image(systemName: viewStore.passportState.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
-                                            .foregroundColor(viewStore.passportState.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
-                                            
-                                        NavigationLink("Настройка паспорта", destination:   PassportView(stateStore: stateStore.scope(
-                                            state: \.passportState,
-                                             action: PassportCheckingActions.onAppear
-                                        ),  date: DateOfExpiryModal()
-//                                                       label: {
-//                                            Text("Настройка паспорта")
-//                                        }
-                                        )
-                                                       )
-                                    }
+                List {
+                    Section(header: Text("Заграничный паспорт")) {
+                        VStack {
+                            Toggle("У Вас есть Заграничный паспорт, или Вы хотите оформить его в ближайшее время?", isOn: viewStore.binding(\.$havingPassport))
+                            if  viewStore.havingPassport == true {
+                                HStack {
+                                    Image(systemName: viewStore.passportState.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
+                                        .foregroundColor(viewStore.passportState.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
 
+                                    NavigationLink("Настройка паспорта", destination:   PassportView(stateStore: stateStore.scope(
+                                        state: \.passportState,
+                                        action: PassportCheckingActions.onAppear
+                                    ),  date: DateOfExpiryModal()
+                                                                                                     //                                                       label: {
+                                                                                                     //                                            Text("Настройка паспорта")
+
+                                    )
+                                    )
                                 }
                             }
                         }
-                        Section(header: Text("Доступные страны")) {
-                            ZStack {
-                                VStack {
-                                    List{
-                                        ForEach(viewStore.chosenCountries) {
-                                            country in
-                                            HStack {
-                                                Text(country.flag)
-                                                    .padding(.all)
 
-                                                Spacer()
-                                                Text(country.countryName)
-                                                Spacer()
-                                            }
-                                            .onTapGesture {
-                                                viewStore.send(.selectCountry(country))
-                                            }
+                    }
+                    Section(header: Text("Доступные страны")) {
+                        VStack {
+                            ForEach(viewStore.chosenCountries) {
+                                country in
+                                HStack {
+                                    Text(country.flag)
+                                        .padding(.all)
 
-                                        }
-                                    }
-                                    IfLetStore(
-                                        stateStore.scope(
-                                            state: \.choosingCountryState,
-                                            action: PassportCheckingActions.choosingCountryActions)) { countryDescription in
-                                                ChoosingCountryView(stateStore: countryDescription)
-                                            }
+                                    Spacer()
+                                    Text(country.countryName)
+                                    Spacer()
                                 }
+                                .onTapGesture {
+                                    viewStore.send(.selectCountry(country))
+                                }
+
                             }
                         }
+                        IfLetStore(
+                            stateStore.scope(
+                                state: \.choosingCountryState,
+                                action: PassportCheckingActions.choosingCountryActions)) { countryDescription in
+                                    ChoosingCountryView(stateStore: countryDescription)
+                                }
+
+
+                        //                        }
                     }
                 }
                 .onAppear {
