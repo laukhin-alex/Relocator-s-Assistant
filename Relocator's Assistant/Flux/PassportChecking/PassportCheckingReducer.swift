@@ -14,25 +14,32 @@ import SwiftUI
 let passportCheckingReducer = AnyReducer<
     PassportCheckingState,
     PassportCheckingActions,
-    PassportCheckingEnvironment> { state, action, environment in
+    PassportCheckingEnvironment>.combine(
+        passportReducer.pullback(
+            state: \.passportState,
+            action: /PassportCheckingActions.onAppear,
+            environment: { (_:PassportCheckingEnvironment) in
+                PassportEnvironment()
+            }),
+        AnyReducer { state, action, environment in
         switch action {
         case .binding:
 
-            if state.havingPassport == false {
-                state.chosenCountries = state.accessibleCountriesWithoutPassport
+            if state.havingPassport && state.passportState.dateOfExpiryMoreThanHalfYear  {
+                state.chosenCountries = state.accessibleCountriesWithPassport
                 print(state.passportState.dateOfExpiryMoreThanHalfYear)
                 for i in state.chosenCountries {
                     print(i.countryName)
                 }
             } else if state.havingPassport == true
-                        && state.passportState.dateOfExpiryMoreThanHalfYear != false
+                        && state.passportState.dateOfExpiryMoreThanHalfYear == false
             {                state.chosenCountries = state.accessibleCountriesWithoutPassport
                 print(state.passportState.dateOfExpiryMoreThanHalfYear)
                 for i in state.chosenCountries {
                     print(i.countryName)
                 }
             } else {
-                state.chosenCountries = state.accessibleCountriesWithPassport
+                state.chosenCountries = state.accessibleCountriesWithoutPassport
                 print(state.passportState.dateOfExpiryMoreThanHalfYear)
                 for i in state.chosenCountries {
                     print(i.countryName)
@@ -49,9 +56,10 @@ let passportCheckingReducer = AnyReducer<
         case let .choosingCountryActions(choosingCountryActions):
             return .none
         case let .onAppear(action):
+            print(action)
             print("OnAPPEAR!")
-            if action == .onAppear {
-//                if state.passportState.dateOfExpiryMoreThanHalfYear && state.havingPassport {
+//            if action == .binding(binding<PassportState>) {
+//                if state.passportState.dateOfExpiryMoreThanHalfYear || state.havingPassport {
 //                    state.chosenCountries = state.accessibleCountriesWithPassport
 //                    print("1")
 //                    print(state.passportState.dateOfExpiryMoreThanHalfYear)
@@ -59,9 +67,10 @@ let passportCheckingReducer = AnyReducer<
 //                    state.chosenCountries = state.accessibleCountriesWithoutPassport
 //                    print("2")
 //                }
-
-            }
+//
+//            }
             return .none
         }
     }
     .binding()
+)

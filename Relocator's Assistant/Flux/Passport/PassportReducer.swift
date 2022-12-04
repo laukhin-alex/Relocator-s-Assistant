@@ -28,10 +28,18 @@ let passportReducer = AnyReducer<
             print("Появился!")
             return .none
         case .onAppear:
-            if state.dateOfExpiryMoreThanHalfYear {
+            if state.dateOfExpiry > state.halfYearDay ?? Date() {
+                print(state.dateOfExpiry)
+                print("YES")
+                state.dateOfExpiryMoreThanHalfYear = true
 
+            } else {
+                print("No")
+                state.dateOfExpiryMoreThanHalfYear = false
             }
+            print("Появился!")
             return .none
+
         case .binding(_):
             return . none
         }
