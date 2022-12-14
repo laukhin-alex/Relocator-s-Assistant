@@ -19,9 +19,7 @@ struct RelocateStepsView: View {
             NavigationView {
                 List(0...viewStore.stepsCount, id: \.self) { index in
                     Section(header: Text("Заграничный паспорт")) {
-                        NavigationLink(
-                            destination: PassportCheckingView(
-                                stateStore: Store<PassportCheckingState, PassportCheckingActions>(
+                        NavigationLink(destination: PassportCheckingView(stateStore: Store<PassportCheckingState, PassportCheckingActions>(
                             initialState: PassportCheckingState(), reducer: passportCheckingReducer,
                             environment: PassportCheckingEnvironment())), label: { Text("Определимся с Заграничным паспортом")
                             })

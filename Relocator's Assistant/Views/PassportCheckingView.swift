@@ -17,7 +17,6 @@ struct PassportCheckingView: View {
                 ZStack{
                     List {
 
-
                         Section(header: Text("Заграничный паспорт")) {
                             VStack {
                                 Toggle("У Вас есть Заграничный паспорт, или Вы хотите оформить его в ближайшее время?", isOn: viewStore.binding(\.$havingPassport))
@@ -25,7 +24,6 @@ struct PassportCheckingView: View {
                                     HStack {
                                         Image(systemName: viewStore.passportState.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
                                             .foregroundColor(viewStore.passportState.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
-
 
                                         NavigationLink("Настройка паспорта", destination:   PassportView(stateStore: stateStore.scope(
                                             state: \.passportState,
@@ -65,7 +63,6 @@ struct PassportCheckingView: View {
                             //                        }
                         }
                     }
-
                     IfLetStore(
                         stateStore.scope(
                             state: \.choosingCountryState,
@@ -77,7 +74,6 @@ struct PassportCheckingView: View {
                     }
                     .navigationTitle("Настройка")
                 }
-
             }
         }
     }
