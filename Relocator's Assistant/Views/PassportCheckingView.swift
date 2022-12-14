@@ -24,7 +24,7 @@ struct PassportCheckingView: View {
 
                                     NavigationLink("Настройка паспорта", destination:   PassportView(stateStore: stateStore.scope(
                                         state: \.passportState,
-                                        action: PassportCheckingActions.onAppear
+                                        action: PassportCheckingActions.passportAction
                                     ),  date: DateOfExpiryModal()
                                                                                                      //                                                       label: {
                                                                                                      //                                            Text("Настройка паспорта")
@@ -64,10 +64,7 @@ struct PassportCheckingView: View {
 
                         //                        }
                     }
-                }
-                .onAppear {
-                    viewStore.send(.onAppear(PassportActions.onAppear))
-                }
+                }                
                 .navigationTitle("Настройка")
             }
 
