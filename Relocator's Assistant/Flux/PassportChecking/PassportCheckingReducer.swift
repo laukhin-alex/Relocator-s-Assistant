@@ -25,7 +25,14 @@ let passportCheckingReducer = AnyReducer<
         switch action {
         case let .passportAction(currentAction):
             print("CHANGING COuntries")
-            state.chosenCountries = [armenia, georgia, kasachstan, turkey]
+            if state.passportState.dateOfExpiryMoreThanHalfYear  {
+                state.chosenCountries = [armenia, georgia, kasachstan, turkey]
+                print(state.chosenCountries)
+            } else {
+                state.chosenCountries = [armenia, kasachstan]
+                print(state.chosenCountries)
+
+            }
             return .none
         case .binding:
             if state.havingPassport && state.passportState.dateOfExpiryMoreThanHalfYear  {

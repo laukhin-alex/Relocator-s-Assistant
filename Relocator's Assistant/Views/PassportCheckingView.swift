@@ -72,12 +72,12 @@ struct PassportCheckingView: View {
                             action: PassportCheckingActions.choosingCountryActions)) { countryDescription in
                                 ChoosingCountryView(stateStore: countryDescription)
                             }
-                    .onAppear {
-                        viewStore.send(.onAppear(PassportActions.onAppear))
-                    }
-                    .navigationTitle("Настройка")
+//                    .onAppear {
+//                        viewStore.send(.)
+//                    }
+                            
                 }
-
+                .navigationTitle("Настройка")
             }
         }
     }
