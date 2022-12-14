@@ -12,5 +12,5 @@ enum PassportCheckingActions: BindableAction {
     case binding(BindingAction<PassportCheckingState>)
     case selectCountry(CountryModel)
     case choosingCountryActions(ChoosingCountryActions)
-    case onAppear(PassportActions)
+    case passportAction(PassportActions)
 }

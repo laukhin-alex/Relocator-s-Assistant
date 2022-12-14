@@ -17,14 +17,17 @@ let passportCheckingReducer = AnyReducer<
     PassportCheckingEnvironment>.combine(
         passportReducer.pullback(
             state: \.passportState,
-            action: /PassportCheckingActions.onAppear,
+            action: /PassportCheckingActions.passportAction,
             environment: { (_:PassportCheckingEnvironment) in
                 PassportEnvironment()
             }),
         AnyReducer { state, action, environment in
         switch action {
+        case let .passportAction(currentAction):
+            print("CHANGING COuntries")
+            state.chosenCountries = [armenia, georgia, kasachstan, turkey]
+            return .none
         case .binding:
-
             if state.havingPassport && state.passportState.dateOfExpiryMoreThanHalfYear  {
                 state.chosenCountries = state.accessibleCountriesWithPassport
                 print(state.passportState.dateOfExpiryMoreThanHalfYear)
@@ -54,22 +57,7 @@ let passportCheckingReducer = AnyReducer<
                 choseCountryDescription: countryModel.countryDescription)
             return .none
         case let .choosingCountryActions(choosingCountryActions):
-            return .none
-        case let .onAppear(action):
-            print(action)
-            print("OnAPPEAR!")
-//            if action == .binding(binding<PassportState>) {
-//                if state.passportState.dateOfExpiryMoreThanHalfYear || state.havingPassport {
-//                    state.chosenCountries = state.accessibleCountriesWithPassport
-//                    print("1")
-//                    print(state.passportState.dateOfExpiryMoreThanHalfYear)
-//                } else {
-//                    state.chosenCountries = state.accessibleCountriesWithoutPassport
-//                    print("2")
-//                }
-//
-//            }
-            return .none
+            return .none        
         }
     }
     .binding()

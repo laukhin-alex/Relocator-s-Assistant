@@ -11,6 +11,7 @@ import ComposableArchitecture
 enum PassportActions: BindableAction, Equatable {
 
     case binding(BindingAction<PassportState>)
+    case dateChanged(Date)
     case onAppear
 
 }
