@@ -15,12 +15,12 @@ struct RootView: View {
             GeometryReader { geometry in
                 TabView {
                     ZStack {
-                        RelocateStepsView(stateStore: stateStore.scope(
-                            state: \.relocateStepsState,
-                             action: RootAction.relocateStepsActions
-                          )
+                        RelocateStepsView(
+                            stateStore: stateStore.scope(
+                                state: \.relocateStepsState,
+                                action: RootAction.relocateStepsActions
+                            )
                         )
-
                     }
                     .tabItem {
                         Label("Шаги к переезду", systemImage: "figure.step.training")

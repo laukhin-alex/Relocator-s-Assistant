@@ -43,9 +43,13 @@ struct PassportView: View {
                         VStack(alignment: .leading) {
                             DatePicker(
                                 "Выберете дату окончания срока действия паспорта",
-                                selection: viewStore.binding(\.$dateOfExpiry), in: viewStore.currentDay...,
-                                displayedComponents: [.date])
-
+                                selection: viewStore.binding(
+                                    get: \.dateOfExpiry,
+                                    send: PassportActions.dateChanged
+                                ),
+                                    in: viewStore.currentDay...,
+                                    displayedComponents: [.date]
+                            )
                             .datePickerStyle(.compact)
 
                         }
