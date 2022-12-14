@@ -25,6 +25,8 @@
 		1F571F11292BBD49002AB253 /* RootActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F10292BBD49002AB253 /* RootActions.swift */; };
 		1F571F13292BBE18002AB253 /* RootEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F12292BBE18002AB253 /* RootEnvironment.swift */; };
 		1F571F15292BBE28002AB253 /* RootReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571F14292BBE28002AB253 /* RootReducer.swift */; };
+		1FBA6FF7293E34F6003562B9 /* UserDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBA6FF6293E34F6003562B9 /* UserDataRepo.swift */; };
+		1FBA6FF9293E3571003562B9 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBA6FF8293E3571003562B9 /* UserDefaults.swift */; };
 		1FDE96BF291FD3BA001AD31B /* PassportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96BE291FD3BA001AD31B /* PassportState.swift */; };
 		1FDE96C1291FD47E001AD31B /* PassportActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C0291FD47E001AD31B /* PassportActions.swift */; };
 		1FDE96C3291FD504001AD31B /* PassportEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C2291FD504001AD31B /* PassportEnvironment.swift */; };
@@ -71,6 +73,8 @@
 		1F571F10292BBD49002AB253 /* RootActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootActions.swift; sourceTree = "<group>"; };
 		1F571F12292BBE18002AB253 /* RootEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootEnvironment.swift; sourceTree = "<group>"; };
 		1F571F14292BBE28002AB253 /* RootReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReducer.swift; sourceTree = "<group>"; };
+		1FBA6FF6293E34F6003562B9 /* UserDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepo.swift; sourceTree = "<group>"; };
+		1FBA6FF8293E3571003562B9 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		1FDE96BE291FD3BA001AD31B /* PassportState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportState.swift; sourceTree = "<group>"; };
 		1FDE96C0291FD47E001AD31B /* PassportActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportActions.swift; sourceTree = "<group>"; };
 		1FDE96C2291FD504001AD31B /* PassportEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportEnvironment.swift; sourceTree = "<group>"; };
@@ -144,6 +148,15 @@
 				1F571F14292BBE28002AB253 /* RootReducer.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		1FBA6FF5293E34CE003562B9 /* UserDataRepo */ = {
+			isa = PBXGroup;
+			children = (
+				1FBA6FF6293E34F6003562B9 /* UserDataRepo.swift */,
+				1FBA6FF8293E3571003562B9 /* UserDefaults.swift */,
+			);
+			path = UserDataRepo;
 			sourceTree = "<group>";
 		};
 		1FDE96BD291FD25B001AD31B /* Passport */ = {
@@ -235,6 +248,7 @@
 		1FFC5DFC2917AC40009A095D /* Relocator's Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				1FBA6FF5293E34CE003562B9 /* UserDataRepo */,
 				1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */,
 				1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */,
 				1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */,
@@ -395,6 +409,7 @@
 				1FF0B16929323D120044FEF9 /* ChoosingCountryReducer.swift in Sources */,
 				1F571F0A292BBAFF002AB253 /* CountryDescriptionReducer.swift in Sources */,
 				1F103DC8291D499900F747D0 /* PassportView.swift in Sources */,
+				1FBA6FF9293E3571003562B9 /* UserDefaults.swift in Sources */,
 				1FF41877292BDB4400345560 /* ArmeniaModel.swift in Sources */,
 				1FDE96C5291FD753001AD31B /* PassportReducer.swift in Sources */,
 				1FF41879292BDC2B00345560 /* GeorgiaModel.swift in Sources */,
@@ -407,6 +422,7 @@
 				1F571F13292BBE18002AB253 /* RootEnvironment.swift in Sources */,
 				1FF0B16329323CED0044FEF9 /* ChoosingCountryState.swift in Sources */,
 				1F571EFB292BBA48002AB253 /* RelocateStepsState.swift in Sources */,
+				1FBA6FF7293E34F6003562B9 /* UserDataRepo.swift in Sources */,
 				1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */,
 				1F571F06292BBADB002AB253 /* CountryDescriptionActions.swift in Sources */,
 			);
