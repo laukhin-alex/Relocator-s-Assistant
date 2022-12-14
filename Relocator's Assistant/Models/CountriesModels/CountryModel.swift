@@ -7,17 +7,22 @@
 
 import Foundation
 
-struct CountryModel: Equatable, Identifiable {
-    var id: UUID = UUID()
-    
-
+struct CountryModel: Equatable, Identifiable, Codable {
+    var id: UUID 
     var countryName: String
     var legalTimeOfStay: Int
     var passportIsNeeded: Bool
     var flag: String
     var countryDescription: String
 
-
+    init(countryName: String, legalTimeOfStay: Int, passportIsNeeded: Bool, flag: String, countryDescription: String, id: UUID = UUID()) {
+        self.id = id
+        self.countryName = countryName
+        self.legalTimeOfStay = legalTimeOfStay
+        self.passportIsNeeded = passportIsNeeded
+        self.flag = flag
+        self.countryDescription = countryDescription
+    }
 }
 
 
