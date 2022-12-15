@@ -7,7 +7,13 @@
 
 import Foundation
 
-protocol UserDataRepo {
-    func saveData(countryModel: CountryModel)
-    func getData() -> CountryModel
+protocol UserDataRepository {
+    func saveCountryData(countryModel: CountryModel)
+    func getCountryData() -> CountryModel
+}
+
+
+protocol UserPassportDate {
+    func saveUserPassportDate(dateOfExpiry: Date)
+    func getUserPassportDate() -> Date
 }
