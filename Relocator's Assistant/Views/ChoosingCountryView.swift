@@ -16,20 +16,20 @@ struct ChoosingCountryView: View {
                 ScrollView {
                     ZStack {
                         VStack{
-                            VStack(alignment: .leading) {
+                            ZStack(alignment: .bottomTrailing) {
                                 Button {
+                                    viewStore.send(.back)
                                 } label: {
-                                    Text("Назад")
-                                        .frame(width: 98, height: 23)
+                                    Image(systemName: "xmark.circle.fill")
+                                        .font(.largeTitle)
 
                                         .foregroundColor(.black)
-                                        .padding(.all,10)
-                                        .background(.white)
-                                        .cornerRadius(5)
-
                                 }
+                                Rectangle()
+                                    .fill(Color.white.opacity(0))
                             }
-                            VStack(alignment: .center, spacing: 6){
+                            .padding(.horizontal)
+                            VStack(alignment: .center){
                                 Text(viewStore.chosenCountryFlag)
                                     .font(.system(size: 200))
                                 Text(viewStore.chosenCountryName)
@@ -38,26 +38,39 @@ struct ChoosingCountryView: View {
                                     .font(.system(size: 30))
                                     .multilineTextAlignment(.center)
                                     .padding(.horizontal)
-
-
-                                //                        Spacer()
                                 Text(viewStore.choseCountryDescription)
                                     .multilineTextAlignment(.leading)
-                                    .padding(.all)
-
-
-                                //                        Spacer(minLength: 500)
+                                    .padding([.leading, .trailing])
                             }
-                            .padding([.top, .leading])
+                            .padding(.horizontal)
+                            Spacer(minLength: 30)
+                            VStack() {
+                                Text("Вы хотите выбрать для релокации эту страну?")
+                                    .font(.largeTitle)
+                                    .padding()
+                                    .background(RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.orange))
+                                Button {
+                                    viewStore.send(.back)
+                                } label: {
+                                    Text("Выбрать")
+                                        .frame(width: 98, height: 23)
 
-                            .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: 1000)
-                            .frame(maxHeight: 3000)
+                                        .foregroundColor(.black)
+                                        .padding(.all,10)
+                                        .background(.white)
+                                        .cornerRadius(5)
+                                }
+                            }
                         }
+
                     }
+
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.green.opacity(0.8))
                 .navigationBarHidden(true)
+
 //                .onAppear {
 //                    viewStore.send(.selectCountry(ChoosingCountryState(chosenCountry: CountryDescriptionState())))
 //                }

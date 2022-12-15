@@ -15,6 +15,8 @@ let choosingCountryReducer = AnyReducer<
         switch action {
         case .selectCountry:
             return .none
+        case .back:
+            return .none
         }
 
     }

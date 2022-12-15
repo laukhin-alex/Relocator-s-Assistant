@@ -25,14 +25,15 @@ let passportCheckingReducer = AnyReducer<
         switch action {
         case let .passportAction(currentAction):
             print("CHANGING COuntries")
-            if state.passportState.dateOfExpiryMoreThanHalfYear  {
+//            if state.passportState.dateOfExpiryMoreThanHalfYear  {
+                state.passportState.defaults?.getUserPassportDate()
                 state.chosenCountries = [armenia, georgia, kasachstan, turkey]
-                print(state.chosenCountries)
-            } else {
-                state.chosenCountries = [armenia, kasachstan]
-                print(state.chosenCountries)
-
-            }
+//                print(state.chosenCountries)
+//            } else {
+//                state.chosenCountries = [armenia, kasachstan]
+//                print(state.chosenCountries)
+//
+//            }
             return .none
         case .binding:
             if state.havingPassport && state.passportState.dateOfExpiryMoreThanHalfYear  {
@@ -64,6 +65,9 @@ let passportCheckingReducer = AnyReducer<
                 choseCountryDescription: countryModel.countryDescription)
             return .none
         case let .choosingCountryActions(choosingCountryActions):
+            if choosingCountryActions == .back {
+                state.choosingCountryState = nil
+            }
             return .none        
         }
     }

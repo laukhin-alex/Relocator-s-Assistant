@@ -37,12 +37,13 @@ struct PassportView: View {
                                 .padding([.top, .leading, .trailing])
                         }
 
-                        Image("PassportDateOfExpiry")                        .resizable()
+                        Image("PassportDateOfExpiry")
+                            .resizable()
                             .frame(width: 250, height: 100)
                         Spacer()
                         VStack(alignment: .leading) {
                             DatePicker(
-                                "Выберете дату окончания срока действия паспорта",
+                                "Выберете дату окончания \nсрока действия паспорта",
                                 selection: viewStore.binding(
                                     get: \.dateOfExpiry,
                                     send: PassportActions.dateChanged

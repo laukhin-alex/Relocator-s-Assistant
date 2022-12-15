@@ -36,10 +36,13 @@ struct RootView: View {
                         Label("Описание страны", systemImage: "globe.desk")
                     }
                 }
+                
             }
 
-            .edgesIgnoringSafeArea(.bottom)
+
             .tint(.red)
+            
+
         }
     }
 }

@@ -29,9 +29,10 @@ struct UserDefaultsRepository: UserDataRepository, Equatable {
 }
 
 
-struct UserDefaultsPassportDate: UserPassportDate, Equatable {
+public struct UserDefaultsPassportDate: UserPassportDate, Equatable {
     func saveUserPassportDate(dateOfExpiry: Date) {
         let data = try? JSONEncoder().encode(dateOfExpiry)
+        defaults.set(data, forKey: Keys.passportDateKey)
     }
 
     func getUserPassportDate() -> Date {
