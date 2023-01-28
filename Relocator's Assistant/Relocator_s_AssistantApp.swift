@@ -11,15 +11,15 @@ import ComposableArchitecture
 @main
 struct Relocator_s_AssistantApp: App {
     var body: some Scene {
-            WindowGroup {
-                NavigationView {
+        WindowGroup {
+            NavigationView {
                 RootView(store: .init(
                     initialState: RootState(),
                     reducer: rootReducer,
                     environment: RootEnvironment())
                 )
             }
-                .tint(.red)
+            .tint(.red)
         }
     }
 }

@@ -55,8 +55,6 @@ struct RootView: View {
                 }
             }
             .navigationBarTitle("Шаги к переезду")
-
-        
     }
 }
 

@@ -9,24 +9,29 @@ import ComposableArchitecture
 import SwiftUI
 
 struct RelocateStepsState: Equatable {
-    var count = 1
+    var passportCheckingState = PassportCheckingState()
 }
 
 enum RelocateStepsAction {
-    case one
-    case two
+    case passportCheckingAction(PassportCheckingAction)
 }
 
 struct RelocateStepsEnvironment {}
 
-let relocateStepsReducer = AnyReducer<RelocateStepsState, RelocateStepsAction, RelocateStepsEnvironment> { state, action, environment in
-    switch action {
-    case .one:
-        return .none
-    case .two:
-        return .none
-    }
-}
+let relocateStepsReducer = AnyReducer<RelocateStepsState, RelocateStepsAction, RelocateStepsEnvironment>.combine(
+    .init  { state, action, environment in
+        switch action {
+        default:
+            return .none
+        }
+    },
+    passportCheckingReducer
+        .pullback(
+            state: \.passportCheckingState,
+            action: /RelocateStepsAction.passportCheckingAction,
+            environment: { _ in .init() }
+        )
+)
 
 struct RelocateStepsView: View {
     let store: Store<RelocateStepsState, RelocateStepsAction>
@@ -35,11 +40,20 @@ struct RelocateStepsView: View {
         WithViewStore(self.store) { viewStore in
                 Form {
                     Section(header: Text("Проверка паспорта")) {
-                        NavigationLink(
-                            "Определимся с Заграничным паспортом",
-                            destination:
-                                EmptyView()
-                        )
+                        HStack {
+                            Image(systemName: viewStore.passportCheckingState.havingPassport ? "checkmark.square.fill" : "square")
+                                .foregroundColor(viewStore.passportCheckingState.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
+
+                            NavigationLink(
+                                "Определимся с Заграничным паспортом",
+                                destination:
+                                    PassportCheckingView(store: store.scope(
+                                        state: \.passportCheckingState,
+                                        action: RelocateStepsAction.passportCheckingAction
+                                    )
+                                    )
+                            )
+                        }
                     }
                     Section(header: Text("Выбранная страна")) {
                         NavigationLink(
