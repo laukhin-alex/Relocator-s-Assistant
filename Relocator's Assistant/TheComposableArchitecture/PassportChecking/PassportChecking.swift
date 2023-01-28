@@ -9,29 +9,46 @@ import ComposableArchitecture
 import SwiftUI
 
 struct PassportCheckingState: Equatable {
-    @BindableState var havingPassport = false
+    var passportState = PassportState()
+    var accessibleCountriesWithPassport = RelocateStepsModel.init().accessibleCountriesWithPassport
+    var accessibleCountriesWithoutPassport = RelocateStepsModel.init().accessibleCountriesWithoutPassport
+    var chosenCountries: [CountryModel] = RelocateStepsModel.init().accessibleCountriesWithoutPassport
 }
 
-enum PassportCheckingAction: BindableAction, Equatable {
-    case binding(BindingAction<PassportCheckingState>)
+enum PassportCheckingAction: Equatable {
+    case passportAction(PassportAction)
+    case chosenCountries
+
 }
 
 struct PassportCheckingEnvironment {}
 
-let passportCheckingReducer = AnyReducer<PassportCheckingState, PassportCheckingAction, PassportCheckingEnvironment> { state, action, environment in
+let passportCheckingReducer = AnyReducer<PassportCheckingState, PassportCheckingAction, PassportCheckingEnvironment>.combine(
+    .init { state, action, environment in
 
-    switch action {
-    case .binding(\.$havingPassport):
-        state.havingPassport = state.havingPassport
-        return .none
+        switch action {
+        case .chosenCountries:
+            if state.passportState.havingPassport {
+                state.chosenCountries = state.accessibleCountriesWithPassport
+                return .none
+            } else {
+                state.chosenCountries = state.accessibleCountriesWithoutPassport
+                return .none
+            }
+        case .passportAction(_):
+            return .none
+        }
 
-    case .binding:
-        return .none
-    }
-
-}
-.binding()
+},
+passportReducer
+        .pullback(
+            state: \.passportState,
+            action: /PassportCheckingAction.passportAction,
+            environment: { _ in .init() }
+    )
+    )
 .debug()
+
 
 struct PassportCheckingView: View {
     let store: Store<PassportCheckingState,PassportCheckingAction>
@@ -39,21 +56,55 @@ struct PassportCheckingView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
-                Toggle("Есть паспорт?", isOn: viewStore.$havingPassport)
+                Form {
+                    Section(header: Text("Заграничный паспорт")) {
+                        NavigationLink(
+                            "Определимся с Заграничным паспортом",
+                            destination:
+                                PassportView(store: store.scope(
+                                    state: \.passportState,
+                                    action: PassportCheckingAction.passportAction
+                                )
+                                )
+                        )
+                    }
+
+                    Section(header: Text("Доступные страны")) {
+                        VStack {
+                            ForEach(viewStore.chosenCountries) {
+                                country in
+                                HStack {
+                                    Text(country.flag)
+                                        .padding(.all)
+
+                                    Spacer()
+                                    Text(country.countryName)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+
+                }
             }
-            .padding()
-            Spacer()
+            .onAppear {
+                viewStore.send(.chosenCountries)
+            }
         }
+
     }
+
 }
 
 struct PassportCheckingView_Previews: PreviewProvider {
     static var previews: some View {
-        PassportCheckingView(store: Store(
-            initialState: PassportCheckingState(),
-            reducer: passportCheckingReducer,
-            environment: PassportCheckingEnvironment()
+        NavigationView {
+            PassportCheckingView(store: Store(
+                initialState: PassportCheckingState(),
+                reducer: passportCheckingReducer,
+                environment: PassportCheckingEnvironment()
             )
-        )
+            )
+        }
     }
 }

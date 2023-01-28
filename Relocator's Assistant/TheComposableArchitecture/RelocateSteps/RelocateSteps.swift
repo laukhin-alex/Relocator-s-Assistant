@@ -41,8 +41,8 @@ struct RelocateStepsView: View {
                 Form {
                     Section(header: Text("Проверка паспорта")) {
                         HStack {
-                            Image(systemName: viewStore.passportCheckingState.havingPassport ? "checkmark.square.fill" : "square")
-                                .foregroundColor(viewStore.passportCheckingState.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
+                            Image(systemName: viewStore.passportCheckingState.passportState.havingPassport ? "checkmark.square.fill" : "square")
+                                .foregroundColor(viewStore.passportCheckingState.passportState.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
 
                             NavigationLink(
                                 "Определимся с Заграничным паспортом",
