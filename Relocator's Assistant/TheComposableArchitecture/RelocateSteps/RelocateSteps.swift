@@ -28,23 +28,43 @@ let relocateStepsReducer = AnyReducer<RelocateStepsState, RelocateStepsAction, R
     }
 }
 
-struct RelocateSteps: View {
+struct RelocateStepsView: View {
     let store: Store<RelocateStepsState, RelocateStepsAction>
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Form {
+                    Section(header: Text("Проверка паспорта")) {
+                        NavigationLink(
+                            "Определимся с Заграничным паспортом",
+                            destination:
+                                EmptyView()
+                        )
+                    }
+                    Section(header: Text("Выбранная страна")) {
+                        NavigationLink(
+                            "Выбранная страна",
+                            destination:
+                                EmptyView()
+                        )
+                    }
+                }
+                Spacer()
+            }
+            .navigationBarTitle("Шаги к переезду")
+    }
+}
+
+struct RelocateStepsView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView{
+            RelocateStepsView(store: Store(
+                initialState: RelocateStepsState(),
+                reducer: relocateStepsReducer,
+                environment: RelocateStepsEnvironment()
+                )
+            )
         }
     }
 }
 
-struct RelocateSteps_Previews: PreviewProvider {
-    static var previews: some View {
-        RelocateSteps(store: Store(
-            initialState: RelocateStepsState(),
-            reducer: relocateStepsReducer,
-            environment: RelocateStepsEnvironment()
-            )
-        )
-    }
-}
