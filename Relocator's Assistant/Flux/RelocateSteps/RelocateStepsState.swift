@@ -1,16 +1,16 @@
+////
+////  RelocateStepsState.swift
+////  Relocator's Assistant
+////
+////  Created by Александр on 21.11.22.
+////
 //
-//  RelocateStepsState.swift
-//  Relocator's Assistant
+//import Foundation
+//import ComposableArchitecture
+//import SwiftUI
 //
-//  Created by Александр on 21.11.22.
+//struct RelocateStepsState: Equatable {
+//    var stepsCount = RelocateStepsModel.init().stepsCount
+//    @BindableState var passportCheckingState = PassportCheckingState()
+//}
 //
-
-import Foundation
-import ComposableArchitecture
-import SwiftUI
-
-struct RelocateStepsState: Equatable {
-    var stepsCount = RelocateStepsModel.init().stepsCount
-    @BindableState var passportCheckingState = PassportCheckingState()
-}
-

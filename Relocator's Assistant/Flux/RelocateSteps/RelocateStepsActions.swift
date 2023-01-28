@@ -1,13 +1,13 @@
+////
+////  RelocateStepsActions.swift
+////  Relocator's Assistant
+////
+////  Created by Александр on 21.11.22.
+////
 //
-//  RelocateStepsActions.swift
-//  Relocator's Assistant
+//import Foundation
+//import ComposableArchitecture
 //
-//  Created by Александр on 21.11.22.
-//
-
-import Foundation
-import ComposableArchitecture
-
-enum RelocateStepsActions: BindableAction {
-    case binding(BindingAction<RelocateStepsState>)
-}
+//enum RelocateStepsActions: BindableAction {
+//    case binding(BindingAction<RelocateStepsState>)
+//}

@@ -16,6 +16,7 @@ struct PassportCheckingView: View {
             GeometryReader {_ in
                 ZStack{
                     List {
+
                         Section(header: Text("Заграничный паспорт")) {
                             VStack {
                                 Toggle("У Вас есть Заграничный паспорт, или Вы хотите оформить его в ближайшее время?", isOn: viewStore.binding(\.$havingPassport))
@@ -23,10 +24,16 @@ struct PassportCheckingView: View {
                                     HStack {
                                         Image(systemName: viewStore.passportState.dateOfExpiryMoreThanHalfYear ? "checkmark.square.fill" : "square")
                                             .foregroundColor(viewStore.passportState.dateOfExpiryMoreThanHalfYear ? Color(UIColor.systemBlue) : Color.secondary)
+
                                         NavigationLink("Настройка паспорта", destination:   PassportView(stateStore: stateStore.scope(
                                             state: \.passportState,
-                                            action: PassportCheckingActions.passportAction
-                                        ),  date: DateOfExpiryModal()))
+                                            action: PassportCheckingActions.onAppear
+                                        ),  date: DateOfExpiryModal()
+                                                                                                         //                                                       label: {
+                                                                                                         //                                            Text("Настройка паспорта")
+
+                                        )
+                                        )
                                     }
                                 }
                             }
@@ -50,17 +57,23 @@ struct PassportCheckingView: View {
 
                                 }
                             }
+
+
+
+                            //                        }
                         }
                     }
-
                     IfLetStore(
                         stateStore.scope(
                             state: \.choosingCountryState,
                             action: PassportCheckingActions.choosingCountryActions)) { countryDescription in
                                 ChoosingCountryView(stateStore: countryDescription)
                             }
+                    .onAppear {
+                        viewStore.send(.onAppear(PassportActions.onAppear))
+                    }
+                    .navigationTitle("Настройка")
                 }
-                .navigationTitle("Настройка")
             }
         }
     }

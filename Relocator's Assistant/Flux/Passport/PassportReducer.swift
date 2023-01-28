@@ -16,6 +16,7 @@ let passportReducer = AnyReducer<
 
         switch action {
         case .binding(\.$dateOfExpiryMoreThanHalfYear):
+
             if state.dateOfExpiry > state.halfYearDay ?? Date() {
                 state.dateOfExpiryMoreThanHalfYear = true
             } else {
@@ -23,26 +24,25 @@ let passportReducer = AnyReducer<
             }
             return .none
         case .onAppear:
-            if state.dateOfExpiry > state.halfYearDay ?? Date() {
-                print(state.dateOfExpiry)
-                print("YES")
-                state.dateOfExpiryMoreThanHalfYear = true
-
-            } else {
-                print("No")
-                state.dateOfExpiryMoreThanHalfYear = false
-            }
-            print("Появился!")
+            
+           var dateForPicker = environment.repo.getUserPassportDate()
+            state.dateOfExpiry = dateForPicker
+            print(dateForPicker)
+            print(state.dateOfExpiry)
             return .none
         case .binding(_):
             return . none
         case let .dateChanged(newDate):
+
+            environment.repo.saveUserPassportDate(dateOfExpiry: newDate)
             print("Changes Date : \(newDate)")
+            print("Новая дата\(newDate)")
             return .none
-        default:
-            print("PassportReducerDefault: \(action)")
-            return .none
+//        default:
+//            print("PassportReducerDefault: \(action)")
+//            return .none
         }
     }
 
     .binding()
+    .debug()

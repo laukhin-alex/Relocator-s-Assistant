@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F0CB249292FC35D00A68FD7 /* PassportCheckingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CB248292FC35D00A68FD7 /* PassportCheckingView.swift */; };
-		1F103DC8291D499900F747D0 /* PassportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F103DC7291D499900F747D0 /* PassportView.swift */; };
+		1F0CB249292FC35D00A68FD7 /* PassportCheckingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0CB248292FC35D00A68FD7 /* PassportCheckingView1.swift */; };
+		1F103DC8291D499900F747D0 /* PassportView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F103DC7291D499900F747D0 /* PassportView1.swift */; };
 		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
-		1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */; };
-		1F27DB952917C61E0026B4CC /* CountryDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB942917C61E0026B4CC /* CountryDescriptionView.swift */; };
+		1F27DB932917C5D10026B4CC /* RelocateStepsView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB922917C5D10026B4CC /* RelocateStepsView1.swift */; };
+		1F27DB952917C61E0026B4CC /* CountryDescriptionView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F27DB942917C61E0026B4CC /* CountryDescriptionView1.swift */; };
+		1F4ADC80298580AD005ACE7E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ADC7F298580AD005ACE7E /* RootView.swift */; };
+		1F4ADC82298581BF005ACE7E /* RelocateSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4ADC81298581BF005ACE7E /* RelocateSteps.swift */; };
 		1F571EFB292BBA48002AB253 /* RelocateStepsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571EFA292BBA48002AB253 /* RelocateStepsState.swift */; };
 		1F571EFD292BBA57002AB253 /* RelocateStepsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571EFC292BBA57002AB253 /* RelocateStepsActions.swift */; };
 		1F571EFF292BBA6B002AB253 /* RelocateStepsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F571EFE292BBA6B002AB253 /* RelocateStepsEnvironment.swift */; };
@@ -38,7 +40,7 @@
 		1FF0B158293109960044FEF9 /* PassportCheckingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B157293109960044FEF9 /* PassportCheckingActions.swift */; };
 		1FF0B15A293109A80044FEF9 /* PassportCheckingEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B159293109A80044FEF9 /* PassportCheckingEnvironment.swift */; };
 		1FF0B15C293109B40044FEF9 /* PassportCheckingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B15B293109B40044FEF9 /* PassportCheckingReducer.swift */; };
-		1FF0B16029323CB40044FEF9 /* ChoosingCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B15F29323CB40044FEF9 /* ChoosingCountryView.swift */; };
+		1FF0B16029323CB40044FEF9 /* ChoosingCountryView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B15F29323CB40044FEF9 /* ChoosingCountryView1.swift */; };
 		1FF0B16329323CED0044FEF9 /* ChoosingCountryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B16229323CED0044FEF9 /* ChoosingCountryState.swift */; };
 		1FF0B16529323CF80044FEF9 /* ChoosingCountryActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B16429323CF80044FEF9 /* ChoosingCountryActions.swift */; };
 		1FF0B16729323D060044FEF9 /* ChoosingCountryEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B16629323D060044FEF9 /* ChoosingCountryEnvironment.swift */; };
@@ -49,17 +51,19 @@
 		1FF4187D292BDC8400345560 /* TurkeyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4187C292BDC8400345560 /* TurkeyModel.swift */; };
 		1FF4187F292BE0D500345560 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4187E292BE0D500345560 /* CountryModel.swift */; };
 		1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */; };
-		1FFC5E002917AC40009A095D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFF2917AC40009A095D /* RootView.swift */; };
+		1FFC5E002917AC40009A095D /* RootView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5DFF2917AC40009A095D /* RootView1.swift */; };
 		1FFC5E022917AC43009A095D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E012917AC43009A095D /* Assets.xcassets */; };
 		1FFC5E052917AC43009A095D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FFC5E042917AC43009A095D /* Preview Assets.xcassets */; };
 		1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F0CB248292FC35D00A68FD7 /* PassportCheckingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingView.swift; sourceTree = "<group>"; };
-		1F103DC7291D499900F747D0 /* PassportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportView.swift; sourceTree = "<group>"; };
-		1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsView.swift; sourceTree = "<group>"; };
-		1F27DB942917C61E0026B4CC /* CountryDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescriptionView.swift; sourceTree = "<group>"; };
+		1F0CB248292FC35D00A68FD7 /* PassportCheckingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingView1.swift; sourceTree = "<group>"; };
+		1F103DC7291D499900F747D0 /* PassportView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportView1.swift; sourceTree = "<group>"; };
+		1F27DB922917C5D10026B4CC /* RelocateStepsView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsView1.swift; sourceTree = "<group>"; };
+		1F27DB942917C61E0026B4CC /* CountryDescriptionView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDescriptionView1.swift; sourceTree = "<group>"; };
+		1F4ADC7F298580AD005ACE7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1F4ADC81298581BF005ACE7E /* RelocateSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateSteps.swift; sourceTree = "<group>"; };
 		1F571EFA292BBA48002AB253 /* RelocateStepsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsState.swift; sourceTree = "<group>"; };
 		1F571EFC292BBA57002AB253 /* RelocateStepsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsActions.swift; sourceTree = "<group>"; };
 		1F571EFE292BBA6B002AB253 /* RelocateStepsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsEnvironment.swift; sourceTree = "<group>"; };
@@ -87,7 +91,7 @@
 		1FF0B157293109960044FEF9 /* PassportCheckingActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingActions.swift; sourceTree = "<group>"; };
 		1FF0B159293109A80044FEF9 /* PassportCheckingEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingEnvironment.swift; sourceTree = "<group>"; };
 		1FF0B15B293109B40044FEF9 /* PassportCheckingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingReducer.swift; sourceTree = "<group>"; };
-		1FF0B15F29323CB40044FEF9 /* ChoosingCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingCountryView.swift; sourceTree = "<group>"; };
+		1FF0B15F29323CB40044FEF9 /* ChoosingCountryView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingCountryView1.swift; sourceTree = "<group>"; };
 		1FF0B16229323CED0044FEF9 /* ChoosingCountryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingCountryState.swift; sourceTree = "<group>"; };
 		1FF0B16429323CF80044FEF9 /* ChoosingCountryActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingCountryActions.swift; sourceTree = "<group>"; };
 		1FF0B16629323D060044FEF9 /* ChoosingCountryEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingCountryEnvironment.swift; sourceTree = "<group>"; };
@@ -99,7 +103,7 @@
 		1FF4187E292BE0D500345560 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		1FFC5DFA2917AC40009A095D /* Relocator's Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Relocator's Assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FFC5DFD2917AC40009A095D /* Relocator_s_AssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relocator_s_AssistantApp.swift; sourceTree = "<group>"; };
-		1FFC5DFF2917AC40009A095D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1FFC5DFF2917AC40009A095D /* RootView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView1.swift; sourceTree = "<group>"; };
 		1FFC5E012917AC43009A095D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FFC5E042917AC43009A095D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1FFC5E0E2917B15C009A095D /* CountriesFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesFlags.swift; sourceTree = "<group>"; };
@@ -117,6 +121,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F4ADC7829857FA0005ACE7E /* TheComposableArchitecture */ = {
+			isa = PBXGroup;
+			children = (
+				1F4ADC7929857FEE005ACE7E /* RootView */,
+				1F4ADC7A29857FFB005ACE7E /* RelocateSteps */,
+				1F4ADC7C29858027005ACE7E /* Passport */,
+				1F4ADC7B29858010005ACE7E /* PassportChecking */,
+				1F4ADC7D29858030005ACE7E /* ChoosingCountry */,
+				1F4ADC7E2985803C005ACE7E /* CountryDescription */,
+			);
+			path = TheComposableArchitecture;
+			sourceTree = "<group>";
+		};
+		1F4ADC7929857FEE005ACE7E /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				1F4ADC7F298580AD005ACE7E /* RootView.swift */,
+			);
+			path = RootView;
+			sourceTree = "<group>";
+		};
+		1F4ADC7A29857FFB005ACE7E /* RelocateSteps */ = {
+			isa = PBXGroup;
+			children = (
+				1F4ADC81298581BF005ACE7E /* RelocateSteps.swift */,
+			);
+			path = RelocateSteps;
+			sourceTree = "<group>";
+		};
+		1F4ADC7B29858010005ACE7E /* PassportChecking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PassportChecking;
+			sourceTree = "<group>";
+		};
+		1F4ADC7C29858027005ACE7E /* Passport */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Passport;
+			sourceTree = "<group>";
+		};
+		1F4ADC7D29858030005ACE7E /* ChoosingCountry */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChoosingCountry;
+			sourceTree = "<group>";
+		};
+		1F4ADC7E2985803C005ACE7E /* CountryDescription */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CountryDescription;
+			sourceTree = "<group>";
+		};
 		1F571EF9292BBA20002AB253 /* RelocateSteps */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +316,7 @@
 				1FFC5E012917AC43009A095D /* Assets.xcassets */,
 				1FDE96CC29200025001AD31B /* Additions+Extensions */,
 				1FFC5E0B2917B0E3009A095D /* Models */,
+				1F4ADC7829857FA0005ACE7E /* TheComposableArchitecture */,
 				1FFC5E0D2917B10E009A095D /* Views */,
 				1FFC5E0C2917B0F5009A095D /* Flux */,
 				1FFC5E032917AC43009A095D /* Preview Content */,
@@ -296,12 +358,12 @@
 		1FFC5E0D2917B10E009A095D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1FFC5DFF2917AC40009A095D /* RootView.swift */,
-				1F27DB922917C5D10026B4CC /* RelocateStepsView.swift */,
-				1F0CB248292FC35D00A68FD7 /* PassportCheckingView.swift */,
-				1F103DC7291D499900F747D0 /* PassportView.swift */,
-				1FF0B15F29323CB40044FEF9 /* ChoosingCountryView.swift */,
-				1F27DB942917C61E0026B4CC /* CountryDescriptionView.swift */,
+				1FFC5DFF2917AC40009A095D /* RootView1.swift */,
+				1F27DB922917C5D10026B4CC /* RelocateStepsView1.swift */,
+				1F0CB248292FC35D00A68FD7 /* PassportCheckingView1.swift */,
+				1F103DC7291D499900F747D0 /* PassportView1.swift */,
+				1FF0B15F29323CB40044FEF9 /* ChoosingCountryView1.swift */,
+				1F27DB942917C61E0026B4CC /* CountryDescriptionView1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,7 +445,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FFC5E002917AC40009A095D /* RootView.swift in Sources */,
+				1F4ADC82298581BF005ACE7E /* RelocateSteps.swift in Sources */,
+				1FFC5E002917AC40009A095D /* RootView1.swift in Sources */,
 				1FF0B15C293109B40044FEF9 /* PassportCheckingReducer.swift in Sources */,
 				1FDE96BF291FD3BA001AD31B /* PassportState.swift in Sources */,
 				1F571F08292BBAF1002AB253 /* CountryDescriptionEnvironment.swift in Sources */,
@@ -397,18 +460,19 @@
 				1FF4187B292BDC5500345560 /* KasachstanModel.swift in Sources */,
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
 				1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */,
-				1F0CB249292FC35D00A68FD7 /* PassportCheckingView.swift in Sources */,
-				1F27DB952917C61E0026B4CC /* CountryDescriptionView.swift in Sources */,
+				1F0CB249292FC35D00A68FD7 /* PassportCheckingView1.swift in Sources */,
+				1F27DB952917C61E0026B4CC /* CountryDescriptionView1.swift in Sources */,
 				1F571F15292BBE28002AB253 /* RootReducer.swift in Sources */,
 				1FF0B16729323D060044FEF9 /* ChoosingCountryEnvironment.swift in Sources */,
 				1FF0B158293109960044FEF9 /* PassportCheckingActions.swift in Sources */,
 				1FDE96C3291FD504001AD31B /* PassportEnvironment.swift in Sources */,
+				1F4ADC80298580AD005ACE7E /* RootView.swift in Sources */,
 				1FF0B1562931097D0044FEF9 /* PassportCheckingState.swift in Sources */,
 				1FDE96C1291FD47E001AD31B /* PassportActions.swift in Sources */,
 				1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */,
 				1FF0B16929323D120044FEF9 /* ChoosingCountryReducer.swift in Sources */,
 				1F571F0A292BBAFF002AB253 /* CountryDescriptionReducer.swift in Sources */,
-				1F103DC8291D499900F747D0 /* PassportView.swift in Sources */,
+				1F103DC8291D499900F747D0 /* PassportView1.swift in Sources */,
 				1FBA6FF9293E3571003562B9 /* UserDefaults.swift in Sources */,
 				1FF41877292BDB4400345560 /* ArmeniaModel.swift in Sources */,
 				1FDE96C5291FD753001AD31B /* PassportReducer.swift in Sources */,
@@ -416,14 +480,14 @@
 				1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */,
 				1FF4187F292BE0D500345560 /* CountryModel.swift in Sources */,
 				1FF4187D292BDC8400345560 /* TurkeyModel.swift in Sources */,
-				1FF0B16029323CB40044FEF9 /* ChoosingCountryView.swift in Sources */,
+				1FF0B16029323CB40044FEF9 /* ChoosingCountryView1.swift in Sources */,
 				1F571F11292BBD49002AB253 /* RootActions.swift in Sources */,
 				1F571F01292BBA79002AB253 /* RelocateStepsReducer.swift in Sources */,
 				1F571F13292BBE18002AB253 /* RootEnvironment.swift in Sources */,
 				1FF0B16329323CED0044FEF9 /* ChoosingCountryState.swift in Sources */,
 				1F571EFB292BBA48002AB253 /* RelocateStepsState.swift in Sources */,
 				1FBA6FF7293E34F6003562B9 /* UserDataRepo.swift in Sources */,
-				1F27DB932917C5D10026B4CC /* RelocateStepsView.swift in Sources */,
+				1F27DB932917C5D10026B4CC /* RelocateStepsView1.swift in Sources */,
 				1F571F06292BBADB002AB253 /* CountryDescriptionActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

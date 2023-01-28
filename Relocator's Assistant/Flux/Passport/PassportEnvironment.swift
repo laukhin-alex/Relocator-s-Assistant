@@ -9,6 +9,6 @@ import Foundation
 import ComposableArchitecture
 
 struct PassportEnvironment {
-
+    var repo = UserDefaultsPassportDate()
     
 }
