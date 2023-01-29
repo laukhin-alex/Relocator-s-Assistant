@@ -40,12 +40,15 @@ struct PassportView: View {
     var body: some View {
         WithViewStore(self.store) { viewStore in
             VStack {
-                Toggle("Есть паспорт?", isOn: viewStore.$havingPassport)
+                Toggle("Есть паспорт?", isOn: viewStore.binding(\.$havingPassport))
+
+                }
             }
+        .navigationTitle("Navigate and load")
+        .navigationViewStyle(.stack)
             .padding()
             Spacer()
         }
-    }
 }
 
 struct PassportView_Previews: PreviewProvider {

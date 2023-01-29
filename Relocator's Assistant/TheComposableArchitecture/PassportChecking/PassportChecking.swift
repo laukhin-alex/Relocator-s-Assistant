@@ -55,43 +55,46 @@ struct PassportCheckingView: View {
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-            VStack {
-                Form {
-                    Section(header: Text("Заграничный паспорт")) {
-                        NavigationLink(
-                            "Определимся с Заграничным паспортом",
-                            destination:
-                                PassportView(store: store.scope(
-                                    state: \.passportState,
-                                    action: PassportCheckingAction.passportAction
-                                )
-                                )
-                        )
-                    }
-
-                    Section(header: Text("Доступные страны")) {
-                        VStack {
-                            ForEach(viewStore.chosenCountries) {
-                                country in
-                                HStack {
-                                    Text(country.flag)
-                                        .padding(.all)
-
-                                    Spacer()
-                                    Text(country.countryName)
-                                    Spacer()
+//            NavigationView {
+                VStack {
+                    Form {
+                        Section(header: Text("Заграничный паспорт")) {
+                            NavigationLink(
+                                "Определимся с Заграничным паспортом",
+                                destination:
+                                    PassportView(store: store.scope(
+                                        state: \.passportState,
+                                        action: PassportCheckingAction.passportAction
+                                    )
+                                    )
+                            )
+                        }
+                        
+                        Section(header: Text("Доступные страны")) {
+                            VStack {
+                                ForEach(viewStore.chosenCountries) {
+                                    country in
+                                    HStack {
+                                        Text(country.flag)
+                                            .padding(.all)
+                                        
+                                        Spacer()
+                                        Text(country.countryName)
+                                        Spacer()
+                                    }
                                 }
                             }
                         }
+                        
                     }
-
                 }
-            }
-            .onAppear {
-                viewStore.send(.chosenCountries)
-            }
-        }
-
+                .onAppear {
+                    viewStore.send(.chosenCountries)
+                }
+//            }
+                .navigationBarTitle("Паспорт")
+                
+        }        
     }
 
 }
@@ -106,5 +109,6 @@ struct PassportCheckingView_Previews: PreviewProvider {
             )
             )
         }
+        .navigationViewStyle(.stack)
     }
 }

@@ -19,7 +19,7 @@ struct Relocator_s_AssistantApp: App {
                     environment: RootEnvironment())
                 )
             }
-            .tint(.red)
+            .navigationViewStyle(.stack)
         }
     }
 }

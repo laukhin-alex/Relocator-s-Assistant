@@ -51,11 +51,11 @@ struct RootView: View {
                     .tabItem {
                         Label("Шаги к переезду", systemImage: "figure.step.training")
                     }
-
+                    
                 }
             }
-            .navigationBarTitle("Шаги к переезду")
-    }
+        .navigationBarTitle("План переезда")
+        }
 }
 
 struct RootView_Previews: PreviewProvider {
@@ -67,6 +67,7 @@ struct RootView_Previews: PreviewProvider {
                 environment: RootEnvironment())
             )
         }
+        .navigationViewStyle(.stack)
     }
 }
 

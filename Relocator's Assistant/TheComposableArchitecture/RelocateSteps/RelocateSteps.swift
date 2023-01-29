@@ -38,34 +38,34 @@ struct RelocateStepsView: View {
 
     var body: some View {
         WithViewStore(self.store) { viewStore in
-                Form {
-                    Section(header: Text("Проверка паспорта")) {
-                        HStack {
-                            Image(systemName: viewStore.passportCheckingState.passportState.havingPassport ? "checkmark.square.fill" : "square")
-                                .foregroundColor(viewStore.passportCheckingState.passportState.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
+            Form {
+                Section(header: Text("Проверка паспорта")) {
+                    HStack {
+                        Image(systemName: viewStore.passportCheckingState.passportState.havingPassport ? "checkmark.square.fill" : "square")
+                            .foregroundColor(viewStore.passportCheckingState.passportState.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
 
-                            NavigationLink(
-                                "Определимся с Заграничным паспортом",
-                                destination:
-                                    PassportCheckingView(store: store.scope(
-                                        state: \.passportCheckingState,
-                                        action: RelocateStepsAction.passportCheckingAction
-                                    )
-                                    )
-                            )
-                        }
-                    }
-                    Section(header: Text("Выбранная страна")) {
                         NavigationLink(
-                            "Выбранная страна",
+                            "Определимся с Заграничным паспортом",
                             destination:
-                                EmptyView()
+                                PassportCheckingView(store: store.scope(
+                                    state: \.passportCheckingState,
+                                    action: RelocateStepsAction.passportCheckingAction
+                                )
+                                )
                         )
                     }
                 }
-                Spacer()
+                Section(header: Text("Выбранная страна")) {
+                    NavigationLink(
+                        "Выбранная страна",
+                        destination:
+                            EmptyView()
+                    )
+                }
             }
-            .navigationBarTitle("Шаги к переезду")
+            Spacer()
+        }
+        
     }
 }
 
@@ -79,6 +79,7 @@ struct RelocateStepsView_Previews: PreviewProvider {
                 )
             )
         }
+        .navigationViewStyle(.stack)
     }
 }
 
