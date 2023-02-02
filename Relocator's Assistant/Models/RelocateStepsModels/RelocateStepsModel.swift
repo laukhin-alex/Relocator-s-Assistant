@@ -8,8 +8,6 @@
 import Foundation
 
 struct RelocateStepsModel: Equatable {
-
-
     let havingPassport: Bool = false
     var stepsCount = 0
     var accessibleCountriesWithPassport: [CountryModel] = [armenia, georgia, kasachstan, turkey]

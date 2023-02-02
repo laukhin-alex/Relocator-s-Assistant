@@ -39,23 +39,34 @@ struct RootView: View {
 
     var body: some View {
         WithViewStore(store) { viewStore in
-                TabView {
-                    ZStack {
-                        RelocateStepsView(
-                            store: self.store.scope(
-                                state: \.relocateSteps,
-                                action: RootAction.relocateSteps
-                            )
+            TabView {
+                ZStack {
+                    RelocateStepsView(
+                        store: self.store.scope(
+                            state: \.relocateSteps,
+                            action: RootAction.relocateSteps
                         )
-                    }
-                    .tabItem {
-                        Label("Шаги к переезду", systemImage: "figure.step.training")
-                    }
-                    
+                    )
+                }
+                .tabItem {
+                    Label("Шаги к переезду", systemImage: "figure.step.training")
+                }
+                ZStack {
+                    EmptyView()
+                    //                        RelocateStepsView(
+                    //                            store: self.store.scope(
+                    //                                state: \.relocateSteps,
+                    //                                action: RootAction.relocateSteps
+                    //                            )
+                    //                        )
+                }
+                .tabItem {
+                    Label("Шаги к переездуg", systemImage: "figure.step.training")
                 }
             }
-        .navigationBarTitle("План переезда")
         }
+        .navigationBarTitle("План переезда")
+    }
 }
 
 struct RootView_Previews: PreviewProvider {

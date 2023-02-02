@@ -31,8 +31,8 @@ let passportReducer = AnyReducer<PassportState, PassportAction, PassportEnvironm
     }
 
 }
-.binding()
-.debug()
+    .binding()
+    .debug()
 
 struct PassportView: View {
     let store: Store<PassportState,PassportAction>
@@ -42,13 +42,12 @@ struct PassportView: View {
             VStack {
                 Toggle("Есть паспорт?", isOn: viewStore.binding(\.$havingPassport))
 
-                }
             }
-        .navigationTitle("Navigate and load")
-        .navigationViewStyle(.stack)
-            .padding()
-            Spacer()
         }
+        .navigationTitle("Настройка паспорта")
+        .padding()
+        Spacer()
+    }
 }
 
 struct PassportView_Previews: PreviewProvider {
@@ -57,7 +56,7 @@ struct PassportView_Previews: PreviewProvider {
             initialState: PassportState(),
             reducer: passportReducer,
             environment: PassportEnvironment()
-            )
+        )
         )
     }
 }
