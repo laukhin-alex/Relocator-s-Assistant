@@ -8,37 +8,40 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct PassportState: Equatable {
-    @BindableState var havingPassport = false
 
-}
+// MARK: - Feature domain
+struct Passport: ReducerProtocol {
+    struct State: Equatable {
+        @BindableState var havingPassport = false
 
-enum PassportAction: BindableAction, Equatable {
-    case binding(BindingAction<PassportState>)
-}
-
-struct PassportEnvironment {}
-
-let passportReducer = AnyReducer<PassportState, PassportAction, PassportEnvironment> { state, action, environment in
-
-    switch action {
-    case .binding(\.$havingPassport):
-        state.havingPassport = state.havingPassport
-        return .none
-
-    case .binding:
-        return .none
     }
 
-}
-    .binding()
-    .debug()
+    enum Action: BindableAction, Equatable {
+        case binding(BindingAction<State>)
+    }
 
+    var body: some ReducerProtocol<State, Action> {
+        BindingReducer()
+        Reduce { state, action in
+            switch action {
+            case .binding(\.$havingPassport):
+                state.havingPassport = state.havingPassport
+                return .none
+
+            case .binding:
+                return .none
+            }
+
+        }
+    }
+}
+
+// MARK: - Feature view
 struct PassportView: View {
-    let store: Store<PassportState,PassportAction>
+    let store: StoreOf<Passport>
 
     var body: some View {
-        WithViewStore(self.store) { viewStore in
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
             VStack {
                 Toggle("Есть паспорт?", isOn: viewStore.binding(\.$havingPassport))
 
@@ -53,10 +56,9 @@ struct PassportView: View {
 struct PassportView_Previews: PreviewProvider {
     static var previews: some View {
         PassportView(store: Store(
-            initialState: PassportState(),
-            reducer: passportReducer,
-            environment: PassportEnvironment()
-        )
+            initialState: Passport.State(),
+            reducer: Passport()
+            )
         )
     }
 }

@@ -8,105 +8,92 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct PassportCheckingState: Equatable {
-    var passportState = PassportState()
-    var accessibleCountriesWithPassport = RelocateStepsModel.init().accessibleCountriesWithPassport
-    var accessibleCountriesWithoutPassport = RelocateStepsModel.init().accessibleCountriesWithoutPassport
-    var chosenCountries: [CountryModel] = RelocateStepsModel.init().accessibleCountriesWithoutPassport
-}
+// MARK: - Feature domain
+struct PassportChecking: ReducerProtocol {
+    struct State: Equatable {
+        var passport = Passport.State()
+        var accessibleCountriesWithPassport = RelocateStepsModel.init().accessibleCountriesWithPassport
+        var accessibleCountriesWithoutPassport = RelocateStepsModel.init().accessibleCountriesWithoutPassport
+        var chosenCountries: [CountryModel] = RelocateStepsModel.init().accessibleCountriesWithoutPassport
+    }
 
-enum PassportCheckingAction: Equatable {
-    case passportAction(PassportAction)
-    case chosenCountries
+    enum Action: Equatable {
+        case passport(Passport.Action)
+        case chosenCountries
 
-}
+    }
 
-struct PassportCheckingEnvironment {}
-
-let passportCheckingReducer = AnyReducer<PassportCheckingState, PassportCheckingAction, PassportCheckingEnvironment>.combine(
-    .init { state, action, environment in
-
-        switch action {
-        case .chosenCountries:
-            if state.passportState.havingPassport {
-                state.chosenCountries = state.accessibleCountriesWithPassport
-                return .none
-            } else {
-                state.chosenCountries = state.accessibleCountriesWithoutPassport
+    var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .chosenCountries:
+                if state.passport.havingPassport {
+                    state.chosenCountries = state.accessibleCountriesWithPassport
+                    return .none
+                } else {
+                    state.chosenCountries = state.accessibleCountriesWithoutPassport
+                    return .none
+                }
+            case .passport:
                 return .none
             }
-        case .passportAction(_):
-            return .none
         }
+        Scope(state: \.passport, action: /Action.passport) {
+            Passport()
+        }
+    }
+}
 
-},
-passportReducer
-        .pullback(
-            state: \.passportState,
-            action: /PassportCheckingAction.passportAction,
-            environment: { _ in .init() }
-    )
-    )
-.debug()
-
-
+// MARK: - Feature view
 struct PassportCheckingView: View {
-    let store: Store<PassportCheckingState,PassportCheckingAction>
+    let store: StoreOf<PassportChecking>
 
     var body: some View {
-        WithViewStore(self.store) { viewStore in
-//            NavigationView {
-                VStack {
-                    Form {
-                        Section(header: Text("Заграничный паспорт")) {
-                            NavigationLink(
-                                "Определимся с Заграничным паспортом",
-                                destination:
-                                    PassportView(store: store.scope(
-                                        state: \.passportState,
-                                        action: PassportCheckingAction.passportAction
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            VStack {
+                Form {
+                    Section(header: Text("Заграничный паспорт")) {
+                        NavigationLink(
+                            "Определимся с Заграничным паспортом",
+                            destination:
+                                PassportView(store: self.store.scope(
+                                    state: \.passport,
+                                    action: PassportChecking.Action.passport
                                     )
-                                    )
-                            )
-                        }
-                        
-                        Section(header: Text("Доступные страны")) {
-                            VStack {
-                                ForEach(viewStore.chosenCountries) {
-                                    country in
-                                    HStack {
-                                        Text(country.flag)
-                                            .padding(.all)
-                                        
-                                        Spacer()
-                                        Text(country.countryName)
-                                        Spacer()
-                                    }
+                                )
+                        )
+                    }
+
+                    Section(header: Text("Доступные страны")) {
+                        VStack {
+                            ForEach(viewStore.chosenCountries) {
+                                country in
+                                HStack {
+                                    Text(country.flag)
+                                        .padding(.all)
+
+                                    Spacer()
+                                    Text(country.countryName)
+                                    Spacer()
                                 }
                             }
                         }
-                        
                     }
                 }
-                .onAppear {
-                    viewStore.send(.chosenCountries)
-                }
-//            }
-                .navigationBarTitle("Паспорт")
-                
-        }        
+            }
+            .navigationBarTitle("Паспорт")
+            .onAppear { viewStore.send(.chosenCountries) }
+        }
     }
-
 }
 
 struct PassportCheckingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             PassportCheckingView(store: Store(
-                initialState: PassportCheckingState(),
-                reducer: passportCheckingReducer,
-                environment: PassportCheckingEnvironment()
-            )
+                initialState: PassportChecking.State(),
+                reducer: PassportChecking()
+                )
             )
         }
         .navigationViewStyle(.stack)
