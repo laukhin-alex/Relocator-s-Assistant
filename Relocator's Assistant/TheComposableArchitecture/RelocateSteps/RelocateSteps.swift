@@ -8,48 +8,47 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct RelocateStepsState: Equatable {
-    var passportCheckingState = PassportCheckingState()
-}
 
-enum RelocateStepsAction {
-    case passportCheckingAction(PassportCheckingAction)
-}
+struct RelocateSteps: ReducerProtocol {
+    struct State: Equatable {
+        var passportChecking = PassportChecking.State()
+    }
 
-struct RelocateStepsEnvironment {}
+    enum Action {
+        case passportChecking(PassportChecking.Action)
+    }
 
-let relocateStepsReducer = AnyReducer<RelocateStepsState, RelocateStepsAction, RelocateStepsEnvironment>.combine(
-    .init  { state, action, environment in
-        switch action {
-        default:
-            return .none
+    var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .passportChecking:
+                return .none
+            }
         }
-    },
-    passportCheckingReducer
-        .pullback(
-            state: \.passportCheckingState,
-            action: /RelocateStepsAction.passportCheckingAction,
-            environment: { _ in .init() }
-        )
-)
+        Scope(state: \.passportChecking, action: /Action.passportChecking) {
+            PassportChecking()
+        }
+    }
+}
+
 
 struct RelocateStepsView: View {
-    let store: Store<RelocateStepsState, RelocateStepsAction>
+    let store: StoreOf<RelocateSteps>
 
     var body: some View {
-        WithViewStore(self.store) { viewStore in
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
             Form {
                 Section(header: Text("Проверка паспорта")) {
                     HStack {
-                        Image(systemName: viewStore.passportCheckingState.passportState.havingPassport ? "checkmark.square.fill" : "square")
-                            .foregroundColor(viewStore.passportCheckingState.passportState.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
+                        Image(systemName: viewStore.passportChecking.passport.havingPassport ? "checkmark.square.fill" : "square")
+                            .foregroundColor(viewStore.passportChecking.passport.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
 
                         NavigationLink(
                             "Определимся с Заграничным паспортом",
                             destination:
-                                PassportCheckingView(store: store.scope(
-                                    state: \.passportCheckingState,
-                                    action: RelocateStepsAction.passportCheckingAction
+                                PassportCheckingView(store: self.store.scope(
+                                    state: \.passportChecking,
+                                    action: RelocateSteps.Action.passportChecking
                                 )
                                 )
                         )
@@ -73,9 +72,8 @@ struct RelocateStepsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             RelocateStepsView(store: Store(
-                initialState: RelocateStepsState(),
-                reducer: relocateStepsReducer,
-                environment: RelocateStepsEnvironment()
+                initialState: RelocateSteps.State(),
+                reducer: RelocateSteps()
                 )
             )
         }

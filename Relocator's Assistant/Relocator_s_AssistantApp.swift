@@ -14,9 +14,9 @@ struct Relocator_s_AssistantApp: App {
         WindowGroup {
             NavigationView {
                 RootView(store: .init(
-                    initialState: RootState(),
-                    reducer: rootReducer,
-                    environment: RootEnvironment())
+                    initialState: Root.State(),
+                    reducer: Root()
+                    )
                 )
             }
             .navigationViewStyle(.stack)

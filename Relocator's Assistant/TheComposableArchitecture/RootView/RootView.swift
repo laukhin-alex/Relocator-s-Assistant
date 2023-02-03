@@ -8,34 +8,38 @@ import ComposableArchitecture
 import SwiftUI
 
 
-struct RootState: Equatable {
-    var relocateSteps = RelocateStepsState()
-}
+// MARK: - Root domain, conformed to ReducerProtocol
+struct Root: ReducerProtocol {
+    struct State: Equatable {
+        var relocateSteps = RelocateSteps.State()
+    }
 
-enum RootAction {
-    case relocateSteps(RelocateStepsAction)
-}
+    enum Action {
+        case relocateSteps(RelocateSteps.Action)
+        case onAppear
+    }
 
-struct RootEnvironment {}
+    var body: some ReducerProtocol<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .onAppear:
+                state = .init()
+                return .none
 
-let rootReducer = AnyReducer<RootState, RootAction, RootEnvironment>.combine(
-    .init  { state, action, environment in
-        switch action {
-        default:
-            return .none
+            default:
+                return .none
+            }
         }
-    },
-    relocateStepsReducer
-        .pullback(
-            state: \.relocateSteps,
-            action: /RootAction.relocateSteps,
-            environment: { _ in .init() }
-        )
-)
+        Scope(state: \.relocateSteps, action: /Action.relocateSteps) {
+            RelocateSteps()
+        }
+    }
+}
 
 
+// MARK: - Root view, conformed to ReducerProtocol
 struct RootView: View {
-    let store: Store<RootState, RootAction>
+    let store: StoreOf<Root>
 
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -44,7 +48,7 @@ struct RootView: View {
                     RelocateStepsView(
                         store: self.store.scope(
                             state: \.relocateSteps,
-                            action: RootAction.relocateSteps
+                            action: Root.Action.relocateSteps
                         )
                     )
                 }
@@ -73,9 +77,9 @@ struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             RootView(store: .init(
-                initialState: RootState(),
-                reducer: rootReducer,
-                environment: RootEnvironment())
+                initialState: Root.State(),
+                reducer: Root()
+                )
             )
         }
         .navigationViewStyle(.stack)
