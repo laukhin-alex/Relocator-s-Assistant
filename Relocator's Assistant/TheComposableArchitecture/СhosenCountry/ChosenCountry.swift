@@ -54,8 +54,26 @@ struct ChosenCountryView: View {
 
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-        
-                .onAppear { viewStore.send(.chosenCountry)}
+            VStack {
+                Form {
+                    Section(header: Text("Доступные страны")) {
+                        VStack {
+                            ForEach(viewStore.chosenCountries) {
+                                country in
+                                HStack {
+                                    Text(country.flag)
+                                        .padding(.all)
+
+                                    Spacer()
+                                    Text(country.countryName)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        .onAppear { viewStore.send(.chosenCountry)}
         }
     }
 }
