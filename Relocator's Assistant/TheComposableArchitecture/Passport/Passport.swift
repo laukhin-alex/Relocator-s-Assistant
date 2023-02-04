@@ -10,17 +10,17 @@ import SwiftUI
 
 
 // MARK: - Feature domain
-struct Passport: ReducerProtocol {
+ struct Passport: ReducerProtocol {
     struct State: Equatable {
         @BindableState var havingPassport = false
 
     }
 
-    enum Action: BindableAction, Equatable {
+     enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
     }
 
-    var body: some ReducerProtocol<State, Action> {
+     var body: some ReducerProtocol<State, Action> {
         BindingReducer()
         Reduce { state, action in
             switch action {

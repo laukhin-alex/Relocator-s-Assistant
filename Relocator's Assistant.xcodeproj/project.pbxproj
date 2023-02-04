@@ -38,6 +38,7 @@
 		1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */; };
 		1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96CA291FFFF8001AD31B /* Extensions.swift */; };
 		1FE562E5292D2486003F11B1 /* RelocateStepsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE562E4292D2486003F11B1 /* RelocateStepsModel.swift */; };
+		1FED41D3298E4A9600E2749B /* ChosenCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED41D2298E4A9600E2749B /* ChosenCountry.swift */; };
 		1FF0B1562931097D0044FEF9 /* PassportCheckingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B1552931097D0044FEF9 /* PassportCheckingState.swift */; };
 		1FF0B158293109960044FEF9 /* PassportCheckingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B157293109960044FEF9 /* PassportCheckingActions.swift */; };
 		1FF0B15A293109A80044FEF9 /* PassportCheckingEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B159293109A80044FEF9 /* PassportCheckingEnvironment.swift */; };
@@ -91,6 +92,7 @@
 		1FDE96CA291FFFF8001AD31B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Relocator-s-Assistant-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1FE562E4292D2486003F11B1 /* RelocateStepsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsModel.swift; sourceTree = "<group>"; };
+		1FED41D2298E4A9600E2749B /* ChosenCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenCountry.swift; sourceTree = "<group>"; };
 		1FF0B1552931097D0044FEF9 /* PassportCheckingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingState.swift; sourceTree = "<group>"; };
 		1FF0B157293109960044FEF9 /* PassportCheckingActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingActions.swift; sourceTree = "<group>"; };
 		1FF0B159293109A80044FEF9 /* PassportCheckingEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingEnvironment.swift; sourceTree = "<group>"; };
@@ -132,7 +134,7 @@
 				1F4ADC7A29857FFB005ACE7E /* RelocateSteps */,
 				1F4ADC7B29858010005ACE7E /* PassportChecking */,
 				1F4ADC7C29858027005ACE7E /* Passport */,
-				1F4ADC7D29858030005ACE7E /* ChoosingCountry */,
+				1FED41D1298E3CBF00E2749B /* СhosenCountry */,
 				1F4ADC7E2985803C005ACE7E /* CountryDescription */,
 			);
 			path = TheComposableArchitecture;
@@ -168,13 +170,6 @@
 				1F4ADC852985A746005ACE7E /* Passport.swift */,
 			);
 			path = Passport;
-			sourceTree = "<group>";
-		};
-		1F4ADC7D29858030005ACE7E /* ChoosingCountry */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ChoosingCountry;
 			sourceTree = "<group>";
 		};
 		1F4ADC7E2985803C005ACE7E /* CountryDescription */ = {
@@ -272,6 +267,14 @@
 				1FE562E4292D2486003F11B1 /* RelocateStepsModel.swift */,
 			);
 			path = RelocateStepsModels;
+			sourceTree = "<group>";
+		};
+		1FED41D1298E3CBF00E2749B /* СhosenCountry */ = {
+			isa = PBXGroup;
+			children = (
+				1FED41D2298E4A9600E2749B /* ChosenCountry.swift */,
+			);
+			path = "СhosenCountry";
 			sourceTree = "<group>";
 		};
 		1FF0B154293109550044FEF9 /* PassportChecking */ = {
@@ -457,6 +460,7 @@
 				1FDE96BF291FD3BA001AD31B /* PassportState.swift in Sources */,
 				1F571F08292BBAF1002AB253 /* CountryDescriptionEnvironment.swift in Sources */,
 				1F571EFF292BBA6B002AB253 /* RelocateStepsEnvironment.swift in Sources */,
+				1FED41D3298E4A9600E2749B /* ChosenCountry.swift in Sources */,
 				1FE562E5292D2486003F11B1 /* RelocateStepsModel.swift in Sources */,
 				1FF0B16529323CF80044FEF9 /* ChoosingCountryActions.swift in Sources */,
 				1F571F0F292BBD39002AB253 /* RootState.swift in Sources */,

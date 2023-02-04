@@ -40,7 +40,7 @@ struct PassportChecking: ReducerProtocol {
         }
         Scope(state: \.passport, action: /Action.passport) {
             Passport()
-        }
+        }._printChanges()
     }
 }
 

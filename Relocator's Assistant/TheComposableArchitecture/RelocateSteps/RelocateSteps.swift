@@ -12,10 +12,12 @@ import SwiftUI
 struct RelocateSteps: ReducerProtocol {
     struct State: Equatable {
         var passportChecking = PassportChecking.State()
+        var chosenCountry = ChosenCountry.State()
     }
 
     enum Action {
         case passportChecking(PassportChecking.Action)
+        case chosenCountry(ChosenCountry.Action)
     }
 
     var body: some ReducerProtocol<State, Action> {
@@ -23,10 +25,15 @@ struct RelocateSteps: ReducerProtocol {
             switch action {
             case .passportChecking:
                 return .none
+            case .chosenCountry:
+                return .none
             }
         }
         Scope(state: \.passportChecking, action: /Action.passportChecking) {
             PassportChecking()
+        }
+        Scope(state: \.chosenCountry, action: /Action.chosenCountry) {
+            ChosenCountry()
         }
     }
 }
@@ -49,7 +56,7 @@ struct RelocateStepsView: View {
                                 PassportCheckingView(store: self.store.scope(
                                     state: \.passportChecking,
                                     action: RelocateSteps.Action.passportChecking
-                                )
+                                    )
                                 )
                         )
                     }
@@ -58,7 +65,11 @@ struct RelocateStepsView: View {
                     NavigationLink(
                         "Выбранная страна",
                         destination:
-                            EmptyView()
+                            ChosenCountryView(store: self.store.scope(
+                                state: \.chosenCountry,
+                                action: RelocateSteps.Action.chosenCountry
+                                )
+                            )
                     )
                 }
             }
