@@ -10,18 +10,20 @@ import SwiftUI
 
 struct ChosenCountry: ReducerProtocol {
     struct State: Equatable {
-        var havingPassport = false
+        var passport = Passport.State()
+        var havingPassport: Bool {
+            get {
+                passport.havingPassport
+            }
+            set {
+                self.passport.havingPassport = newValue
+            }
+        }
+
         var accessibleCountriesWithPassport = RelocateStepsModel.init().accessibleCountriesWithPassport
         var accessibleCountriesWithoutPassport = RelocateStepsModel.init().accessibleCountriesWithoutPassport
         var chosenCountries: [CountryModel] = RelocateStepsModel.init().accessibleCountriesWithoutPassport
-        var passport: Passport.State {
-            get {
-                .init(havingPassport: self.havingPassport)
-            }
-            set {
-                self.havingPassport = newValue.havingPassport
-            }
-        }
+
     }
     enum Action {
         case passport(Passport.Action)
@@ -58,6 +60,9 @@ struct ChosenCountryView: View {
                 Form {
                     Section(header: Text("Доступные страны")) {
                         VStack {
+                            NavigationLink("fff") {
+                                PassportView(store: self.store.scope(state: \.passport, action: ChosenCountry.Action.passport))
+                            }
                             ForEach(viewStore.chosenCountries) {
                                 country in
                                 HStack {
