@@ -44,38 +44,41 @@ struct RelocateStepsView: View {
 
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            Form {
-                Section(header: Text("Проверка паспорта")) {
-                    HStack {
-                        Image(systemName: viewStore.passportChecking.passport.havingPassport ? "checkmark.square.fill" : "square")
-                            .foregroundColor(viewStore.passportChecking.passport.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
+                Form {
+                    Section(header: Text("Проверка паспорта")) {
+                        HStack {
+                            Image(systemName: viewStore.passportChecking.passport.havingPassport ? "checkmark.square.fill" : "square")
+                                .foregroundColor(viewStore.passportChecking.passport.havingPassport ? Color(UIColor.systemBlue) : Color.secondary)
 
-                        NavigationLink(
-                            "Определимся с Заграничным паспортом",
-                            destination:
-                                PassportCheckingView(store: self.store.scope(
-                                    state: \.passportChecking,
-                                    action: RelocateSteps.Action.passportChecking
+                            NavigationLink(
+                                "Определимся с Заграничным паспортом",
+                                destination:
+                                    PassportCheckingView(store: self.store.scope(
+                                        state: \.passportChecking,
+                                        action: RelocateSteps.Action.passportChecking
                                     )
+                                    )
+                            )
+                        }
+                    }
+                    Section(header: Text("Выбранная страна")) {
+                        NavigationLink(
+                            "Выбранная страна",
+                            destination:
+                                ChosenCountryView(store: self.store.scope(
+                                    state: \.chosenCountry,
+                                    action: RelocateSteps.Action.chosenCountry
+                                )
                                 )
                         )
                     }
                 }
-                Section(header: Text("Выбранная страна")) {
-                    NavigationLink(
-                        "Выбранная страна",
-                        destination:
-                            ChosenCountryView(store: self.store.scope(
-                                state: \.chosenCountry,
-                                action: RelocateSteps.Action.chosenCountry
-                                )
-                            )
-                    )
-                }
+                Spacer()
             }
-            Spacer()
-        }
-        
+
+
+                .navigationBarTitle("План переезда")
+
     }
 }
 

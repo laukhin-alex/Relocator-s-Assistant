@@ -60,9 +60,9 @@ struct ChosenCountryView: View {
                 Form {
                     Section(header: Text("Доступные страны")) {
                         VStack {
-                            NavigationLink("fff") {
-                                PassportView(store: self.store.scope(state: \.passport, action: ChosenCountry.Action.passport))
-                            }
+//                            NavigationLink("fff") {
+//                                PassportView(store: self.store.scope(state: \.passport, action: ChosenCountry.Action.passport))
+//                            }
                             ForEach(viewStore.chosenCountries) {
                                 country in
                                 HStack {

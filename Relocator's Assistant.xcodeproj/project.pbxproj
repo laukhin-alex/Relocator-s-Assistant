@@ -37,6 +37,7 @@
 		1FDE96C5291FD753001AD31B /* PassportReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C4291FD753001AD31B /* PassportReducer.swift */; };
 		1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */; };
 		1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96CA291FFFF8001AD31B /* Extensions.swift */; };
+		1FE52D31298FFE1800ED0803 /* RootShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE52D30298FFE1800ED0803 /* RootShared.swift */; };
 		1FE562E5292D2486003F11B1 /* RelocateStepsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE562E4292D2486003F11B1 /* RelocateStepsModel.swift */; };
 		1FED41D3298E4A9600E2749B /* ChosenCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED41D2298E4A9600E2749B /* ChosenCountry.swift */; };
 		1FF0B1562931097D0044FEF9 /* PassportCheckingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0B1552931097D0044FEF9 /* PassportCheckingState.swift */; };
@@ -91,6 +92,7 @@
 		1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfExpiryModal.swift; sourceTree = "<group>"; };
 		1FDE96CA291FFFF8001AD31B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Relocator-s-Assistant-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1FE52D30298FFE1800ED0803 /* RootShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootShared.swift; sourceTree = "<group>"; };
 		1FE562E4292D2486003F11B1 /* RelocateStepsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelocateStepsModel.swift; sourceTree = "<group>"; };
 		1FED41D2298E4A9600E2749B /* ChosenCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenCountry.swift; sourceTree = "<group>"; };
 		1FF0B1552931097D0044FEF9 /* PassportCheckingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCheckingState.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		1F4ADC7829857FA0005ACE7E /* TheComposableArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				1FE52D2F298FFDDF00ED0803 /* NewTCA */,
 				1F4ADC7929857FEE005ACE7E /* RootView */,
 				1F4ADC7A29857FFB005ACE7E /* RelocateSteps */,
 				1F4ADC7B29858010005ACE7E /* PassportChecking */,
@@ -259,6 +262,14 @@
 				1FDE96CA291FFFF8001AD31B /* Extensions.swift */,
 			);
 			path = "Additions+Extensions";
+			sourceTree = "<group>";
+		};
+		1FE52D2F298FFDDF00ED0803 /* NewTCA */ = {
+			isa = PBXGroup;
+			children = (
+				1FE52D30298FFE1800ED0803 /* RootShared.swift */,
+			);
+			path = NewTCA;
 			sourceTree = "<group>";
 		};
 		1FE562E3292D2469003F11B1 /* RelocateStepsModels */ = {
@@ -460,6 +471,7 @@
 				1FDE96BF291FD3BA001AD31B /* PassportState.swift in Sources */,
 				1F571F08292BBAF1002AB253 /* CountryDescriptionEnvironment.swift in Sources */,
 				1F571EFF292BBA6B002AB253 /* RelocateStepsEnvironment.swift in Sources */,
+				1FE52D31298FFE1800ED0803 /* RootShared.swift in Sources */,
 				1FED41D3298E4A9600E2749B /* ChosenCountry.swift in Sources */,
 				1FE562E5292D2486003F11B1 /* RelocateStepsModel.swift in Sources */,
 				1FF0B16529323CF80044FEF9 /* ChoosingCountryActions.swift in Sources */,

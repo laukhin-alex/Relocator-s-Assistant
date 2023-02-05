@@ -12,14 +12,15 @@ import ComposableArchitecture
 struct Relocator_s_AssistantApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                RootView(store: .init(
-                    initialState: Root.State(),
-                    reducer: Root()
-                    )
-                )
+///        NavigationView {
+            RootSharedView(store: .init(initialState: RootShared.State(), reducer: RootShared()))
+//                RootView(store: .init(
+//                    initialState: Root.State(),
+//                    reducer: Root()
+//                    )
+//                )
             }
-            .navigationViewStyle(.stack)
-        }
+///        .navigationViewStyle(.stack)
+///        }
     }
 }
