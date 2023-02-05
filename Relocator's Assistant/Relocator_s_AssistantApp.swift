@@ -13,12 +13,12 @@ struct Relocator_s_AssistantApp: App {
     var body: some Scene {
         WindowGroup {
 ///        NavigationView {
-            RootSharedView(store: .init(initialState: RootShared.State(), reducer: RootShared()))
-//                RootView(store: .init(
-//                    initialState: Root.State(),
-//                    reducer: Root()
-//                    )
-//                )
+//            RootSharedView(store: .init(initialState: RootShared.State(), reducer: RootShared()))
+                RootView(store: .init(
+                    initialState: Root.State(),
+                    reducer: Root()
+                    )
+                )
             }
 ///        .navigationViewStyle(.stack)
 ///        }

@@ -12,12 +12,23 @@ import SwiftUI
 struct RelocateSteps: ReducerProtocol {
     struct State: Equatable {
         var passportChecking = PassportChecking.State()
-//        var chosenCountry = ChosenCountry.State()
+        var chosenCountry: ChosenCountry.State {
+            get {
+                ChosenCountry.State(
+                    havingPassport: self.passportChecking.passport.havingPassport,
+                    chosenCountries: self.passportChecking.passport.chosenCountries
+                )
+            }
+            set {
+                self.passportChecking.passport.havingPassport = newValue.havingPassport
+                self.passportChecking.passport.chosenCountries = newValue.chosenCountries
+            }
+        }
     }
 
     enum Action {
         case passportChecking(PassportChecking.Action)
-//        case chosenCountry(ChosenCountry.Action)
+        case chosenCountry(ChosenCountry.Action)
     }
 
     var body: some ReducerProtocol<State, Action> {
@@ -25,16 +36,16 @@ struct RelocateSteps: ReducerProtocol {
             switch action {
             case .passportChecking:
                 return .none
-//            case .chosenCountry:
-//                return .none
+            case .chosenCountry:
+                return .none
             }
         }
         Scope(state: \.passportChecking, action: /Action.passportChecking) {
             PassportChecking()
         }
-//        Scope(state: \.chosenCountry, action: /Action.chosenCountry) {
-//            ChosenCountry()
-//        }
+        Scope(state: \.chosenCountry, action: /Action.chosenCountry) {
+            ChosenCountry()
+        }
     }
 }
 
@@ -56,7 +67,7 @@ struct RelocateStepsView: View {
                                     PassportCheckingView(store: self.store.scope(
                                         state: \.passportChecking,
                                         action: RelocateSteps.Action.passportChecking
-                                    )
+                                        )
                                     )
                             )
                         }
@@ -64,21 +75,18 @@ struct RelocateStepsView: View {
                     Section(header: Text("Выбранная страна")) {
                         NavigationLink(
                             "Выбранная страна",
-                            destination: EmptyView()
-//                                ChosenCountryView(store: self.store.scope(
-//                                    state: \.chosenCountry,
-//                                    action: RelocateSteps.Action.chosenCountry
-//                                )
-//                                )
+                            destination:
+                                ChosenCountryView(store: self.store.scope(
+                                    state: \.chosenCountry,
+                                    action: RelocateSteps.Action.chosenCountry
+                                    )
+                                )
                         )
                     }
                 }
                 Spacer()
             }
-
-
                 .navigationBarTitle("План переезда")
-
     }
 }
 

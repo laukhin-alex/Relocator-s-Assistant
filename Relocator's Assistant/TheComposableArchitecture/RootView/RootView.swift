@@ -12,10 +12,24 @@ import SwiftUI
 struct Root: ReducerProtocol {
     struct State: Equatable {
         var relocateSteps = RelocateSteps.State()
+        var chosenCountry: ChosenCountry.State {
+            get {
+                ChosenCountry.State(
+                    havingPassport: self.relocateSteps.passportChecking.passport.havingPassport,
+                    chosenCountries: self.relocateSteps.passportChecking.passport.chosenCountries
+
+                )
+            }
+            set {
+                self.relocateSteps.passportChecking.passport.havingPassport = newValue.havingPassport
+                self.relocateSteps.passportChecking.passport.chosenCountries = newValue.chosenCountries
+            }
+        }
     }
 
     enum Action {
         case relocateSteps(RelocateSteps.Action)
+        case chosenCountry(ChosenCountry.Action)
         case onAppear
     }
 
@@ -32,6 +46,9 @@ struct Root: ReducerProtocol {
         }
         Scope(state: \.relocateSteps, action: /Action.relocateSteps) {
             RelocateSteps()
+        }
+        Scope(state: \.chosenCountry, action: /Action.chosenCountry) {
+            ChosenCountry()
         }
     }
 }
@@ -61,14 +78,10 @@ struct RootView: View {
                     .tabItem {
                         Label("Шаги к переезду", systemImage: "figure.step.training")
                     }
-                    ZStack {
-                        EmptyView()
-                        //                        RelocateStepsView(
-                        //                            store: self.store.scope(
-                        //                                state: \.relocateSteps,
-                        //                                action: RootAction.relocateSteps
-                        //                            )
-                        //                        )
+                    VStack {
+                        ChosenCountryView(store: self.store.scope(state: \.chosenCountry, action: Root.Action.chosenCountry
+                            )
+                        )
                     }
                     .tabItem {
                         Label("Шаги к переездуg", systemImage: "figure.step.training")
