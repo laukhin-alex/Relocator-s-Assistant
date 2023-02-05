@@ -17,12 +17,13 @@ struct RootShared: ReducerProtocol {
         var relocatePassport = RelocatePassport.State()
         var country: Country.State {
             get {
-                Country.State(
-                    havingPassport: self.relocatePassport.passport.havingPassport
+                Country.State(havingPassport: self.relocatePassport.passport.havingPassport,
+                              chosenCountries: self.relocatePassport.passport.chosenCountries
                 )
             }
             set {
                 self.relocatePassport.passport.havingPassport = newValue.havingPassport
+                self.relocatePassport.passport.chosenCountries = newValue.chosenCountries
             }
         }
     }
@@ -77,10 +78,7 @@ struct RootShared: ReducerProtocol {
     struct Country: ReducerProtocol {
         struct State: Equatable {
             private(set) var havingPassport: Bool
-
-            var accessibleCountriesWithPassport = RelocateStepsModel.init().accessibleCountriesWithPassport
-            var accessibleCountriesWithoutPassport = RelocateStepsModel.init().accessibleCountriesWithoutPassport
-            var chosenCountries: [CountryModel] = RelocateStepsModel.init().accessibleCountriesWithoutPassport
+            private(set) var chosenCountries: [CountryModel]
         }
 
         enum Action: Equatable {
@@ -90,13 +88,20 @@ struct RootShared: ReducerProtocol {
         func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
             switch action {
             case .chosenCountry:
-                if state.havingPassport {
-                    state.chosenCountries = state.accessibleCountriesWithPassport
-                    return .none
-                } else  {
-                    state.chosenCountries = state.accessibleCountriesWithoutPassport
-                    return .none
-                }
+//                switch state.havingPassport {
+//                case true:
+//                    state.chosenCountries = state.accessibleCountriesWithPassport
+//                default:
+//                    state.chosenCountries = state.accessibleCountriesWithoutPassport
+//                }
+                return .none
+//                if state.havingPassport {
+//                    state.chosenCountries = state.accessibleCountriesWithPassport
+//                    return .none
+//                } else  {
+//                    state.chosenCountries = state.accessibleCountriesWithoutPassport
+//                    return .none
+//                }
             }
         }
     }

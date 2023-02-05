@@ -14,10 +14,12 @@ import SwiftUI
     struct State: Equatable {
         @BindableState var havingPassport = false
 
+        var chosenCountries: [CountryModel] = RelocateStepsModel.init().accessibleCountriesWithoutPassport
     }
 
      enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
+
     }
 
      var body: some ReducerProtocol<State, Action> {
@@ -26,6 +28,11 @@ import SwiftUI
             switch action {
             case .binding(\.$havingPassport):
                 state.havingPassport = state.havingPassport
+                if state.havingPassport {
+                    state.chosenCountries = RelocateStepsModel.init().accessibleCountriesWithPassport
+                } else {
+                    state.chosenCountries = RelocateStepsModel.init().accessibleCountriesWithoutPassport
+                }
                 return .none
 
             case .binding:
