@@ -14,3 +14,13 @@ struct RelocateStepsModel: Equatable {
     var accessibleCountriesWithoutPassport: [CountryModel] = [armenia, kasachstan]
 
 }
+
+
+@propertyWrapper
+struct Countries {
+    private var value: [CountryModel] = []
+    var wrappedValue: [CountryModel] {
+        get {return value }
+        set { value = newValue }
+    }
+}

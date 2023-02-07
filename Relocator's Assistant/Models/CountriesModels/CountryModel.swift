@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct CountryModel: Equatable, Identifiable, Codable {
-    var id: UUID 
+public struct CountryModel: Equatable, Identifiable, Codable {
+    public var id: UUID 
     var countryName: String
     var legalTimeOfStay: Int
     var passportIsNeeded: Bool
