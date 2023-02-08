@@ -20,6 +20,8 @@ struct ChosenCountry: ReducerProtocol {
 // MARK: - Не работает ни обертка свойств ни просто обычные свойства - экран не меняется
         var newPassport = false
         @Countries var newCountries: [CountryModel]
+        var passport = Passport.State()
+
     }
 
     enum Action: Equatable {
@@ -29,9 +31,11 @@ struct ChosenCountry: ReducerProtocol {
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
         switch action {
         case .chosenCountry:
-            state.newPassport = state.havingPassport
-            state.newCountries = state.chosenCountries
-            if state.newPassport {
+
+
+//            state.newPassport = state.havingPassport
+//            state.newCountries = state.chosenCountries
+            if state.passport.havingPassport {
                 state.newCountries = RelocateStepsModel.init().accessibleCountriesWithPassport
             } else {
                 state.newCountries = RelocateStepsModel.init().accessibleCountriesWithoutPassport

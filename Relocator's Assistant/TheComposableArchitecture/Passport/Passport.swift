@@ -22,12 +22,15 @@ import SwiftUI
 
     }
 
+     @Dependency(\.repoData) var repoData
+
      var body: some ReducerProtocol<State, Action> {
         BindingReducer()
         Reduce { state, action in
             switch action {
             case .binding(\.$havingPassport):
                 state.havingPassport = state.havingPassport
+//                repoData.safe bla bla
                 if state.havingPassport {
                     state.chosenCountries = RelocateStepsModel.init().accessibleCountriesWithPassport
                 } else {
@@ -37,6 +40,7 @@ import SwiftUI
 
             case .binding:
                 return .none
+//                return Effect.init(value: .binding)
             }
 
         }
