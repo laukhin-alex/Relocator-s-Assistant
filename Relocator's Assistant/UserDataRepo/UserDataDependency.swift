@@ -8,6 +8,8 @@
 import Foundation
 import ComposableArchitecture
 
+// MARK: - можно использовать враппер @AppStorage - см книгу working with data in SwiftU, раздел про AppStorage
+
 private enum RepoDataKey: DependencyKey {
     static let liveValue = UserDefaultsRepository()
 }
