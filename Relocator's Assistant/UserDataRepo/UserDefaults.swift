@@ -28,7 +28,7 @@ struct UserDefaultsRepository: UserDataRepository, Equatable {
     }
 }
 
-
+// MARK: - RAIA-3
 public struct UserDefaultsPassportDate: UserPassportDate, Equatable {
     func saveUserPassportDate(dateOfExpiry: Date) {
         let data = try? JSONEncoder().encode(dateOfExpiry)
