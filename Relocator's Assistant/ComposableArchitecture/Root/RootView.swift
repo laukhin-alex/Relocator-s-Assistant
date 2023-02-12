@@ -27,11 +27,14 @@ struct Root: ReducerProtocol {
                 return .none
             case .personalData:
                 return .none
+
             }
         }
         Scope(state: \.personalData, action: /Action.personalData) {
             PersonalData()
-        }._printChanges()
+        }
+
+        ._printChanges()
     }
 }
 

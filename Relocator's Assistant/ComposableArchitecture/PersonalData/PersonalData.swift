@@ -19,13 +19,30 @@ struct PersonalData: ReducerProtocol {
         @BindableState var havingWifeOrHusband = false
         @BindableState var havingChildren = false
         @BindableState var havingPet = false
+        var storage = Storage()
+        
         var isSheetPresented = false
         var dateOfExpire = Date()
+
+        struct Storage: Equatable {
+            static func == (lhs: PersonalData.State.Storage, rhs: PersonalData.State.Storage) -> Bool {
+                return lhs.appHavingPassport == rhs.appHavingPassport &&
+                lhs.appHavingWifeOrHusband == rhs.appHavingWifeOrHusband &&
+                lhs.appHavingChildren == rhs.appHavingChildren &&
+                lhs.appHavingPet == rhs.appHavingPet
+            }
+            @AppStorage("appHavingPassport") var appHavingPassport = false
+            @AppStorage("appHavingWifeOrHusband") var appHavingWifeOrHusband = false
+            @AppStorage("appHavingChildren") var appHavingChildren = false
+            @AppStorage("appHavingPet") var appHavingPet = false
+        }
     }
 
 
     enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
+        case onAppear
+        case onDisappear
         case isSheetPresented
     }
 
@@ -33,26 +50,25 @@ struct PersonalData: ReducerProtocol {
         BindingReducer()
         Reduce { state, action in
             switch action {
-                //            case .binding(\.$havingPassport):
-                //                state.havingPassport.toggle()
-                //                return .none
-                //
-                //            case .binding(\.$havingWifeOrHusband):
-                //                state.havingWifeOrHusband.toggle()
-                //                return .none
-                //
-                //            case .binding(\.$havingChildren):
-                //                state.havingChildren.toggle()
-                //                return .none
-                //
-                //            case .binding(\.$havingPet):
-                //                state.havingPet.toggle()
-                //                return .none
 
             case .binding:
+                state.storage.appHavingPassport = state.havingPassport
+                state.storage.appHavingWifeOrHusband = state.havingWifeOrHusband
+                state.storage.appHavingChildren = state.havingChildren
+                state.storage.appHavingPet = state.havingPet
                 return .none
 
             case .isSheetPresented:
+                return .none
+
+            case .onAppear:
+                state.havingPassport = state.storage.appHavingPassport
+                state.havingWifeOrHusband = state.storage.appHavingWifeOrHusband
+                state.havingChildren = state.storage.appHavingChildren
+                state.havingPet = state.storage.appHavingPet
+                return .none
+
+            case .onDisappear:
                 return .none
             }
         }
@@ -87,6 +103,12 @@ struct PersonalDataView: View {
                         Toggle("Наличие домашних животных", isOn: viewStore.binding(\.$havingPet))
                     }
                 }
+            }
+            .onAppear {
+                viewStore.send(.onAppear)
+            }
+            .onDisappear {
+                viewStore.send(.onDisappear)
             }
         }
     }
