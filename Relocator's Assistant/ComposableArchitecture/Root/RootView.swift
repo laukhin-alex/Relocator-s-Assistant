@@ -48,18 +48,17 @@ struct RootView: View {
                 ZStack {
                     TabView {
                             ZStack {
+                                EmptyView()
+                            }
+                            .tabItem {
+                                Label("Процесс переезда", systemImage: "house")
+                            }
+                            ZStack {
                                 PersonalDataView(store: self.store.scope(
                                     state: \.personalData,
                                     action: Root.Action.personalData
                                     )
                                 )
-                            }
-                            .tabItem {
-                                Label("Процесс переезда", systemImage: "house")
-                            }
-                            
-                            ZStack {
-                                EmptyView()
                             }
                             .tabItem {
                                 Label("Персональные данные", systemImage: "person.3")
