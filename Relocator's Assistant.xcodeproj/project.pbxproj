@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0E047B2998C5E400AEFA8D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E047A2998C5E400AEFA8D /* RootView.swift */; };
 		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
 		1F571F0C292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */; };
 		1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F0E047A2998C5E400AEFA8D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RelocatorsAssistantLaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfExpiryModal.swift; sourceTree = "<group>"; };
 		1FDE96CA291FFFF8001AD31B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -53,11 +55,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F0E04782998C4A400AEFA8D /* New Group */ = {
+		1F0E04782998C4A400AEFA8D /* ComposableArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				1F0E04792998C5CD00AEFA8D /* RootView */,
 			);
-			path = "New Group";
+			path = ComposableArchitecture;
+			sourceTree = "<group>";
+		};
+		1F0E04792998C5CD00AEFA8D /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				1F0E047A2998C5E400AEFA8D /* RootView.swift */,
+			);
+			path = RootView;
 			sourceTree = "<group>";
 		};
 		1FDE96C6291FDC0D001AD31B /* PassportModels */ = {
@@ -120,9 +131,9 @@
 				1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */,
 				1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */,
 				1FFC5E012917AC43009A095D /* Assets.xcassets */,
-				1F0E04782998C4A400AEFA8D /* New Group */,
 				1FDE96CC29200025001AD31B /* Additions+Extensions */,
 				1FFC5E0B2917B0E3009A095D /* Models */,
+				1F0E04782998C4A400AEFA8D /* ComposableArchitecture */,
 				1FFC5E032917AC43009A095D /* Preview Content */,
 			);
 			path = "Relocator's Assistant";
@@ -233,6 +244,7 @@
 				1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */,
 				1FF4187F292BE0D500345560 /* CountryModel.swift in Sources */,
 				1FF4187D292BDC8400345560 /* TurkeyModel.swift in Sources */,
+				1F0E047B2998C5E400AEFA8D /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
