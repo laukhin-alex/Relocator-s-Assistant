@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F0E047B2998C5E400AEFA8D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E047A2998C5E400AEFA8D /* RootView.swift */; };
+		1F0E047E2999103200AEFA8D /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E047D2999103100AEFA8D /* PersonalData.swift */; };
 		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
 		1F571F0C292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */; };
 		1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		1F0E047A2998C5E400AEFA8D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1F0E047D2999103100AEFA8D /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
 		1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RelocatorsAssistantLaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfExpiryModal.swift; sourceTree = "<group>"; };
 		1FDE96CA291FFFF8001AD31B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -58,17 +60,26 @@
 		1F0E04782998C4A400AEFA8D /* ComposableArchitecture */ = {
 			isa = PBXGroup;
 			children = (
-				1F0E04792998C5CD00AEFA8D /* RootView */,
+				1F0E04792998C5CD00AEFA8D /* Root */,
+				1F0E047C29990FFB00AEFA8D /* PersonalData */,
 			);
 			path = ComposableArchitecture;
 			sourceTree = "<group>";
 		};
-		1F0E04792998C5CD00AEFA8D /* RootView */ = {
+		1F0E04792998C5CD00AEFA8D /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				1F0E047A2998C5E400AEFA8D /* RootView.swift */,
 			);
-			path = RootView;
+			path = Root;
+			sourceTree = "<group>";
+		};
+		1F0E047C29990FFB00AEFA8D /* PersonalData */ = {
+			isa = PBXGroup;
+			children = (
+				1F0E047D2999103100AEFA8D /* PersonalData.swift */,
+			);
+			path = PersonalData;
 			sourceTree = "<group>";
 		};
 		1FDE96C6291FDC0D001AD31B /* PassportModels */ = {
@@ -245,6 +256,7 @@
 				1FF4187F292BE0D500345560 /* CountryModel.swift in Sources */,
 				1FF4187D292BDC8400345560 /* TurkeyModel.swift in Sources */,
 				1F0E047B2998C5E400AEFA8D /* RootView.swift in Sources */,
+				1F0E047E2999103200AEFA8D /* PersonalData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

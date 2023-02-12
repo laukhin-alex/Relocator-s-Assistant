@@ -12,9 +12,9 @@ import ComposableArchitecture
 struct Relocator_s_AssistantApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView(store: .init(
-                initialState: Root.State(),
-                reducer: Root()
+                RootView(store: .init(
+                    initialState: Root.State(),
+                    reducer: Root()
                 )
             )
         }
