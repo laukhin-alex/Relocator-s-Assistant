@@ -14,7 +14,8 @@ struct DateOfExpiryModal: Equatable {
     let currentDay = Date()
     let halfYearDay = Calendar.current.date(byAdding: .day, value: 180, to: Date())
     init() {
-        dateFormatter.dateStyle = .long
+        dateFormatter.dateStyle = .short
         dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "dd/mm/yyyy"
     }
 }

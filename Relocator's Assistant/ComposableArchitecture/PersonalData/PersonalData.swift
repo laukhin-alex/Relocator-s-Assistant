@@ -19,10 +19,12 @@ struct PersonalData: ReducerProtocol {
         @BindableState var havingWifeOrHusband = false
         @BindableState var havingChildren = false
         @BindableState var havingPet = false
+        @BindableState var isSheetPresented = false
+        @BindableState var dateOfExpiry = DateOfExpiryModal.init().dateOfExpiry
         var storage = Storage()
         
-        var isSheetPresented = false
-        var dateOfExpire = Date()
+
+        var dateOfExpire = DateOfExpiryModal.init().dateOfExpiry
 
         struct Storage: Equatable {
             static func == (lhs: PersonalData.State.Storage, rhs: PersonalData.State.Storage) -> Bool {
@@ -59,6 +61,8 @@ struct PersonalData: ReducerProtocol {
                 return .none
 
             case .isSheetPresented:
+                state.isSheetPresented = true
+                state.dateOfExpire = state.dateOfExpiry
                 return .none
 
             case .onAppear:
@@ -83,25 +87,74 @@ struct PersonalDataView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             ZStack {
-                Form {
-                    Section(header: Text("Персональные данные").font(.title).bold()) {
-
-                        Toggle("Есть Заграничный паспорт", isOn: viewStore.binding(\.$havingPassport))
-                        Toggle("Наличие супруги(а)", isOn: viewStore.binding(\.$havingWifeOrHusband))
-                    }
-                    Section {
-                        DisclosureGroup("Как оформить заграничный паспорт") {
-                            Text(passportReadMe)
-                                .multilineTextAlignment(.leading)
-                                .padding([.leading, .trailing])
-                            Text("[Как заказать загранпаспорт на Госуслугах](https://www.gosuslugi.ru/help/faq/foreign_passport/23)")
-                                .padding(.horizontal)
+                if #available(iOS 16.0, *) {
+                    Form {
+                        Section(header: Text("Персональные данные").font(.title).bold()) {
+                            Toggle("Есть Заграничный паспорт", isOn: viewStore.binding(\.$havingPassport))
+                            if viewStore.havingPassport {
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    VStack {
+                                        HStack(alignment: .center) {
+                                            Spacer()
+                                            Button(action: {
+                                                viewStore.send(.isSheetPresented)
+                                            }) {
+                                                Text("Проверка даты действия заграничного паспорта")
+                                                    .padding()
+                                            }
+                                            .buttonStyle(BorderlessButtonStyle())
+                                            Spacer()
+                                        }
+                                        HStack {
+                                            Spacer()
+                                            Text(viewStore.dateOfExpire.formatted(date: .abbreviated, time: .omitted))
+                                                .padding()
+                                            Spacer()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        Section {
+                            DisclosureGroup("Как оформить заграничный паспорт") {
+                                Text(passportReadMe)
+                                    .multilineTextAlignment(.leading)
+                                    .padding([.leading, .trailing])
+                                Text("[Как заказать загранпаспорт на Госуслугах](https://www.gosuslugi.ru/help/faq/foreign_passport/23)")
+                                    .padding(.horizontal)
+                            }
+                        }
+                        Section {
+                            Toggle("Наличие супруги(а)", isOn: viewStore.binding(\.$havingWifeOrHusband))
+                            Toggle("Наличие детей", isOn: viewStore.binding(\.$havingChildren))
+                            Toggle("Наличие домашних животных", isOn: viewStore.binding(\.$havingPet))
                         }
                     }
-                    Section {
-                        Toggle("Наличие детей", isOn: viewStore.binding(\.$havingChildren))
-                        Toggle("Наличие домашних животных", isOn: viewStore.binding(\.$havingPet))
+                    .sheet(isPresented: viewStore.binding(\.$isSheetPresented)) {
+                        VStack(alignment: .center) {
+                            Form {
+                                HStack(alignment: .center) {
+                                    Spacer()
+                                    Text("Выберете дату окончания действия заграничного паспорта")
+                                    Spacer()
+                                }
+                                DatePicker("Выберете дату окончания действия заграничного паспорта", selection: viewStore.binding(\.$dateOfExpiry), in: viewStore.dateOfExpiry...,
+                                           displayedComponents: [.date])
+                                .datePickerStyle(.wheel)
+                                .labelsHidden()
+                                HStack(alignment: .center) {
+                                    Spacer()
+                                    Text(viewStore.dateOfExpire.formatted(date: .abbreviated, time: .omitted))
+                                        .padding()
+                                    Spacer()
+                                }
+                            }
+                        }
+                        .presentationDetents([.medium])
+                        .presentationDragIndicator(.visible)
                     }
+                } else {
+                    // Fallback on earlier versions
                 }
             }
             .onAppear {
