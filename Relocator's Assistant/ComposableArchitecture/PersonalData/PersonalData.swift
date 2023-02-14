@@ -23,7 +23,7 @@ struct PersonalData: ReducerProtocol {
         @BindableState var dateOfExpiry = DateOfExpiryModal.init().dateOfExpiry
         var currentDay = DateOfExpiryModal().currentDay
         var storage = Storage()
-        
+        var repo = UserDefaultsPassportDate()
 
         var dateOfPassportExpiry = DateOfExpiryModal.init().dateOfExpiry
         var halfYearDay = DateOfExpiryModal().halfYearDay
@@ -45,7 +45,7 @@ struct PersonalData: ReducerProtocol {
 
     enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
-        case choosingDateOfExpiry
+        case choosingDateOfExpiry(Date)
         case onAppear
         case onDisappear
         case isSheetPresented
@@ -64,8 +64,12 @@ struct PersonalData: ReducerProtocol {
 //                state.dateOfPassportExpiry = state.dateOfExpiry
                 return .none
 
-            case .choosingDateOfExpiry:
+            case let .choosingDateOfExpiry(savedDate):
                 state.dateOfPassportExpiry = state.dateOfExpiry
+                state.repo.saveUserPassportDate(dateOfExpiry: savedDate)
+                print("✅")
+                print(savedDate)
+
                 return .none
 
             case .isSheetPresented:
@@ -78,6 +82,7 @@ struct PersonalData: ReducerProtocol {
                 state.havingWifeOrHusband = state.storage.appHavingWifeOrHusband
                 state.havingChildren = state.storage.appHavingChildren
                 state.havingPet = state.storage.appHavingPet
+                state.dateOfPassportExpiry = state.repo.getUserPassportDate()
                 return .none
 
             case .onDisappear:
@@ -178,7 +183,7 @@ struct PersonalDataView: View {
                                 HStack {
                                     Spacer()
                                     Button(action: {
-                                        viewStore.send(.choosingDateOfExpiry)
+                                        viewStore.send(.choosingDateOfExpiry(viewStore.dateOfExpiry))
                                     }) {
                                         Text("Выбрать эту дату: \n\(viewStore.dateOfExpiry.formatted(date: .abbreviated, time: .omitted))?")
                                             .padding()
