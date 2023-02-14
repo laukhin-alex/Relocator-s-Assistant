@@ -20,7 +20,7 @@ struct Root: ReducerProtocol {
     }
 
     var body: some ReducerProtocol<State, Action> {
-        Reduce { state, action in
+        Reduce<State, Action> { state, action in
             switch action {
             case .onAppear:
                 state = .init()

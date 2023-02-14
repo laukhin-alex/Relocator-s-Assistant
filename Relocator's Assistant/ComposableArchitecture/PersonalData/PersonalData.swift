@@ -21,10 +21,12 @@ struct PersonalData: ReducerProtocol {
         @BindableState var havingPet = false
         @BindableState var isSheetPresented = false
         @BindableState var dateOfExpiry = DateOfExpiryModal.init().dateOfExpiry
+        var currentDay = DateOfExpiryModal().currentDay
         var storage = Storage()
         
 
-        var dateOfExpire = DateOfExpiryModal.init().dateOfExpiry
+        var dateOfPassportExpiry = DateOfExpiryModal.init().dateOfExpiry
+        var halfYearDay = DateOfExpiryModal().halfYearDay
 
         struct Storage: Equatable {
             static func == (lhs: PersonalData.State.Storage, rhs: PersonalData.State.Storage) -> Bool {
@@ -43,6 +45,7 @@ struct PersonalData: ReducerProtocol {
 
     enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
+        case choosingDateOfExpiry
         case onAppear
         case onDisappear
         case isSheetPresented
@@ -58,11 +61,16 @@ struct PersonalData: ReducerProtocol {
                 state.storage.appHavingWifeOrHusband = state.havingWifeOrHusband
                 state.storage.appHavingChildren = state.havingChildren
                 state.storage.appHavingPet = state.havingPet
+//                state.dateOfPassportExpiry = state.dateOfExpiry
+                return .none
+
+            case .choosingDateOfExpiry:
+                state.dateOfPassportExpiry = state.dateOfExpiry
                 return .none
 
             case .isSheetPresented:
                 state.isSheetPresented = true
-                state.dateOfExpire = state.dateOfExpiry
+
                 return .none
 
             case .onAppear:
@@ -91,6 +99,7 @@ struct PersonalDataView: View {
                     Form {
                         Section(header: Text("Персональные данные").font(.title).bold()) {
                             Toggle("Есть Заграничный паспорт", isOn: viewStore.binding(\.$havingPassport))
+                                .padding([.top, .bottom])
                             if viewStore.havingPassport {
                                 withAnimation(.easeInOut(duration: 0.5)) {
                                     VStack {
@@ -105,12 +114,26 @@ struct PersonalDataView: View {
                                             .buttonStyle(BorderlessButtonStyle())
                                             Spacer()
                                         }
-                                        HStack {
-                                            Spacer()
-                                            Text(viewStore.dateOfExpire.formatted(date: .abbreviated, time: .omitted))
+                                        Divider()
+                                        HStack(alignment: .bottom) {
+                                            Text("Срок действия - \(viewStore.dateOfPassportExpiry.formatted(date: .abbreviated, time: .omitted))")
                                                 .padding()
-                                            Spacer()
                                         }
+                                        Divider()
+                                        VStack {
+                                            if viewStore.dateOfPassportExpiry > viewStore.halfYearDay ?? Date() {
+                                                HStack {
+                                                    Text("Cрок действия заграничного паспорта больше полугода")
+                                                    Text("✅")
+                                                }
+                                            } else {
+                                                HStack {
+                                                    Text("Cрок действия заграничного паспорта меньше полугода")
+                                                    Text("❌")
+                                                }
+                                            }
+                                        }
+                                        .padding([.top, .bottom])
                                     }
                                 }
                             }
@@ -131,26 +154,42 @@ struct PersonalDataView: View {
                         }
                     }
                     .sheet(isPresented: viewStore.binding(\.$isSheetPresented)) {
-                        VStack(alignment: .center) {
+                        VStack {
+                            Spacer()
                             Form {
-                                HStack(alignment: .center) {
+                                HStack {
                                     Spacer()
-                                    Text("Выберете дату окончания действия заграничного паспорта")
+                                    VStack{
+                                        Text("""
+                                            Выберете дату окончания действия заграничного паспорта.
+                                            Вы можете ее найти в своем паспорте в графе "Дата окончания срока действия"
+                                            """)
+                                    }
                                     Spacer()
                                 }
-                                DatePicker("Выберете дату окончания действия заграничного паспорта", selection: viewStore.binding(\.$dateOfExpiry), in: viewStore.dateOfExpiry...,
-                                           displayedComponents: [.date])
-                                .datePickerStyle(.wheel)
-                                .labelsHidden()
-                                HStack(alignment: .center) {
+                                HStack {
                                     Spacer()
-                                    Text(viewStore.dateOfExpire.formatted(date: .abbreviated, time: .omitted))
-                                        .padding()
+                                    DatePicker("Выберете дату окончания действия заграничного паспорта", selection: viewStore.binding(\.$dateOfExpiry), in: viewStore.currentDay...,
+                                               displayedComponents: [.date])
+                                    .datePickerStyle(.wheel)
+                                    .labelsHidden()
+                                    Spacer()
+                                }
+                                HStack {
+                                    Spacer()
+                                    Button(action: {
+                                        viewStore.send(.choosingDateOfExpiry)
+                                    }) {
+                                        Text("Выбрать эту дату: \n\(viewStore.dateOfExpiry.formatted(date: .abbreviated, time: .omitted))?")
+                                            .padding()
+                                    }
+                                    .buttonStyle(BorderlessButtonStyle())
                                     Spacer()
                                 }
                             }
+                            Spacer()
                         }
-                        .presentationDetents([.medium])
+                        .presentationDetents([.medium, .large])
                         .presentationDragIndicator(.visible)
                     }
                 } else {
