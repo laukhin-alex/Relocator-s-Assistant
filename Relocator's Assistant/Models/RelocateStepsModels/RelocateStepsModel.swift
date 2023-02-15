@@ -12,7 +12,7 @@ struct RelocateStepsModel: Equatable {
 
     let havingPassport: Bool = false
     var stepsCount = 0
-    var accessibleCountriesWithPassport: [CountryModel] = [armenia, georgia, kasachstan, turkey]
-    var accessibleCountriesWithoutPassport: [CountryModel] = [armenia, kasachstan]
+//    var accessibleCountriesWithPassport: [CountryModel] = [armenia, georgia, kasachstan, turkey]
+//    var accessibleCountriesWithoutPassport: [CountryModel] = [armenia, kasachstan]
 
 }

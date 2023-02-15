@@ -26,6 +26,7 @@ struct Root: ReducerProtocol {
             switch action {
             case .onAppear:
                 state = .init()
+
                 return .none
             case .personalData:
                 return .none
@@ -59,7 +60,7 @@ struct RootView: View {
                                 EmptyView()
                             }
                             .tabItem {
-                                Label("Процесс переезда", systemImage: "house")
+                                Label("Главная", systemImage: "house")
                             }
                             ZStack {
                                 PersonalDataView(store: self.store.scope(
@@ -69,7 +70,7 @@ struct RootView: View {
                                 )
                             }
                             .tabItem {
-                                Label("Персональные данные", systemImage: "person.3")
+                                Label("Настройка", systemImage: "person.3")
                             }
                             
                             ZStack {
@@ -80,19 +81,25 @@ struct RootView: View {
                                 )
                             }
                             .tabItem {
-                                Label("Выбор страны", systemImage: "globe.europe.africa")
+                                Label("Страны", systemImage: "globe.europe.africa")
                             }
                             
                             ZStack {
                                 EmptyView()
                             }
                             .tabItem {
-                                Label("Шаги к переезду", systemImage: "doc.richtext")
+                                Label("Переезд", systemImage: "doc.richtext")
                             }
                             
                         }
                     }
-
+                .onAppear {
+                    let appearance = UITabBarAppearance()
+                    appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+                    appearance.backgroundColor = UIColor(Color.blue.opacity(0.2))
+                    UITabBar.appearance().standardAppearance = appearance
+                    UITabBar.appearance().scrollEdgeAppearance = appearance
+                }
             }
         }
     }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-let kasachstan = CountryModel(countryName: "Казахстан",
-                              legalTimeOfStay: 90,
-                              passportIsNeeded: false,
-                              flag: CountriesFlags.kazakhFlag,
-                              countryDescription: "Казахстан - прекрасная страна")
+//let kasachstan = CountryModel(countryName: "Казахстан",
+//                              legalTimeOfStay: 90,
+//                              passportIsNeeded: false,
+//                              flag: CountriesFlags.kazakhFlag,
+//                              countryDescription: "Казахстан - прекрасная страна")

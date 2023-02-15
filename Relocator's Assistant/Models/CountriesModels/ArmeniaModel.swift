@@ -7,8 +7,8 @@
 
 import Foundation
 
-let armenia = CountryModel(countryName: "Армения",
-                           legalTimeOfStay: 180,
-                           passportIsNeeded: false,
-                           flag: CountriesFlags.armeniaFlag,
-                           countryDescription: "Армения - прекрасная страна")
+//let armenia = CountryModel(countryName: "Армения",
+//                           legalTimeOfStay: 180,
+//                           passportIsNeeded: false,
+//                           flag: CountriesFlags.armeniaFlag,
+//                           countryDescription: "Армения - прекрасная страна")
