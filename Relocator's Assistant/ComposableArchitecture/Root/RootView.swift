@@ -12,10 +12,12 @@ import SwiftUI
 struct Root: ReducerProtocol {
     struct State: Equatable {
         var personalData = PersonalData.State()
+        var countriesDescription = CountriesDescription.State()
     }
 
     enum Action: Equatable {
         case personalData(PersonalData.Action)
+        case countriesDescription(CountriesDescription.Action)
         case onAppear
     }
 
@@ -28,10 +30,16 @@ struct Root: ReducerProtocol {
             case .personalData:
                 return .none
 
+            case .countriesDescription:
+                return .none
+
             }
         }
         Scope(state: \.personalData, action: /Action.personalData) {
             PersonalData()
+        }
+        Scope(state: \.countriesDescription, action: /Action.countriesDescription) {
+            CountriesDescription()
         }
 
         ._printChanges()
@@ -65,7 +73,11 @@ struct RootView: View {
                             }
                             
                             ZStack {
-                                EmptyView()
+                                CountriesDescriptionView(store: self.store.scope(
+                                    state: \.countriesDescription,
+                                    action: Root.Action.countriesDescription
+                                    )
+                                )
                             }
                             .tabItem {
                                 Label("Выбор страны", systemImage: "globe.europe.africa")
