@@ -14,6 +14,7 @@
 		1F3E7F11299B9DAD00038966 /* UserDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E7F10299B9DAD00038966 /* UserDataRepo.swift */; };
 		1F571F0C292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */; };
 		1FBCDE27299D053E007F6CE1 /* CountriesDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBCDE26299D053E007F6CE1 /* CountriesDescription.swift */; };
+		1FBCDE29299D0CCA007F6CE1 /* SingleCountryDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBCDE28299D0CCA007F6CE1 /* SingleCountryDescription.swift */; };
 		1FDE96C9291FDC52001AD31B /* DateOfExpiryModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */; };
 		1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDE96CA291FFFF8001AD31B /* Extensions.swift */; };
 		1FE562E5292D2486003F11B1 /* RelocateStepsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE562E4292D2486003F11B1 /* RelocateStepsModel.swift */; };
@@ -35,6 +36,7 @@
 		1F3E7F10299B9DAD00038966 /* UserDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepo.swift; sourceTree = "<group>"; };
 		1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RelocatorsAssistantLaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FBCDE26299D053E007F6CE1 /* CountriesDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesDescription.swift; sourceTree = "<group>"; };
+		1FBCDE28299D0CCA007F6CE1 /* SingleCountryDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCountryDescription.swift; sourceTree = "<group>"; };
 		1FDE96C8291FDC52001AD31B /* DateOfExpiryModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfExpiryModal.swift; sourceTree = "<group>"; };
 		1FDE96CA291FFFF8001AD31B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1FE0FE2E2919651F00AEF043 /* Relocator-s-Assistant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Relocator-s-Assistant-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				1FBCDE26299D053E007F6CE1 /* CountriesDescription.swift */,
+				1FBCDE28299D0CCA007F6CE1 /* SingleCountryDescription.swift */,
 			);
 			path = CountriesDescription;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				1FE562E5292D2486003F11B1 /* RelocateStepsModel.swift in Sources */,
 				1FF4187B292BDC5500345560 /* KasachstanModel.swift in Sources */,
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
+				1FBCDE29299D0CCA007F6CE1 /* SingleCountryDescription.swift in Sources */,
 				1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */,
 				1F3E7F0F299B9D6900038966 /* UserDefaults.swift in Sources */,
 				1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */,
