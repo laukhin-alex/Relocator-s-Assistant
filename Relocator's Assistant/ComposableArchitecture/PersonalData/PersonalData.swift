@@ -99,113 +99,116 @@ struct PersonalDataView: View {
 
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
-            ZStack {
-                if #available(iOS 16.0, *) {
-                    Form {
-                        Section(header: Text("Персональные данные").font(.title).bold()) {
-                            Toggle("Есть Заграничный паспорт", isOn: viewStore.binding(\.$havingPassport))
-                                .padding([.top, .bottom])
-                            if viewStore.havingPassport {
-                                withAnimation(.easeInOut(duration: 0.5)) {
-                                    VStack {
-                                        HStack(alignment: .center) {
-                                            Spacer()
-                                            Button(action: {
-                                                viewStore.send(.isSheetPresented)
-                                            }) {
-                                                Text("Проверка даты действия заграничного паспорта")
+            VStack {
+                TitleView("Персональные данные")
+                ScrollViewReader {_ in
+                    if #available(iOS 16.0, *) {
+                        Form {
+                            Section {
+                                Toggle("Есть Заграничный паспорт", isOn: viewStore.binding(\.$havingPassport))
+                                    .padding([.top, .bottom])
+                                if viewStore.havingPassport {
+                                    withAnimation(.easeInOut(duration: 0.5)) {
+                                        VStack {
+                                            HStack(alignment: .center) {
+                                                Spacer()
+                                                Button(action: {
+                                                    viewStore.send(.isSheetPresented)
+                                                }) {
+                                                    Text("Проверка даты действия заграничного паспорта")
+                                                        .padding()
+                                                }
+                                                .buttonStyle(BorderlessButtonStyle())
+                                                Spacer()
+                                            }
+                                            Divider()
+                                            HStack(alignment: .bottom) {
+                                                Text("Срок действия - \(viewStore.dateOfPassportExpiry.formatted(date: .abbreviated, time: .omitted))")
                                                     .padding()
                                             }
-                                            .buttonStyle(BorderlessButtonStyle())
-                                            Spacer()
-                                        }
-                                        Divider()
-                                        HStack(alignment: .bottom) {
-                                            Text("Срок действия - \(viewStore.dateOfPassportExpiry.formatted(date: .abbreviated, time: .omitted))")
-                                                .padding()
-                                        }
-                                        Divider()
-                                        VStack {
-                                            if viewStore.dateOfPassportExpiry > viewStore.halfYearDay ?? Date() {
-                                                HStack {
-                                                    Text("Cрок действия заграничного паспорта больше полугода")
-                                                    Text("✅")
-                                                }
-                                            } else {
-                                                HStack {
-                                                    Text("Cрок действия заграничного паспорта меньше полугода")
-                                                    Text("❌")
+                                            Divider()
+                                            VStack {
+                                                if viewStore.dateOfPassportExpiry > viewStore.halfYearDay ?? Date() {
+                                                    HStack {
+                                                        Text("Cрок действия заграничного паспорта больше полугода")
+                                                        Text("✅")
+                                                    }
+                                                } else {
+                                                    HStack {
+                                                        Text("Cрок действия заграничного паспорта меньше полугода")
+                                                        Text("❌")
+                                                    }
                                                 }
                                             }
+                                            .padding([.top, .bottom])
                                         }
-                                        .padding([.top, .bottom])
                                     }
                                 }
                             }
-                        }
-                        Section {
-                            DisclosureGroup("Как оформить заграничный паспорт") {
-                                Text(passportReadMe)
-                                    .multilineTextAlignment(.leading)
-                                    .padding([.leading, .trailing])
-                                Text("[Как заказать загранпаспорт на Госуслугах](https://www.gosuslugi.ru/help/faq/foreign_passport/23)")
-                                    .padding(.horizontal)
+                            Section {
+                                DisclosureGroup("Как оформить заграничный паспорт") {
+                                    Text(passportReadMe)
+                                        .multilineTextAlignment(.leading)
+                                        .padding([.leading, .trailing])
+                                    Text("[Как заказать загранпаспорт на Госуслугах](https://www.gosuslugi.ru/help/faq/foreign_passport/23)")
+                                        .padding(.horizontal)
+                                }
+                            }
+                            Section {
+                                Toggle("Наличие супруги(а)", isOn: viewStore.binding(\.$havingWifeOrHusband))
+                                Toggle("Наличие детей", isOn: viewStore.binding(\.$havingChildren))
+                                Toggle("Наличие домашних животных", isOn: viewStore.binding(\.$havingPet))
                             }
                         }
-                        Section {
-                            Toggle("Наличие супруги(а)", isOn: viewStore.binding(\.$havingWifeOrHusband))
-                            Toggle("Наличие детей", isOn: viewStore.binding(\.$havingChildren))
-                            Toggle("Наличие домашних животных", isOn: viewStore.binding(\.$havingPet))
-                        }
-                    }
-                    .sheet(isPresented: viewStore.binding(\.$isSheetPresented)) {
-                        VStack {
-                            Spacer()
-                            Form {
-                                HStack {
-                                    Spacer()
-                                    VStack{
-                                        Text("""
+                        .sheet(isPresented: viewStore.binding(\.$isSheetPresented)) {
+                            VStack {
+                                Spacer()
+                                Form {
+                                    HStack {
+                                        Spacer()
+                                        VStack{
+                                            Text("""
                                             Выберете дату окончания действия заграничного паспорта.
                                             Вы можете ее найти в своем паспорте в графе "Дата окончания срока действия"
                                             """)
+                                        }
+                                        Spacer()
                                     }
-                                    Spacer()
-                                }
-                                HStack {
-                                    Spacer()
-                                    DatePicker("Выберете дату окончания действия заграничного паспорта", selection: viewStore.binding(\.$dateOfExpiry), in: viewStore.currentDay...,
-                                               displayedComponents: [.date])
-                                    .datePickerStyle(.wheel)
-                                    .labelsHidden()
-                                    Spacer()
-                                }
-                                HStack {
-                                    Spacer()
-                                    Button(action: {
-                                        viewStore.send(.choosingDateOfExpiry(viewStore.dateOfExpiry))
-                                    }) {
-                                        Text("Выбрать эту дату: \n\(viewStore.dateOfExpiry.formatted(date: .abbreviated, time: .omitted))?")
-                                            .padding()
+                                    HStack {
+                                        Spacer()
+                                        DatePicker("Выберете дату окончания действия заграничного паспорта", selection: viewStore.binding(\.$dateOfExpiry), in: viewStore.currentDay...,
+                                                   displayedComponents: [.date])
+                                        .datePickerStyle(.wheel)
+                                        .labelsHidden()
+                                        Spacer()
                                     }
-                                    .buttonStyle(BorderlessButtonStyle())
-                                    Spacer()
+                                    HStack {
+                                        Spacer()
+                                        Button(action: {
+                                            viewStore.send(.choosingDateOfExpiry(viewStore.dateOfExpiry))
+                                        }) {
+                                            Text("Выбрать эту дату: \n\(viewStore.dateOfExpiry.formatted(date: .abbreviated, time: .omitted))?")
+                                                .padding()
+                                        }
+                                        .buttonStyle(BorderlessButtonStyle())
+                                        Spacer()
+                                    }
                                 }
+                                Spacer()
                             }
-                            Spacer()
+                            .presentationDetents([.medium, .large])
+                            .presentationDragIndicator(.visible)
                         }
-                        .presentationDetents([.medium, .large])
-                        .presentationDragIndicator(.visible)
+                    } else {
+                        // Fallback on earlier versions
                     }
-                } else {
-                    // Fallback on earlier versions
                 }
-            }
-            .onAppear {
-                viewStore.send(.onAppear)
-            }
-            .onDisappear {
-                viewStore.send(.onDisappear)
+                .onAppear {
+                    viewStore.send(.onAppear)
+                }
+                .onDisappear {
+                    viewStore.send(.onDisappear)
+                }
             }
         }
     }

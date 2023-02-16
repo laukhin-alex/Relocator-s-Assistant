@@ -10,6 +10,7 @@
 		1F0E047B2998C5E400AEFA8D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E047A2998C5E400AEFA8D /* RootView.swift */; };
 		1F0E047E2999103200AEFA8D /* PersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E047D2999103100AEFA8D /* PersonalData.swift */; };
 		1F27DB8D2917C1D50026B4CC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1F27DB8C2917C1D50026B4CC /* ComposableArchitecture */; };
+		1F289538299E36440058C6FD /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F289537299E36440058C6FD /* TitleView.swift */; };
 		1F3E7F0F299B9D6900038966 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E7F0E299B9D6900038966 /* UserDefaults.swift */; };
 		1F3E7F11299B9DAD00038966 /* UserDataRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E7F10299B9DAD00038966 /* UserDataRepo.swift */; };
 		1F571F0C292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		1F0E047A2998C5E400AEFA8D /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1F0E047D2999103100AEFA8D /* PersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalData.swift; sourceTree = "<group>"; };
+		1F289537299E36440058C6FD /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		1F3E7F0E299B9D6900038966 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		1F3E7F10299B9DAD00038966 /* UserDataRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepo.swift; sourceTree = "<group>"; };
 		1F571F0B292BBCEE002AB253 /* RelocatorsAssistantLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RelocatorsAssistantLaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 				1F0E047D2999103100AEFA8D /* PersonalData.swift */,
 			);
 			path = PersonalData;
+			sourceTree = "<group>";
+		};
+		1F289534299E35560058C6FD /* AppResources */ = {
+			isa = PBXGroup;
+			children = (
+				1F289537299E36440058C6FD /* TitleView.swift */,
+			);
+			path = AppResources;
 			sourceTree = "<group>";
 		};
 		1F3E7F0D299B9D4D00038966 /* UserDataRepo */ = {
@@ -173,6 +183,7 @@
 				1F3E7F0D299B9D4D00038966 /* UserDataRepo */,
 				1FFC5E0B2917B0E3009A095D /* Models */,
 				1F0E04782998C4A400AEFA8D /* ComposableArchitecture */,
+				1F289534299E35560058C6FD /* AppResources */,
 				1FFC5E032917AC43009A095D /* Preview Content */,
 			);
 			path = "Relocator's Assistant";
@@ -278,6 +289,7 @@
 				1FFC5DFE2917AC40009A095D /* Relocator_s_AssistantApp.swift in Sources */,
 				1FBCDE29299D0CCA007F6CE1 /* SingleCountryDescription.swift in Sources */,
 				1FFC5E0F2917B15C009A095D /* CountriesFlags.swift in Sources */,
+				1F289538299E36440058C6FD /* TitleView.swift in Sources */,
 				1F3E7F0F299B9D6900038966 /* UserDefaults.swift in Sources */,
 				1FDE96CB291FFFF8001AD31B /* Extensions.swift in Sources */,
 				1FF41877292BDB4400345560 /* ArmeniaModel.swift in Sources */,

@@ -42,17 +42,25 @@ struct SingleCountryDescriptionView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             ScrollViewReader {_ in
-                ZStack {
-                    Form {
-                        Section(header: HStack {
-                            Spacer()
-                            Text(viewStore.countryName).font(.largeTitle).bold()
-                            Text(viewStore.flag).font(.largeTitle).bold()
+                VStack {
+                    VStack(spacing: 10) {
+                        HStack {
+                            Button {
+
+                            } label: {
+                                HStack {
+                                    Image(systemName: "arrow.backward")
+                                    Text("Назад")
+                                }
+                                .font(Font.system(size: 20, design: Font.Design.default))
+                            }.padding([.leading])
                             Spacer()
                         }
-                        )
-                        {}
-                            .headerProminence(.increased)
+
+                        TitleView("\(viewStore.countryName) \(viewStore.flag)")
+
+                    }
+                    Form {
                         Section(header: Text("Краткая информация о стране")) {
                             VStack(alignment: .leading) {
 
@@ -113,7 +121,6 @@ struct SingleCountryDescriptionView: View {
                 .foregroundColor(.red)
                 .padding(.top)
             }
-            .ignoresSafeArea(edges: .bottom)
         }
     }
 }
