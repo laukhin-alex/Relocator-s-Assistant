@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct CountryModel: Equatable, Identifiable {
-    var id: UUID = UUID()
+public struct CountryModel: Equatable, Identifiable {
+    public var id: UUID = UUID()
     var countryName: String
     var timeZone: String
     var countryCapitalCity: String

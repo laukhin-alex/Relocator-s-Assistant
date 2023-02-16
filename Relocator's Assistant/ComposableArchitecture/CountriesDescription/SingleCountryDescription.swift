@@ -10,18 +10,18 @@ import SwiftUI
 
 struct SingleCountryDescription: ReducerProtocol {
     struct State: Equatable {
-        var countryName: String = "Пустая страна"
-        var timeZone: String = "UTC-10"
-        var countryCapitalCity: String = "Столица"
-        var countryCurrency: String = "Доллар"
-        var languages: [String] = ["Английский", "Русский"]
-        var climate: String = "Умеренный"
-        var legalTimeOfStayWithoutVisa: Int = 0
-        var comfortCities: [String] = ["Столица", "Хоум таун"]
-        var howToGetInCountry: String = "НУ там долететь на самолете..."
-        var conditionsToGetResidencePermit: String = "Чтобы получить ВНЖ надо..."
-        var passportIsNeeded: Bool = true
-        var flag = CountriesFlags.emptyFlag
+        var countryName: String
+        var timeZone: String
+        var countryCapitalCity: String
+        var countryCurrency: String
+        var languages: [String]
+        var climate: String
+        var legalTimeOfStayWithoutVisa: Int
+        var comfortCities: [String]
+        var howToGetInCountry: String
+        var conditionsToGetResidencePermit: String
+        var passportIsNeeded: Bool
+        var flag: String
     }
 
     enum Action: Equatable {
@@ -128,9 +128,24 @@ struct SingleCountryDescriptionView: View {
 struct SingleCountryDescriptionView_Previews: PreviewProvider {
     static var previews: some View {
         SingleCountryDescriptionView(store: Store(
-            initialState: SingleCountryDescription.State(),
+            initialState: SingleCountryDescription.State(
+                countryName: "Пустая страна",
+                timeZone: "UTC-10",
+                countryCapitalCity: "Столица",
+                countryCurrency: "Доллар",
+                languages: ["Английский", "Русский"],
+                climate: "Умеренный",
+                legalTimeOfStayWithoutVisa: 0,
+                comfortCities: ["Столица", "Хоум таун"],
+                howToGetInCountry: "НУ там долететь на самолете...",
+                conditionsToGetResidencePermit: "Чтобы получить ВНЖ надо...",
+                passportIsNeeded: true,
+                flag: CountriesFlags.emptyFlag),
             reducer: SingleCountryDescription()
         )
         )
     }
 }
+
+
+
