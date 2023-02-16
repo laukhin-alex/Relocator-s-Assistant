@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CountriesDescription: ReducerProtocol {
 
-    struct State: Equatable {}
+    struct State: Equatable {
+        
+    }
 
     enum Action: Equatable {}
 
