@@ -21,6 +21,7 @@ public struct CountryModel: Equatable, Identifiable {
     var conditionsToGetResidencePermit: String
     var passportIsNeeded: Bool
     var flag: String
+    var isChosen: Bool
 }
 
 
@@ -35,5 +36,6 @@ let emptyCountry = CountryModel(countryName: "Пустая страна",
                                 howToGetInCountry: "НУ там долететь на самолете...",
                                 conditionsToGetResidencePermit: "Чтобы получить ВНЖ надо...",
                                 passportIsNeeded: false,
-                                flag: CountriesFlags.emptyFlag
+                                flag: CountriesFlags.emptyFlag,
+                                isChosen: false
                     )

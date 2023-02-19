@@ -19,6 +19,7 @@ let armenia = CountryModel(id: UUID(),
                            howToGetInCountry: "Долететь на самолете, на машине через Грузию",
                            conditionsToGetResidencePermit: "Можно получить ВНЖ по работе, по учебе",
                            passportIsNeeded: false,
-                           flag: CountriesFlags.armeniaFlag)
+                           flag: CountriesFlags.armeniaFlag,
+                           isChosen: false)
 
 

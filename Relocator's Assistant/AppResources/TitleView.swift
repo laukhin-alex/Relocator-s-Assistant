@@ -15,7 +15,7 @@ struct TitleView: View {
     }
 
     var body: some View {
-        VStack(spacing: 15) {
+        VStack {
             if !title.isEmpty {
                 Text(title)
                     .font(.largeTitle).bold()

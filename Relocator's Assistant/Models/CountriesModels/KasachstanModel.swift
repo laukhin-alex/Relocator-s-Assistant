@@ -19,4 +19,5 @@ let kasachstan = CountryModel(id: UUID(),
                               howToGetInCountry: "На машине, самолете или на поезде",
                               conditionsToGetResidencePermit: "Для нахождения больше 30 дней необходимо получить рвп",
                               passportIsNeeded: false,
-                              flag: CountriesFlags.kazakhFlag)
+                              flag: CountriesFlags.kazakhFlag,
+                              isChosen: false)

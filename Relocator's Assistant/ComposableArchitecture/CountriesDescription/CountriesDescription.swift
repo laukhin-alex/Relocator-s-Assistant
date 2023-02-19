@@ -4,6 +4,7 @@
 //
 //  Created by Александр on 15.02.23.
 //
+
 import ComposableArchitecture
 import SwiftUI
 
@@ -23,7 +24,8 @@ struct CountriesDescription: ReducerProtocol {
                          howToGetInCountry: "Долететь на самолете, на машине через Грузию",
                          conditionsToGetResidencePermit: "Можно получить ВНЖ по работе, по учебе",
                          passportIsNeeded: false,
-                         flag: CountriesFlags.armeniaFlag),
+                         flag: CountriesFlags.armeniaFlag,
+                         isChosen: false),
             CountryModel(id: UUID(),
                          countryName: "Грузия",
                          timeZone: "UTC+4",
@@ -36,7 +38,8 @@ struct CountriesDescription: ReducerProtocol {
                          howToGetInCountry: "Добраться можно на машине или через Армению",
                          conditionsToGetResidencePermit: "ВНЖ можно получить по работе и ",
                          passportIsNeeded: true,
-                         flag: CountriesFlags.georgianFlag),
+                         flag: CountriesFlags.georgianFlag,
+                         isChosen: false),
             CountryModel(id: UUID(),
                          countryName: "Казахстан",
                          timeZone: "UTC+5:00 и UTC+6:00",
@@ -49,7 +52,8 @@ struct CountriesDescription: ReducerProtocol {
                          howToGetInCountry: "На машине, самолете или на поезде",
                          conditionsToGetResidencePermit: "Для нахождения больше 30 дней необходимо получить рвп",
                          passportIsNeeded: false,
-                         flag: CountriesFlags.kazakhFlag),
+                         flag: CountriesFlags.kazakhFlag,
+                         isChosen: false),
             CountryModel(id: UUID(),
                          countryName: "Турция",
                          timeZone: "UTC+3",
@@ -62,9 +66,10 @@ struct CountriesDescription: ReducerProtocol {
                          howToGetInCountry: "На самолете",
                          conditionsToGetResidencePermit: "Получить ВНЖ сложно",
                          passportIsNeeded: true,
-                         flag: CountriesFlags.turkishFlag)
+                         flag: CountriesFlags.turkishFlag,
+                         isChosen: false)
         ]
-        
+
         var selection: Identified<CountryModel.ID, SingleCountryDescription.State?>?
          struct CountryModel: Equatable, Identifiable {
             let id: UUID
@@ -80,6 +85,7 @@ struct CountriesDescription: ReducerProtocol {
             var conditionsToGetResidencePermit: String
             var passportIsNeeded: Bool
             var flag: String
+            var isChosen: Bool
         }
 
     }
@@ -120,7 +126,8 @@ struct CountriesDescription: ReducerProtocol {
                    let howToGetInCountry = selection.value?.howToGetInCountry,
                    let conditionsToGetResidencePermit = selection.value?.conditionsToGetResidencePermit,
                    let passportIsNeeded = selection.value?.passportIsNeeded,
-                   let flag = selection.value?.flag {
+                   let flag = selection.value?.flag,
+                   let isChosen = selection.value?.isChosen {
                     state.countries[id: selection.id]?.countryName = countryName
                     state.countries[id: selection.id]?.timeZone = timeZone
                     state.countries[id: selection.id]?.countryCapitalCity = countryCapitalCity
@@ -133,6 +140,7 @@ struct CountriesDescription: ReducerProtocol {
                     state.countries[id: selection.id]?.conditionsToGetResidencePermit = conditionsToGetResidencePermit
                     state.countries[id: selection.id]?.passportIsNeeded = passportIsNeeded
                     state.countries[id: selection.id]?.flag = flag
+                    state.countries[id: selection.id]?.isChosen = isChosen
                 }
                 state.selection = nil
                 return .cancel(id: CancelID.self)
@@ -151,9 +159,10 @@ struct CountriesDescription: ReducerProtocol {
                         howToGetInCountry: state.countries[id: id]?.howToGetInCountry ?? "",
                         conditionsToGetResidencePermit: state.countries[id: id]?.conditionsToGetResidencePermit ?? "",
                         passportIsNeeded: state.countries[id: id]?.passportIsNeeded ?? true,
-                        flag: state.countries[id: id]?.flag ?? CountriesFlags.emptyFlag
+                        flag: state.countries[id: id]?.flag ?? CountriesFlags.emptyFlag, isChosen: state.countries[id: id]?.isChosen ?? false
                 )
                 return .none
+
             }
         }
         .ifLet(\State.selection, action: /Action.singleCountryDescription) {
@@ -174,44 +183,72 @@ struct CountriesDescriptionView: View {
     var body: some View {
             WithViewStore(self.store, observe: { $0 }) { viewStore in
                 NavigationStack {
+                    TitleView("Выбор страны")
                 Form {
+                    HStack {
+
+                            Spacer()
+
+                        Grid {
+                            GridRow {
+                                Image(systemName: "globe")
+                                Spacer()
+                                Image(systemName: "globe")
+                                Spacer()
+                                Image(systemName: "globe")
+                            }
+                            .gridCellAnchor(.trailing)
+                        }
+                    }
                     List {
                         ForEach(viewStore.countries) { country in
-                            NavigationLink(
-                                "\(country.countryName) - \(country.flag)", destination: IfLetStore(
+                            HStack {
+                                NavigationLink(destination: IfLetStore(
                                     self.store.scope(
                                         state: \.selection?.value,
-                                        action: CountriesDescription.Action.setNavigation(selection:)
+                                        action: CountriesDescription.Action.singleCountryDescription
                                     )
-                                ) {_ in
-                                    SingleCountryDescriptionView(store: Store(
-                                        initialState: SingleCountryDescription.State(
-                                            countryName: country.countryName,
-                                            timeZone: country.timeZone,
-                                            countryCapitalCity: country.countryCapitalCity,
-                                            countryCurrency: country.countryCurrency,
-                                            languages: country.languages,
-                                            climate: country.climate,
-                                            legalTimeOfStayWithoutVisa: country.legalTimeOfStayWithoutVisa,
-                                            comfortCities: country.comfortCities,
-                                            howToGetInCountry: country.howToGetInCountry,
-                                            conditionsToGetResidencePermit: country.conditionsToGetResidencePermit,
-                                            passportIsNeeded: country.passportIsNeeded,
-                                            flag: country.flag),
-                                        reducer: SingleCountryDescription()
-                                    )
-                                    )
+                                ) {
+                                    SingleCountryDescriptionView(store: $0)
                                 } else: {
                                     ProgressView()
                                 },
-                                tag: country.id,
-                                selection: viewStore.binding(
-                                    get: \.selection?.id,
-                                    send: CountriesDescription.Action.setNavigation(selection:)
-                                )
-                            )
+                                               tag: country.id,
+                                               selection: viewStore.binding(
+                                                get: \.selection?.id,
+                                                send: CountriesDescription.Action.setNavigation(selection:)
+                                               )
+                                ) {
+                                    HStack {
+
+                                        Text(country.countryName)
+//                                        Text(country.flag)
+                                    }
+                                }
+                                Grid {
+                                    GridRow {
+                                        if country.passportIsNeeded {
+                                            Image(systemName: "xmark.circle.fill")
+                                                .font(.title)
+                                        } else {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .font(.title)
+                                        }
+                                        Spacer()
+                                        Text(country.legalTimeOfStayWithoutVisa.description)
+                                        Spacer()
+                                        if country.isChosen {
+                                            Text(country.flag)
+                                        } else {
+                                            Image(systemName: "clear")
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
+                    .navigationTitle("Выбор страны")
+                    .navigationBarHidden(true)
                 }
             }
         }

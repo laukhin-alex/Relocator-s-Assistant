@@ -19,4 +19,5 @@ let georgia = CountryModel(id: UUID(),
                            howToGetInCountry: "Добраться можно на машине или через Армению",
                            conditionsToGetResidencePermit: "ВНЖ можно получить по работе и ",
                            passportIsNeeded: true,
-                           flag: CountriesFlags.georgianFlag)
+                           flag: CountriesFlags.georgianFlag,
+                           isChosen: false)

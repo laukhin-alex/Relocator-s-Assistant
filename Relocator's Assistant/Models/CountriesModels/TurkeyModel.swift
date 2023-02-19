@@ -19,4 +19,5 @@ let turkey = CountryModel(id: UUID(),
                           howToGetInCountry: "На самолете",
                           conditionsToGetResidencePermit: "Получить ВНЖ сложно",
                           passportIsNeeded: true,
-                          flag: CountriesFlags.turkishFlag)
+                          flag: CountriesFlags.turkishFlag,
+                          isChosen: false)
